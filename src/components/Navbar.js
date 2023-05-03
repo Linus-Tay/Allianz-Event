@@ -71,9 +71,9 @@ const Navbar = () => {
                     <ul>
                         <li><Link spy={true} smooth={true} offset={-55} duration={500} onClick={ToggleSidebar} to="hero" className="sd-link text-3xl">Home</Link></li>
                         <li><Link spy={true} smooth={true} offset={-55} duration={500} onClick={ToggleSidebar} to="about" className="sd-link text-3xl">About</Link></li>
-                        <li><Link spy={true} smooth={true} offset={-55} duration={500} onClick={ToggleSidebar} to="programme" className="sd-link text-3xl">Programme</Link></li>
-                        <li><Link spy={true} smooth={true} offset={-55} duration={500} onClick={ToggleSidebar} to="Venue" className="sd-link text-3xl">Venue</Link></li>
-                        <li><Link spy={true} smooth={true} offset={-55} duration={500} onClick={ToggleSidebar} to="FAQ" className="sd-link text-3xl">FAQ</Link></li>
+                        <li><Link spy={true} smooth={true} offset={-135} duration={500} onClick={ToggleSidebar} to="programme" className="sd-link text-3xl">Programme</Link></li>
+                        <li><Link spy={true} smooth={true} offset={-55} duration={500} onClick={ToggleSidebar} to="venue" className="sd-link text-3xl">Venue</Link></li>
+                        <li><Link spy={true} smooth={true} offset={-55} duration={500} onClick={ToggleSidebar} to="faq" className="sd-link text-3xl">FAQ</Link></li>
                         <li><Link spy={true} smooth={true} offset={-55} duration={500} onClick={ToggleSidebar} to="contact" className="sd-link text-3xl">Contact Us</Link></li>
                     </ul>
                 </div>

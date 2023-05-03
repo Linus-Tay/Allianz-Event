@@ -1,5 +1,4 @@
 import React from 'react'
-import { Tab, initTE } from "tw-elements";
 import user1 from './images/user1.png'
 import user2 from './images/user2.png'
 import user3 from './images/user3.png'
@@ -9,20 +8,6 @@ import { FaUserCheck } from 'react-icons/fa'
 import Fade from 'react-awesome-reveal'
 
 const Schedule = () => {
-    initTE({ Tab });
-
-    function handleClick() {
-        const triggerTabList = [].slice.call(document.querySelectorAll('li p'))
-        triggerTabList.forEach((triggerEl) => {
-        const tabTrigger = new Tab(triggerEl);
-    
-        triggerEl.addEventListener('click', (e) => {
-            e.preventDefault();
-            tabTrigger.show();
-    
-        });
-        });
-    }
 
     return (
         <div id="programme" className='bg-orange-50'>
