@@ -8,7 +8,7 @@ const Hero = () => {
         <div className='content'>
         <Fade cascade triggerOnce>
         <p className='text-orange-400 special text-6xl font-bold'>Staff Appreciation Day 2023</p>
-        <p className='text-black text-xl italic pt-7'>Keeping you updated with the worlds leading technologies.</p>
+        <p className='text-black text-xl italic pt-7'>Valuing your commitment is our pleasure.</p>
         </Fade>
         </div>
     </div>
