@@ -1,6 +1,5 @@
 import React from 'react'
 import { Fade } from "react-awesome-reveal";
-import { Link } from 'react-scroll'
 import './Hero.css'
 
 const Hero = () => {
