@@ -17,7 +17,7 @@ const FAQ = () => {
      return (
         <div className='pt-20 pb-10' id='faq'>
         <div style={{width: '85%'}} className='m-auto'>
-            <p className='special text-5xl text-center'>Frequently Asked Questions</p>
+            <p className='special text-5xl text-center leading-snug'>Frequently Asked Questions</p>
                 <span className='line'></span>
                 <Fade triggerOnce>
                 <div className="mt-10 rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
