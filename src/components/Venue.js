@@ -5,8 +5,8 @@ import Fade from 'react-awesome-reveal'
 
 const Venue = () => {
 
-    const defaultProps = {
-        center: {lat: 1.2828147955039293, lng: 103.85859024067071}, 
+    const defaultProps = { 
+        center: {lat: 1.2530770, lng: 103.8151870}, 
         zoom: 16
      }
 
@@ -34,8 +34,8 @@ const Venue = () => {
                             </ImLocation>
                     </GoogleMapReact>
         </div>
-        <p style={{ width: '75%' }} className='m-auto my-5 text-center text-xl italic'><span className='font-bold text-2xl'>Location:</span> Marina Bay Sands, Expo & Convention Center</p>
-        <p style={{ width: '75%' }} className='m-auto pb-10 text-center text-xl italic'><span className='font-bold text-2xl'>Address:</span> 10 Bayfront Ave, Singapore 018956</p>
+        <p style={{ width: '75%' }} className='m-auto my-5 text-center text-xl italic'><span className='font-bold text-2xl'>Location:</span> Ola Beach Club, Sentosa</p>
+        <p style={{ width: '75%' }} className='m-auto pb-10 text-center text-xl italic'><span className='font-bold text-2xl'>Address:</span> 46 Siloso Bch Walk, Singapore 099005 </p>
         </Fade>
     </div>
     )
