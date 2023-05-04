@@ -9,7 +9,7 @@ const Hero = () => {
         <div className='text-center content'>
         <Fade cascade triggerOnce>
           <img className='m-auto' src={Sad23} alt=''/>
-        <p className='text-black text-xl italic pt-10 font-bold'>Valuing your commitment is our pleasure.</p>
+        <p className='text-white nicer text-3xl md:text-4xl pt-4'><span className='px-2' style={{ backgroundColor: 'rgba(155,85,236,0.65)'}}>With a 2D1N Staycation!</span></p>
         </Fade>
         </div>
     </div>
