@@ -12,12 +12,12 @@ const About = () => {
             </div>
             <div className='p-10 col-span-12 md:col-span-3'>
                 <p className='text-orange-500 pb-2 text-xl font-bold'>WHERE</p>
-                <p className='text-md font-light'> Level 4, Marina Bay Sands Convention Center
+                <p className='text-md font-light'> Ola Beach Club, Sentosa 
                 </p>
             </div>
             <div className='p-10 col-span-12 md:col-span-3'>
                 <p className='text-orange-500 pb-2 text-xl font-bold'>WHEN</p>
-                <p className='text-md font-light'> 1 January 2023 to 3 January 2023
+                <p className='text-md font-light'> 14 July 2023, Friday 
                 </p>
             </div>
         </div>
