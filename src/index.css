@@ -21,6 +21,10 @@ code {
   font-family: 'Pacifico', cursive;
 }
 
+.nicer {
+  font-family: 'Fira Sans', sans-serif;
+}
+
 .line {
   display: block;
   width: 50px;
