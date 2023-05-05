@@ -1,5 +1,8 @@
-import React, { useRef } from 'react'
+import React, { ChangeEvent, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
+import { collection, addDoc } from "firebase/firestore";
+import {db} from '../firebase';
+import readXlsxFile from 'read-excel-file'
 
 const Registration = () => {
 
@@ -7,6 +10,7 @@ const Registration = () => {
 
     const sendEmail = (e) => {
       e.preventDefault();
+      
   
       emailjs.sendForm('service_xiectq8', 'template_6f6y7io', form.current, 'jlvn9xBiUTISdQ3Fq')
         .then((result) => {
@@ -15,6 +19,27 @@ const Registration = () => {
             console.log(error.text);
         });
     };
+
+    function myFunction(item) {
+        try { 
+            const docRef = addDoc(collection(db, "sttelemedia"), { uniqueNumber: item[0],
+                                                                   uniqueQR: item[1],
+                                                                   used: "no"})
+            console.log("Document written with ID: ", docRef.id);
+        } catch (err) { 
+            console.error("Error adding document: ", err)
+        }
+    }
+
+    const handleFileChange = (e) => {
+        readXlsxFile(e.target.files[0]).then((rows) => {
+            console.log(rows)
+            rows.forEach(myFunction);
+          })
+    }
+
+    const [information, setInformation] = useState("")
+
 
     return (
         <div>
@@ -27,6 +52,8 @@ const Registration = () => {
         <textarea name="message" />
         <button type="submit" value="Send">Click here</button>
         </form>
+
+        <input type="file" onChange={handleFileChange} />
         </div>
     )
 }
