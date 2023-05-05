@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { Link } from 'react-scroll'
 import Logo from './images/STTelemediawhite.png'
+import { Link as Linkto } from 'react-router-dom'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -37,7 +38,7 @@ const Navbar = () => {
             <img src={Logo} className="h-10 md:h-14 md:mr-3" alt="STTelemedia" />
         </Link>
         <div className="flex md:order-2">
-            <button type="button" className="md: text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm md:px-4 md:py-2 px-2 py-1 text-center md:mr-0 ">Register</button>
+            <Linkto to="registration" className="md: text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm md:px-4 md:py-2 px-2 py-1 text-center md:mr-0 ">Register</Linkto>
             <button onClick={ToggleSidebar} data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-sticky" aria-expanded="false">
                 <svg className="w-6 h-6" aria-hidden="true" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"></path></svg>
             </button>
