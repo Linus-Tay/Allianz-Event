@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
 import { collection, addDoc } from "firebase/firestore";
 import {db} from '../firebase';
@@ -37,9 +37,6 @@ const Registration = () => {
             rows.forEach(myFunction);
           })
     }
-
-    const [information, setInformation] = useState("")
-
 
     return (
         <div>
