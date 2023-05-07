@@ -5,7 +5,6 @@ import App from './App';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Registration from './components/Registration';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
