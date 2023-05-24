@@ -11,7 +11,7 @@ const Venue = () => {
      }
 
     return (
-        <div id='venue'>
+        <div id='venue' className='bg-white'>
         <p className='special pt-20 text-5xl text-center'>Event Venue</p>
         <span className='line'></span>
         <Fade triggerOnce>

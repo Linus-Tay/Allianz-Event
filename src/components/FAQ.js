@@ -15,7 +15,7 @@ const FAQ = () => {
     };
 
      return (
-        <div className='pt-20 pb-10 bg-white' id='faq'>
+        <div className='pt-20 pb-10' id='faq'>
         <div style={{width: '85%'}} className='m-auto'>
             <p className='special text-5xl text-center leading-snug'>Frequently Asked Questions</p>
                 <span className='line'></span>
