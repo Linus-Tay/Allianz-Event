@@ -12,8 +12,6 @@ const Footer = () => {
                 <p className='text-sm italic'>Designed by <span className='text-blue-700'>Rain Solutions</span></p>
             </div>
         </div>
-        <Link to="/scan">lol</Link>
-        <Link to="/screen">lol</Link>
     </div>
   )
 }
