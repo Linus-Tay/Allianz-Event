@@ -5,6 +5,8 @@ import App from './App';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Registration from './components/Registration';
 import Error from './components/Error';
+import Scan from './components/Scan';
+import Screen from './components/Screen';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +14,8 @@ root.render(
     <Routes>
       <Route exact path='/' element={< App />}></Route>  
       <Route exact path='/registration' element={<Registration />}></Route>
+      <Route exact path='/scan' element={<Scan />}></Route>
+      <Route exact path='/screen' element={<Screen />}></Route>
       <Route path='*' element={< Error />}></Route>  
     </Routes>
   </Router>

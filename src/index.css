@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FFF7ED;
+  background-color: #f5f5f5;
 }
 
 code {
@@ -30,5 +30,12 @@ code {
   width: 50px;
   height: 5px;
   margin: 10px auto;
-  background-color: #F97316;
+  background-color: #DC2C2C;
+}
+
+.sttelemedia {
+  font-family: 'Abril Fatface', cursive;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Pacifico', cursive;
+  font-family: 'Roboto', sans-serif;
 }

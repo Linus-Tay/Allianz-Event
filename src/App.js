@@ -5,6 +5,7 @@ import About from './components/About';
 import Venue from './components/Venue';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
+import Content from './components/Content'
 import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,6 +26,7 @@ function App() {
             />
       <Hero/>
       <About/>
+      <Content/>
       <Schedule/>
       <Venue/>
       <FAQ/>

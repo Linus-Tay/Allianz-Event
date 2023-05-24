@@ -11,7 +11,7 @@ const Venue = () => {
      }
 
     return (
-        <div id='venue' className='bg-white'>
+        <div id='venue'>
         <p className='special pt-20 text-5xl text-center'>Event Venue</p>
         <span className='line'></span>
         <Fade triggerOnce>
@@ -34,8 +34,8 @@ const Venue = () => {
                             </ImLocation>
                     </GoogleMapReact>
         </div>
-        <p style={{ width: '75%' }} className='m-auto my-5 text-center text-xl italic'><span className='font-bold text-2xl'>Location:</span> Ola Beach Club, Sentosa</p>
-        <p style={{ width: '75%' }} className='m-auto pb-10 text-center text-xl italic'><span className='font-bold text-2xl'>Address:</span> 46 Siloso Bch Walk, Singapore 099005 </p>
+        <p style={{ width: '75%' }} className='sttelemedia font-bold m-auto my-5 text-center text-xl'><span className='text-2xl'>Location:</span> <span className='font-bold text-red-500'> Ola Beach Club, Sentosa</span> </p>
+        <p style={{ width: '75%' }} className='sttelemedia font-bold m-auto pb-10 text-center text-xl'><span className='text-2xl'>Address:</span><span className='font-bold text-red-500'> 46 Siloso Bch Walk, Singapore 099005</span>  </p>
         </Fade>
     </div>
     )

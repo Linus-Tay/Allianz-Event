@@ -38,7 +38,7 @@ const Navbar = () => {
             <img src={Logo} className="h-10 md:h-14 md:mr-3" alt="STTelemedia" />
         </Link>
         <div className="flex md:order-2">
-            <Linkto to="registration" className="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 px-2 py-1 mr-2 text-center">Register</Linkto>
+            <Linkto to="registration" className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 px-2 py-1 mr-2 text-center">Register</Linkto>
             <button onClick={ToggleSidebar} data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-sticky" aria-expanded="false">
                 <svg className="w-6 h-6" aria-hidden="true" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"></path></svg>
             </button>
@@ -46,22 +46,22 @@ const Navbar = () => {
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg md:flex-row md:space-x-8 md:mt-0">
             <li className='text-xl cursor-pointer'>
-                <Link activeClass="md:text-orange-500" spy={true} offset={-55} smooth={true} duration={500} to="hero" className="py-2 pl-3 text-white pr-4 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-500 md:p-0" aria-current="page">Home</Link>
+                <Link activeClass="md:text-red-600" spy={true} offset={-55} smooth={true} duration={500} to="hero" className="py-2 pl-3 text-white pr-4 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 md:p-0" aria-current="page">Home</Link>
             </li>
             <li className='text-xl cursor-pointer'>
-                <Link activeClass="text-xl md:text-orange-500" spy={true} offset={-55} smooth={true} duration={500} to="about" className="py-2 pl-3 text-white pr-4 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-500 md:p-0">About</Link>
+                <Link activeClass="text-xl md:text-red-600" spy={true} offset={-55} smooth={true} duration={500} to="about" className="py-2 pl-3 text-white pr-4 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 md:p-0">About</Link>
             </li>
             <li className='text-xl cursor-pointer'>
-                <Link activeClass="text-xl md:text-orange-500" spy={true} offset={-135} smooth={true} duration={500} to="programme" className="text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-500 md:p-0">Programme</Link>
+                <Link activeClass="text-xl md:text-red-600" spy={true} offset={-135} smooth={true} duration={500} to="programme" className="text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 md:p-0">Programme</Link>
             </li>
             <li className='text-xl cursor-pointer'>
-                <Link activeClass="text-xl md:text-orange-500" spy={true} offset={-55} smooth={true} duration={500} to="venue" className="text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-500 md:p-0">Venue</Link>
+                <Link activeClass="text-xl md:text-red-600" spy={true} offset={-55} smooth={true} duration={500} to="venue" className="text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 md:p-0">Venue</Link>
             </li>
             <li className='text-xl cursor-pointer'>
-                <Link activeClass="text-xl md:text-orange-500" spy={true} offset={-55} smooth={true} duration={500} to="faq" className="text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-500 md:p-0">FAQ</Link>
+                <Link activeClass="text-xl md:text-red-600" spy={true} offset={-55} smooth={true} duration={500} to="faq" className="text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 md:p-0">FAQ</Link>
             </li>
             <li className='text-xl cursor-pointer'>
-                <Link activeClass="text-xl md:text-orange-500" spy={true} offset={-55} smooth={true} duration={500} to="contact" className="text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-500 md:p-0">Contact</Link>
+                <Link activeClass="text-xl md:text-red-600" spy={true} offset={-55} smooth={true} duration={500} to="contact" className="text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 md:p-0">Contact</Link>
             </li>
             </ul>
         </div>

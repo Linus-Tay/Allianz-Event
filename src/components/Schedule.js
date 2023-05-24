@@ -10,8 +10,8 @@ import Fade from 'react-awesome-reveal'
 const Schedule = () => {
 
     return (
-        <div id="programme" className='bg-orange-50'>
-             <p className='special mt-20 text-5xl text-center'>Programme</p>
+        <div id="programme" className='bg-white'>
+             <p className='special pt-20 text-5xl text-center'>Programme</p>
             <span className='line'></span>
             <Fade triggerOnce>
                 <div className='container py-10 m-auto'>       
