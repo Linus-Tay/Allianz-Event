@@ -13,7 +13,7 @@ const Footer = () => {
             </div>
         </div>
         <Link to="/scan">lol</Link>
-        <Link to="/scan">lol</Link>
+        <Link to="/screen">lol</Link>
     </div>
   )
 }
