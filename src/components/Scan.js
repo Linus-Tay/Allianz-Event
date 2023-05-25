@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { collection, getDocs, query, where, doc as docSnapshot, updateDoc } from "firebase/firestore";
 import {db} from '../firebase';
 import exportFromJSON from 'export-from-json'
@@ -33,8 +33,8 @@ const Scan = () => {
   const docRef = query(collection(db, "sttelemedia"));
   const registeredRef = query(collection(db, "sttelemedia"), where("registered", "==", "Yes"));
   const unregisteredRef = query(collection(db, "sttelemedia"), where("registered", "==", "No"));
-  const awardeesRef = query(collection(db, "sttelemedia"), where("awardee", "==", "Yes"));
-  const vipsRef = query(collection(db, "sttelemedia"), where("awardee", "==", "Yes"));
+  const awardeesRef = query(collection(db, "sttelemedia"), where("awardee", "==", "Yes"), where("registered", "==", "Yes"));
+  const vipsRef = query(collection(db, "sttelemedia"), where("vip", "==", "Yes"), where("registered", "==", "Yes"));
 
   async function registeredCountF() {
     await getDocs(registeredRef)
@@ -68,11 +68,13 @@ const Scan = () => {
     })
   };
 
+  useEffect(() => {
+    registeredCountF()
+    unregisteredCountF()
+    awardeesCountF()
+    vipsCountF()
+  });
 
-  registeredCountF()
-  unregisteredCountF()
-  awardeesCountF()
-  vipsCountF()
 
   const handleChange = (event) => {
     setValue(event.target.value)
@@ -127,7 +129,6 @@ const Scan = () => {
         });
       })
     });
-    window.location.reload();
   }
 
   const downloadLatest = () => {
@@ -249,7 +250,7 @@ const downloadVIPs = () => {
               information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
-      setDownload(downloadRegistered)
+      setDownload(downloadRegistered())
     })
   }
 
@@ -263,7 +264,7 @@ const downloadVIPs = () => {
               information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
-      setDownload(downloadUnregistered)
+      setDownload(downloadUnregistered())
     })
   }
 
@@ -277,7 +278,7 @@ const downloadVIPs = () => {
               information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
-      setDownload(donwloadAwardees)
+      setDownload(donwloadAwardees())
     })
   }
 
@@ -291,23 +292,37 @@ const downloadVIPs = () => {
               information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
-      setDownload(downloadVIPs)
+      setDownload(downloadVIPs())
     })
   }
 
 
   function closeModal() {
     setIsOpen(false);
+    setSelected()
+    console.log(selected)
   }
 
-  const [selected, setSelected] = useState([{uniqueNumber: "blank"}])
+  const [selected, setSelected] = useState()
 
   const handleClick = (id) => {
-    console.log(id)
     setSelected(id)
   }
 
-  console.log(selected.uniqueNumber)
+  const register = () => {
+    if (selected === 'undefined') {
+      toast.error('You have not selected a person, please select one first before registering.', {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: 0,
+        theme: "light",
+        })
+    }
+  }
 
   return (
     <div>
@@ -326,7 +341,7 @@ const downloadVIPs = () => {
         <div className="pb-10">
             <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Awardees</h5>
-                  <p>{awardeesCount}</p>
+                  <p className='mb-2 text-3xl font-extrabold'>{awardeesCount}</p>
                   <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openAwardees}>
                     See List
                     <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -340,7 +355,7 @@ const downloadVIPs = () => {
                     >
                       <p className='text-xl font-bold text-center'>{subtitle}</p>
                       <div className='text-right'>
-                      <button onClick={download} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
+                      <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
                             Download {subtitle} Report
                       </button>
                       <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300" onClick={closeModal}>Close</button>
@@ -388,7 +403,7 @@ const downloadVIPs = () => {
           <div className="pb-10">
             <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">VIPs</h5>
-                  <p>{vipsCount}</p>
+                  <p className='mb-2 text-3xl font-extrabold'>{vipsCount}</p>
                   <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openVIPs}>
                     See List
                     <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -398,7 +413,7 @@ const downloadVIPs = () => {
           <div className="pb-10">
           <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Unregistered</h5>
-                  <p>{unregisteredCount}</p>
+                  <p className='text-red-600 mb-2 text-3xl font-extrabold'>{unregisteredCount}</p>
                   <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openUnegistered}>
                     See List
                     <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -408,7 +423,7 @@ const downloadVIPs = () => {
           <div className="pb-10">
           <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Registered</h5>
-                  <p>{registeredCount}</p>
+                  <p className='text-green-500 mb-2 text-3xl font-extrabold'>{registeredCount}</p>
                   <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openRegistered}>
                     See List
                     <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
