@@ -18,11 +18,11 @@ const Scan = () => {
       bottom: 0,
       backgroundColor: 'rgba(0, 0, 0, 0.5)'
     }
-  };
-  
+  }
 
   const [value, setValue] = useState("");
   const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
   const [searchText, setSearchText] = useState("")
   const [registeredCount, setRegisteredCount] = useState(0)
@@ -102,6 +102,7 @@ const Scan = () => {
             });
             setName(doc.data().formData.name)
             setPhoneNumber(doc.data().formData.phoneNumber)
+            setEmail(doc.data().formData.email)
             localStorage.setItem("userData", JSON.stringify(doc.data().formData));
         })
         }
@@ -119,6 +120,7 @@ const Scan = () => {
     localStorage.setItem("userData", JSON.stringify({}));
     setName("")
     setPhoneNumber("")
+    setEmail("")
   }
 
   const resetRegistration = () => {
@@ -149,83 +151,17 @@ const Scan = () => {
   })
 }
 
-const downloadRegistered = () => {
-  getDocs(registeredRef)
-      .then((snapshot) => {
-          let information = []
-          snapshot.docs.forEach((doc) => {
-            information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
-      })
-  let data = JSON.parse(JSON.stringify(information))
+const downloadRespective = () => {
+  let data = JSON.parse(JSON.stringify(search))
   const fileName = 'sttelemedia'
   const exportType =  exportFromJSON.types.csv
 
   exportFromJSON({ data, fileName, exportType })
-})
-.catch(err => {
-  console.log(err.message)
-})
-}
-
-const downloadUnregistered = () => {
-  getDocs(unregisteredRef)
-      .then((snapshot) => {
-          let information = []
-          snapshot.docs.forEach((doc) => {
-            information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
-      })
-  let data = JSON.parse(JSON.stringify(information))
-  const fileName = 'sttelemedia'
-  const exportType =  exportFromJSON.types.csv
-
-  exportFromJSON({ data, fileName, exportType })
-})
-.catch(err => {
-  console.log(err.message)
-})
-}
-
-const donwloadAwardees = () => {
-  getDocs(awardeesRef)
-      .then((snapshot) => {
-          let information = []
-          snapshot.docs.forEach((doc) => {
-            information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
-      })
-  let data = JSON.parse(JSON.stringify(information))
-  const fileName = 'sttelemedia'
-  const exportType =  exportFromJSON.types.csv
-
-  exportFromJSON({ data, fileName, exportType })
-})
-.catch(err => {
-  console.log(err.message)
-})
-}
-
-const downloadVIPs = () => {
-  getDocs(vipsRef)
-      .then((snapshot) => {
-          let information = []
-          snapshot.docs.forEach((doc) => {
-            information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
-      })
-  let data = JSON.parse(JSON.stringify(information))
-  const fileName = 'sttelemedia'
-  const exportType =  exportFromJSON.types.csv
-
-  exportFromJSON({ data, fileName, exportType })
-})
-.catch(err => {
-  console.log(err.message)
-})
 }
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState([])
   const [subtitle, setSubtitle] = useState()
-  const [download, setDownload] = useState()
-
 
   function openSearch() {
     setSubtitle('Search')
@@ -250,7 +186,6 @@ const downloadVIPs = () => {
               information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
-      setDownload(downloadRegistered())
     })
   }
 
@@ -264,7 +199,6 @@ const downloadVIPs = () => {
               information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
-      setDownload(downloadUnregistered())
     })
   }
 
@@ -278,7 +212,6 @@ const downloadVIPs = () => {
               information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
-      setDownload(donwloadAwardees())
     })
   }
 
@@ -292,7 +225,6 @@ const downloadVIPs = () => {
               information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
-      setDownload(downloadVIPs())
     })
   }
 
@@ -300,28 +232,103 @@ const downloadVIPs = () => {
   function closeModal() {
     setIsOpen(false);
     setSelected()
-    console.log(selected)
   }
 
   const [selected, setSelected] = useState()
 
-  const handleClick = (id) => {
-    setSelected(id)
+  const handleClick = (data) => {
+    setSelected(data)
+  }
+
+  function ShowDownloadButton(props) {
+    const showDownload = props.subtitle;
+    if (showDownload !== "Search") {
+      return <button onClick={downloadRespective} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
+                  Download {subtitle} Report
+            </button>;
+    }
+    return
   }
 
   const register = () => {
-    if (selected === 'undefined') {
-      toast.error('You have not selected a person, please select one first before registering.', {
+    if (selected === undefined) {
+      toast.warn('You have not selected a person, please select one first before registering.', {
         position: "top-right",
-        autoClose: false,
-        hideProgressBar: true,
+        autoClose: 5000,
+        hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
-        progress: 0,
+        progress: undefined,
         theme: "light",
         })
+    } else {
+      const scanRef = query(collection(db, "sttelemedia"),where("uniqueNumber", "==", parseInt(selected.uniqueNumber)));
+      getDocs(scanRef).then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
+              registered: "Yes"
+            });
+        })
+      })
+      toast.success('Person Successfully Registered!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
+  }
+
+  const unregister = () => {
+    if (selected === undefined) {
+      toast.warn('You have not selected a person, please select one first before registering.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
+    } else {
+      const scanRef = query(collection(db, "sttelemedia"),where("uniqueNumber", "==", parseInt(selected.uniqueNumber)));
+      getDocs(scanRef).then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
+              registered: "No"
+            });
+        })
+      })
+      toast.success('Person Successfully Unregistered!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
+  }
+
+  const [toggle, setToggle] = useState(true)
+  const [timerValue, setTimerValue] = useState()
+
+  const handleTimerValue = (event) => {
+    setTimerValue(event.target.value)
+    localStorage.setItem("timerValue", event.target.value);
+  }
+
+  const handleToggle = () => {
+    setToggle(!toggle)
+    localStorage.setItem("toggle", toggle);
   }
 
   return (
@@ -337,14 +344,14 @@ const downloadVIPs = () => {
             theme="light"
             />
     <div className='container m-auto'>
-        <div className="grid grid-cols-4 gap-4 text-center pt-40">
-        <div className="pb-10">
-            <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Awardees</h5>
+        <div className="grid grid-cols-4 gap-4 text-center pt-10">
+        <div>
+            <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Awardees</h5>
                   <p className='mb-2 text-3xl font-extrabold'>{awardeesCount}</p>
                   <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openAwardees}>
                     See List
-                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                   </button>
                     <Modal
                       ariaHideApp={false}
@@ -353,23 +360,27 @@ const downloadVIPs = () => {
                       onRequestClose={closeModal}
                       contentLabel="Example Modal"
                     >
-                      <p className='text-xl font-bold text-center'>{subtitle}</p>
+                      <p className='pb-4 text-xl font-bold text-center'>{subtitle}</p>
                       <div className='text-right'>
-                      <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
-                            Download {subtitle} Report
+                      <button onClick={register} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
+                            Register
                       </button>
-                      <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300" onClick={closeModal}>Close</button>
+                      <button onClick={unregister} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
+                            Unregister
+                      </button>
+                      <ShowDownloadButton subtitle={subtitle}/>
+                      <button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" onClick={closeModal}>Close</button>
                       </div> 
                       <input type="text" onChange={event => setSearchText(event.target.value)} className="my-10 bg-gray-50 border border-blue-300 text-blue-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Search Name Here..."></input>
-                      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                      <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr className='border-solid border-2 border-grey-200'>
                           <th></th>
-                          <th scope="col" class="px-6 py-3">uniqueNumber</th>
-                          <th scope="col" class="px-6 py-3">Name</th>
-                          <th scope="col" class="px-6 py-3">Email</th>
-                          <th scope="col" class="px-6 py-3">Department</th>
-                          <th scope="col" class="px-6 py-3">Registered?</th>
+                          <th scope="col" className="px-6 py-3">uniqueNumber</th>
+                          <th scope="col" className="px-6 py-3">Name</th>
+                          <th scope="col" className="px-6 py-3">Email</th>
+                          <th scope="col" className="px-6 py-3">Department</th>
+                          <th scope="col" className="px-6 py-3">Registered?</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -382,15 +393,15 @@ const downloadVIPs = () => {
                           }
                           return ''
                         }).map((data) => (
-                          <tr class="bg-white border-b" key={data.uniqueNumber}>
-                          <td class="px-6 py-4">
-                          <input onClick={() => handleClick(data)} type="radio" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" />
+                          <tr className="bg-white border-b" key={data.uniqueNumber}>
+                          <td className="px-6 py-4">
+                          <input onClick={() => handleClick(data)} type="radio" name="default-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" />
                           </td>
-                          <td class="px-6 py-4">{data.uniqueNumber}</td>
-                          <td class="px-6 py-4">{data.name}</td>
-                          <td class="px-6 py-4">{data.email}</td>
-                          <td class="px-6 py-4">{data.department}</td>
-                          <td class="px-6 py-4">{data.registered}</td>
+                          <td className="px-6 py-4">{data.uniqueNumber}</td>
+                          <td className="px-6 py-4">{data.name}</td>
+                          <td className="px-6 py-4">{data.email}</td>
+                          <td className="px-6 py-4">{data.department}</td>
+                          <td className="px-6 py-4">{data.registered}</td>
                           </tr>
                         ))
                       }
@@ -400,33 +411,33 @@ const downloadVIPs = () => {
        
               </div>
             </div>
-          <div className="pb-10">
-            <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">VIPs</h5>
+          <div>
+            <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">VIPs</h5>
                   <p className='mb-2 text-3xl font-extrabold'>{vipsCount}</p>
                   <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openVIPs}>
                     See List
-                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                   </button>
               </div>
             </div>
-          <div className="pb-10">
-          <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Unregistered</h5>
+          <div>
+          <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Unregistered</h5>
                   <p className='text-red-600 mb-2 text-3xl font-extrabold'>{unregisteredCount}</p>
                   <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openUnegistered}>
                     See List
-                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                   </button>
               </div>
             </div>
           <div className="pb-10">
-          <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Registered</h5>
+          <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Registered</h5>
                   <p className='text-green-500 mb-2 text-3xl font-extrabold'>{registeredCount}</p>
                   <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openRegistered}>
                     See List
-                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                   </button>
               </div>
           </div>
@@ -434,21 +445,54 @@ const downloadVIPs = () => {
         <div>
           <input className='w-full p-5 rounded-full text-center' value={value} placeholder="Click Here to Scan..." type="text" onChange={handleChange} onKeyDown={handleKeyDown}/>
         </div>
-        <div>Data Currently On Display: </div>
-        <p>{name}</p>
-        <p>{phoneNumber}</p>
-        <div className='text-center'>
+        <div className='py-4 text-center'>
           <button className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" onClick={openSearch}>
             Search By Name
-            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
           </button>
-          <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" onClick={clearScreen}>Clear Screen</button>
+          <button onClick={clearScreen} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 ">
+            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                Clear Screen
+            </span>
+          </button>
+          <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
+            Edit Page
+          </button>
           <button onClick={downloadLatest} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
-                Download Latest Report
+            Download Latest Report
           </button>
           <button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" onClick={resetRegistration}>Reset Registration</button>
         </div>
-    </div>
+        <div className="grid grid-cols-2 gap-4 pt-2">
+          <div>
+            <p className='text-center font-bold text-xl'>Latest Data Displayed: </p>
+            <dl className="pb-8 m-auto max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                <p className="flex flex-col pb-3">
+                    <dt className="mb-1 text-gray-500 dark:text-gray-400">Name</dt>
+                    <dd className="font-semibold">{name}</dd>
+                </p>
+                <p className="flex flex-col py-3">
+                    <dt className="mb-1 text-gray-500">Email</dt>
+                    <dd className="font-semibold">{email}</dd>
+                </p>
+                <p className="flex flex-col pt-3">
+                    <dt className="mb-1 text-gray-500">Phone number</dt>
+                    <dd className="font-semibold">{phoneNumber}</dd>
+                </p>
+            </dl>
+          </div>
+          <div className='font-bold text-xl text-center'>
+              <p>Set Timeout for Display: </p>
+              <label className="mr-28 relative inline-flex items-center cursor-pointer mt-5">
+              <input type="checkbox" value="" className="sr-only peer" />
+              <div onClick={handleToggle} className="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            </label>
+            <div style={{marginTop: "-34px", marginLeft:"75px"}} className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <input type='text' className='w-14 h-7 text-center rounded shadow mr-2' value={timerValue} onChange={handleTimerValue} placeholder='5'></input><span>seconds</span>
+              </div>
+            </div>
+        </div>
+      </div>
     </div>
   )
 }
