@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { collection, getDocs, query, where, doc as docSnapshot, updateDoc } from "firebase/firestore";
+import { collection, getDocs, query, where, doc as docSnapshot, updateDoc, orderBy } from "firebase/firestore";
 import {db} from '../firebase';
 import exportFromJSON from 'export-from-json'
 import Modal from 'react-modal';
-import { toast } from 'react-toastify';
-import { ToastContainer } from 'react-toastify';
+import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom'
+import { SlMagnifier } from 'react-icons/sl'
 
 const Scan = () => {
 
@@ -29,12 +30,13 @@ const Scan = () => {
   const [unregisteredCount, setUnregisteredCount] = useState(0)
   const [awardeesCount, setAwardeesCount] = useState(0)
   const [vipsCount, setVipsCount] = useState(0)
+  const [disabled, setdisabled] = useState(true)
 
-  const docRef = query(collection(db, "sttelemedia"));
-  const registeredRef = query(collection(db, "sttelemedia"), where("registered", "==", "Yes"));
-  const unregisteredRef = query(collection(db, "sttelemedia"), where("registered", "==", "No"));
-  const awardeesRef = query(collection(db, "sttelemedia"), where("awardee", "==", "Yes"), where("registered", "==", "Yes"));
-  const vipsRef = query(collection(db, "sttelemedia"), where("vip", "==", "Yes"), where("registered", "==", "Yes"));
+  const docRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"));
+  const registeredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "Yes"));
+  const unregisteredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "No"));
+  const awardeesRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("awardee", "==", "Yes"), where("registered", "==", "Yes"));
+  const vipsRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("vip", "==", "Yes"), where("registered", "==", "Yes"));
 
   async function registeredCountF() {
     await getDocs(registeredRef)
@@ -68,12 +70,56 @@ const Scan = () => {
     })
   };
 
+  function updateCount() {
+    vipsCountF()
+    awardeesCountF()
+    registeredCountF()
+    unregisteredCountF()
+  };
+
   useEffect(() => {
+    const registeredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "Yes"));
+    const unregisteredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "No"));
+    const awardeesRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("awardee", "==", "Yes"), where("registered", "==", "Yes"));
+    const vipsRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("vip", "==", "Yes"), where("registered", "==", "Yes"));
+
+    async function registeredCountF() {
+      await getDocs(registeredRef)
+      .then((snapshot) => {
+          const count = snapshot.size
+          setRegisteredCount(count)
+      })
+    };
+  
+    async function unregisteredCountF() {
+      await getDocs(unregisteredRef)
+      .then((snapshot) => {
+          const count = snapshot.size
+          setUnregisteredCount(count)
+      })
+    };
+  
+    async function awardeesCountF() {
+      await getDocs(awardeesRef)
+      .then((snapshot) => {
+          const count = snapshot.size
+          setAwardeesCount(count)
+      })
+    };
+  
+    async function vipsCountF() {
+      await getDocs(vipsRef)
+      .then((snapshot) => {
+          const count = snapshot.size
+          setVipsCount(count)
+      })
+    };
+
     registeredCountF()
     unregisteredCountF()
     awardeesCountF()
     vipsCountF()
-  });
+  }, []);
 
 
   const handleChange = (event) => {
@@ -84,7 +130,10 @@ const Scan = () => {
     if (event.key === 'Enter') {
       const scanRef = query(collection(db, "sttelemedia"),where("uniqueNumber", "==", parseInt(value)));
       getDocs(scanRef).then((querySnapshot) => {
-        if (querySnapshot.size === 0) {
+        if (value === "unlock") {
+          setdisabled(false)
+          console.log('someone unlocked reset registration')
+        } else if (querySnapshot.size === 0) {
           toast.error('Person not in registration list, refer them to trobleshooting counter.', {
             position: "top-right",
             autoClose: false,
@@ -105,13 +154,10 @@ const Scan = () => {
             setEmail(doc.data().formData.email)
             localStorage.setItem("userData", JSON.stringify(doc.data().formData));
         })
+        updateCount()
         }
 
     })
-      registeredCountF()
-      unregisteredCountF()
-      awardeesCountF()
-      vipsCountF()
       setValue('')
     }
   }
@@ -123,7 +169,7 @@ const Scan = () => {
     setEmail("")
   }
 
-  const resetRegistration = () => {
+  async function resetRegistration() {
     getDocs(docRef).then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
@@ -131,6 +177,8 @@ const Scan = () => {
         });
       })
     });
+    setTimeout(() => updateCount(), 1000);
+    setdisabled(true)
   }
 
   const downloadLatest = () => {
@@ -232,6 +280,7 @@ const downloadRespective = () => {
   function closeModal() {
     setIsOpen(false);
     setSelected()
+    setSearchText('')
   }
 
   const [selected, setSelected] = useState()
@@ -268,12 +317,17 @@ const downloadRespective = () => {
           querySnapshot.forEach((doc) => {
             updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
               registered: "Yes"
-            });
+            })
+            setName(doc.data().formData.name)
+            setPhoneNumber(doc.data().formData.phoneNumber)
+            setEmail(doc.data().formData.email)
+            localStorage.setItem("userData", JSON.stringify(doc.data().formData));
+            updateCount()
         })
       })
       toast.success('Person Successfully Registered!', {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -288,7 +342,7 @@ const downloadRespective = () => {
     if (selected === undefined) {
       toast.warn('You have not selected a person, please select one first before registering.', {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -307,7 +361,7 @@ const downloadRespective = () => {
       })
       toast.success('Person Successfully Unregistered!', {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -315,10 +369,11 @@ const downloadRespective = () => {
         progress: undefined,
         theme: "light",
         });
+      updateCount()
     }
   }
 
-  const [toggle, setToggle] = useState(true)
+  const [toggle, setToggle] = useState(false)
   const [timerValue, setTimerValue] = useState()
 
   const handleTimerValue = (event) => {
@@ -328,20 +383,23 @@ const downloadRespective = () => {
 
   const handleToggle = () => {
     setToggle(!toggle)
-    localStorage.setItem("toggle", toggle);
+    localStorage.setItem("toggle", !toggle);
   }
+
+  function ShowResetButton() {
+    const isDisabled =  disabled
+    if (isDisabled === true) {
+      return <button type="button" className="text-white bg-red-400 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled>Reset Registration</button>
+    } else {
+
+    }
+    return <button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" onClick={resetRegistration}>Reset Registration</button>
+  }
+
 
   return (
     <div>
       <ToastContainer
-            position="top-right"
-            autoClose={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            theme="light"
             />
     <div className='container m-auto'>
         <div className="grid grid-cols-4 gap-4 text-center pt-10">
@@ -448,20 +506,23 @@ const downloadRespective = () => {
         <div className='py-4 text-center'>
           <button className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" onClick={openSearch}>
             Search By Name
-            <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+            <SlMagnifier className='ml-2'/>
           </button>
           <button onClick={clearScreen} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 ">
             <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                 Clear Screen
             </span>
           </button>
-          <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
+          <Link to="/screen" target="_blank"  type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
+            Screen Page
+          </Link>
+          <Link to="/edit" target="_blank" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
             Edit Page
-          </button>
+          </Link>
           <button onClick={downloadLatest} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
             Download Latest Report
           </button>
-          <button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" onClick={resetRegistration}>Reset Registration</button>
+          <ShowResetButton/>
         </div>
         <div className="grid grid-cols-2 gap-4 pt-2">
           <div>

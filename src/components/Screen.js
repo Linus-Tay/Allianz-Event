@@ -11,12 +11,14 @@ const Screen = () => {
       try {
         const timerValue = localStorage.getItem("timerValue")
         const toggle = localStorage.getItem("toggle")
+        console.log(toggle)
         const data = JSON.parse(localStorage.getItem("userData"))
         setName(data.name)
         setPhoneNumber(data.phoneNumber)
         setEmail(data.email)
         try {
           if (toggle === 'true') {
+            console.log('this should not be working')
             parseInt(timerValue)
             setTimeout(() => clearScreen(), timerValue * 1000);
           }
