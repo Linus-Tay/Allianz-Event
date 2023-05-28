@@ -35,7 +35,7 @@ const Navbar = () => {
         <nav className={navBackground}>
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="hero" className="cursor-pointer flex items-center">
-            <img src={Logo} className="h-10 md:h-14 md:mr-3" alt="STTelemedia" />
+            <img src={Logo} className="h-14 md:h-18 md:mr-3" alt="STTelemedia" />
         </Link>
         <div className="flex md:order-2">
             <Linkto to="registration" className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 px-2 py-1 mr-2 text-center">Register</Linkto>
