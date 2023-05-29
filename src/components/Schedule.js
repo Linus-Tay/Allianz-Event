@@ -21,97 +21,97 @@ const Schedule = () => {
                     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" className="px-3 py-3">
+                                <th scope="col" className="sttelemedia px-3 py-3">
                                     TIMING
                                 </th>
-                                <th scope="col" className="px-6 py-3">
+                                <th scope="col" className="sttelemedia px-6 py-3">
                                     PROGRAMME
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     11.00am to 1.00pm
                                 </th>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 sttelemedia">
                                 - Luggage Drop-off at Village Hotel Sentosa
                                 </td>
                             </tr>
                             <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     1.30pm
                                 </th>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 sttelemedia">
                                 - Registration Begin
                                 </td>
                             </tr>
                             <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     1.50pm
                                 </th>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 sttelemedia">
                                 - Opening Speech
                                 </td>
                             </tr>
                             <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     2.00pm
                                 </th>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 sttelemedia">
                                 - Briefing for Treasure Hunt
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     2.15pm
                                 </th>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 sttelemedia">
                                 - Treasure Hunt Flag-off
                                 </td>
                             </tr>
                             <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     4.00pm
                                 </th>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 sttelemedia">
                                 - Treasure Hunt Ends
                                     <p> - Water Sports Stations Open</p>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     6.00pm
                                 </th>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 sttelemedia">
                                      - Water Sports Stations Close
                                     <p> - Prize Giving & Lucky Draw</p>
                                 </td>
                             </tr>
                             <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     4.00pm
                                 </th>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 sttelemedia">
                                 - Treasure Hunt Ends
                                     <p> - Water Sports Stations Open</p>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     6.30pm
                                 </th>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 sttelemedia">
                                 - Dinner Commences
                                     <p> - Spinning & Music/ Performance</p>
                                     <p> - Disbursement of Hotel Keys</p>
                                 </td>
                             </tr>
                             <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     9.00pm
                                 </th>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 sttelemedia">
                                 - End of Event
                                 </td>
                             </tr>
