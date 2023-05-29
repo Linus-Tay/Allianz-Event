@@ -52,7 +52,7 @@ const Navbar = () => {
                 <Link activeClass="text-xl md:text-red-600" spy={true} offset={-55} smooth={true} duration={500} to="about" className="sttelemedia py-2 pl-3 text-white pr-4 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 md:p-0">About</Link>
             </li>
             <li className='text-xl cursor-pointer'>
-                <Link activeClass="text-xl md:text-red-600" spy={true} offset={-135} smooth={true} duration={500} to="programme" className="sttelemedia text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 md:p-0">Programme</Link>
+                <Link activeClass="text-xl md:text-red-600" spy={true} offset={-90} smooth={true} duration={500} to="programme" className="sttelemedia text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 md:p-0">Programme</Link>
             </li>
             <li className='text-xl cursor-pointer'>
                 <Link activeClass="text-xl md:text-red-600" spy={true} offset={-55} smooth={true} duration={500} to="venue" className="sttelemedia text-xl py-2 pl-3 pr-4 text-white hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-600 md:p-0">Venue</Link>
