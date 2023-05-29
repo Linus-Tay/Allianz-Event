@@ -16,7 +16,7 @@ const Schedule = () => {
             <p style={{ color: '#5a5a5a' }} className='pt-4 sttelemedia text-4xl md:text-5xl font-bold text-center '>What To Expect</p>
 
             <Fade triggerOnce>
-                <div className='container py-10 max-w-lg m-auto'>       
+                <div className='container py-10 sm:px-10 md:px-0 lg:px-0 md:max-w-lg m-auto'>       
                     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -33,6 +33,7 @@ const Schedule = () => {
                             <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     11.00am
+                                    <p>to 1.00pm</p>
                                 </th>
                                 <td className="px-6 py-4 sttelemedia">
                                 - Luggage Drop-off at Village Hotel Sentosa
