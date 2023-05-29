@@ -16,9 +16,9 @@ const Contact = () => {
                       <img src={RS} alt='' width={100} height={100}/>
                   </div>
                   <div className='text-center'>
-                  <p className='font-bold text-2xl'>Company Information:</p>
+                  <p className='sttelemedia font-bold text-2xl'>Company Information:</p>
                       <p>Rain Solutions</p>
-                      <p className='italic text-red-600'>www.rainsolutions.org</p>
+                      <p className='sttelemedia italic text-red-600'>www.rainsolutions.org</p>
                   </div>
             </div>
             <div className='col-span-12 md:col-span-4'>
@@ -26,9 +26,9 @@ const Contact = () => {
                       <AiFillPhone className='mt-10' size={100}/>
                   </div>
                   <div className='text-center'>
-                  <p className='font-bold text-2xl'>Phone Number:</p>
+                  <p className='sttelemedia font-bold text-2xl'>Phone Number:</p>
                       <p>Rain</p>
-                      <p className='italic text-red-600'>+65 9006 0730</p>
+                      <p className='sttelemedia italic text-red-600'>+65 9006 0730</p>
                   </div>
                 </div>
                 <div className='col-span-12 md:col-span-4'>
@@ -36,9 +36,9 @@ const Contact = () => {
                       <MdEmail className='mt-10' size={100}/>
                   </div>
                   <div className='text-center mb-20'>
-                  <p className='font-bold text-2xl'>Email Address:</p>
+                  <p className='sttelemedia font-bold text-2xl'>Email Address:</p>
                         <p>For technical support</p>
-                        <p className='italic text-red-600'>support@sttgdcstaffday.com</p>
+                        <p className='sttelemedia italic text-red-600'>support@sttgdcstaffday.com</p>
                   </div>
                 </div>
             </div>

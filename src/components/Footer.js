@@ -1,6 +1,5 @@
 import React from 'react'
 import './Footer.css'
-import { Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -8,10 +7,9 @@ const Footer = () => {
         <div className='container'>
             <div className='bottom'>
                 <span className='line'></span>
-                <p>© 2023 Singapore Technologies Telemedia Pte Ltd</p>
+                <p className='sttelemedia'>© 2023 Singapore Technologies Telemedia Pte Ltd</p>
             </div>
         </div>
-        <Link to="/scan">.</Link>
     </div>
   )
 }
