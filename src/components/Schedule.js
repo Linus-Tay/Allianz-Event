@@ -11,7 +11,7 @@ import Fade from 'react-awesome-reveal'
 const Schedule = () => {
 
     return (
-        <div id="programme">
+        <div id="programme" className='py-10'>
             <p style={{ letterSpacing: '3px '}} className='mt-20 text-red-500 text-sm font-black sttelemedia   text-center'>THE PROGRAMME</p>
             <p style={{ color: '#5a5a5a' }} className='pt-4 sttelemedia text-4xl md:text-5xl font-bold text-center '>What To Expect</p>
 

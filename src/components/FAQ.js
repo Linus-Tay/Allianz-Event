@@ -15,10 +15,10 @@ const FAQ = () => {
     };
 
      return (
-        <div className='pt-20 pb-10' id='faq'>
+        <div className='py-24' id='faq'>
         <div style={{width: '85%'}} className='m-auto'>
-            <p className='special text-5xl text-center leading-snug'>Frequently Asked Questions</p>
-                <span className='line'></span>
+        <p style={{ letterSpacing: '3px '}} className='pt-10 text-red-500 text-sm font-black sttelemedia   text-center'>FREQUENTLY ASKED QUESTIONS</p>
+            <p style={{ color: '#5a5a5a' }} className='pt-4 sttelemedia text-4xl md:text-5xl font-bold text-center '>Need Answers?</p>
                 <Fade triggerOnce>
                 <div className="mt-10 rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
             <Fragment >

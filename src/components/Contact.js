@@ -7,8 +7,8 @@ import {MdEmail} from 'react-icons/md'
 const Contact = () => {
   return (
     <div id="contact" className='py-10 bg-white'>
-        <p className='special mt-10 text-5xl text-center'>Contact Us</p>
-        <span className='line'></span>
+         <p style={{ letterSpacing: '3px '}} className='mt-20 text-red-500 text-sm font-black sttelemedia   text-center'>CONTACT US</p>
+          <p style={{ color: '#5a5a5a' }} className='pt-4 pb-12 sttelemedia text-4xl md:text-5xl font-bold text-center '>Need Some Assistance?</p>
         <div className='container mx-auto'>
         <div className="grid grid-cols-12">
             <div className='col-span-12 md:col-span-4'>
@@ -18,7 +18,7 @@ const Contact = () => {
                   <div className='text-center'>
                   <p className='font-bold text-2xl'>Company Information:</p>
                       <p>Rain Solutions</p>
-                      <p className='italic text-blue-600'>www.rainsolutions.org</p>
+                      <p className='italic text-red-600'>www.rainsolutions.org</p>
                   </div>
             </div>
             <div className='col-span-12 md:col-span-4'>
@@ -28,7 +28,7 @@ const Contact = () => {
                   <div className='text-center'>
                   <p className='font-bold text-2xl'>Phone Number:</p>
                       <p>Rain</p>
-                      <p className='italic text-blue-600'>+65 9006 0730</p>
+                      <p className='italic text-red-600'>+65 9006 0730</p>
                   </div>
                 </div>
                 <div className='col-span-12 md:col-span-4'>
@@ -38,7 +38,7 @@ const Contact = () => {
                   <div className='text-center mb-20'>
                   <p className='font-bold text-2xl'>Email Address:</p>
                         <p>For technical support</p>
-                        <p className='italic text-blue-600'>events@rainsolutions.org</p>
+                        <p className='italic text-red-600'>support@sttgdcstaffday.com</p>
                   </div>
                 </div>
             </div>
