@@ -21,7 +21,7 @@ const About = () => {
                 </p>
             </div>
         </div>
-        <div className='bg-white py-10'>
+        <div className='bg-white py-24'>
         <div className='container m-auto'>
           <Fade triggerOnce duration={1000}>
           <p style={{ letterSpacing: '3px '}} className='text-red-500 text-sm font-bold sttelemedia text-center'>ABOUT THE EVENT</p>
