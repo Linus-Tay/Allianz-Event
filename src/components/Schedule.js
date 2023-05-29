@@ -12,14 +12,14 @@ const Schedule = () => {
 
     return (
         <div id="programme" className='mt-10 py-10'>
-            <p style={{ letterSpacing: '3px '}} className='pt-10 text-red-500 text-sm font-black sttelemedia   text-center'>THE PROGRAMME</p>
+            <p style={{ letterSpacing: '3px '}} className='pt-10 text-red-500 text-sm font-black sttelemedia text-center'>THE PROGRAMME</p>
             <p style={{ color: '#5a5a5a' }} className='pt-4 sttelemedia text-4xl md:text-5xl font-bold text-center '>What To Expect</p>
 
             <Fade triggerOnce>
                 <div className='container py-10 sm:px-10 md:px-0 lg:px-0 md:max-w-lg m-auto'>       
                     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table className="w-full text-sm text-left text-gray-500">
+                        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                             <tr>
                                 <th scope="col" className="sttelemedia px-3 py-3">
                                     TIMING
@@ -30,7 +30,7 @@ const Schedule = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <tr className="bg-white border-b ">
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     11.00am
                                     <p>to 1.00pm</p>
@@ -39,7 +39,7 @@ const Schedule = () => {
                                 - Luggage Drop-off at Village Hotel Sentosa
                                 </td>
                             </tr>
-                            <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                            <tr className="border-b bg-gray-50 ">
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     1.30pm
                                 </th>
@@ -47,7 +47,7 @@ const Schedule = () => {
                                 - Registration Begin
                                 </td>
                             </tr>
-                            <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <tr className="bg-white border-b ">
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     1.50pm
                                 </th>
@@ -55,7 +55,7 @@ const Schedule = () => {
                                 - Opening Speech
                                 </td>
                             </tr>
-                            <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                            <tr className="border-b bg-gray-50 ">
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     2.00pm
                                 </th>
@@ -71,7 +71,7 @@ const Schedule = () => {
                                 - Treasure Hunt Flag-off
                                 </td>
                             </tr>
-                            <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                            <tr className="border-b bg-gray-50 ">
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     4.00pm
                                 </th>
@@ -89,7 +89,7 @@ const Schedule = () => {
                                     <p> - Prize Giving & Lucky Draw</p>
                                 </td>
                             </tr>
-                            <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                            <tr className="border-b bg-gray-50 ">
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     4.00pm
                                 </th>
@@ -108,7 +108,7 @@ const Schedule = () => {
                                     <p> - Disbursement of Hotel Keys</p>
                                 </td>
                             </tr>
-                            <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                            <tr className="border-b bg-gray-50 ">
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     9.00pm
                                 </th>

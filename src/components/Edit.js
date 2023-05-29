@@ -178,8 +178,8 @@ const Edit = () => {
         return  <div>
           <p className='text-xl font-bold text-center'>{subtitle}</p>
           <p className='py-5 text-center'>Are you sure you want to delete this from the database?</p>
-          <blockquote class="p-4 mb-4 border-l-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
-                  <p class="text-sm italic font-medium leading-relaxed text-gray-900 dark:text-white">
+          <blockquote className="p-4 mb-4 border-l-4 border-gray-300 bg-gray-50">
+                  <p className="text-sm italic font-medium leading-relaxed text-gray-900">
                    {JSON.stringify({selected})}
                   </p>
           </blockquote>
@@ -257,25 +257,25 @@ const Edit = () => {
         </button>
       </div>
       <input type="text" onChange={event => setSearchText(event.target.value)} className="mb-4 bg-gray-50 border border-blue-300 text-blue-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Search Name Here..."></input>
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-              <thead class="text-xs border text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-sm text-left text-gray-500">
+              <thead className="text-xs border text-gray-700 uppercase bg-gray-50">
                   <tr>
-                      <th class="px-6 py-3">   
+                      <th className="px-6 py-3">   
                       </th>
-                      <th class="px-6 py-3">
+                      <th className="px-6 py-3">
                         UNIQUE NUMBER
                       </th>
-                      <th class="px-6 py-3">
+                      <th className="px-6 py-3">
                         NAME
                       </th>
-                      <th class="px-6 py-3">
+                      <th className="px-6 py-3">
                         EMAIL
                       </th>
-                      <th class="px-6 py-3">
+                      <th className="px-6 py-3">
                         DEPARTMENT
                       </th>
-                      <th class="px-6 py-3">
+                      <th className="px-6 py-3">
                         REGISTERED?
                       </th>
                   </tr>

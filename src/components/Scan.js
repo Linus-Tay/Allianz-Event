@@ -430,7 +430,7 @@ const downloadRespective = () => {
                       <button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" onClick={closeModal}>Close</button>
                       </div> 
                       <input type="text" onChange={event => setSearchText(event.target.value)} className="my-10 bg-gray-50 border border-blue-300 text-blue-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Search Name Here..."></input>
-                      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                      <table className="w-full text-sm text-left text-gray-500">
                       <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr className='border-solid border-2 border-grey-200'>
                           <th></th>
@@ -508,8 +508,8 @@ const downloadRespective = () => {
             Search By Name
             <SlMagnifier className='ml-2'/>
           </button>
-          <button onClick={clearScreen} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 ">
-            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          <button onClick={clearScreen} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 ">
+            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
                 Clear Screen
             </span>
           </button>
@@ -528,9 +528,9 @@ const downloadRespective = () => {
         <div className="grid grid-cols-2 gap-4 pt-2">
           <div>
             <p className='text-center font-bold text-xl'>Latest Data Displayed: </p>
-            <dl className="pb-8 m-auto max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+            <dl className="pb-8 m-auto max-w-md text-gray-900 divide-y divide-gray-200">
                 <p className="flex flex-col pb-3">
-                    <dt className="mb-1 text-gray-500 dark:text-gray-400">Name</dt>
+                    <dt className="mb-1 text-gray-500">Name</dt>
                     <dd className="font-semibold">{name}</dd>
                 </p>
                 <p className="flex flex-col py-3">
@@ -547,9 +547,9 @@ const downloadRespective = () => {
               <p>Set Timeout for Display: </p>
               <label className="mr-28 relative inline-flex items-center cursor-pointer mt-5">
               <input type="checkbox" value="" className="sr-only peer" />
-              <div onClick={handleToggle} className="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              <div onClick={handleToggle} className="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
-            <div style={{marginTop: "-34px", marginLeft:"75px"}} className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <div style={{marginTop: "-34px", marginLeft:"75px"}} className="ml-3 text-sm font-medium text-gray-900 ">
               <input type='text' className='w-14 h-7 text-center rounded shadow mr-2' value={timerValue} onChange={handleTimerValue} placeholder='5'></input><span>seconds</span>
               </div>
             </div>
