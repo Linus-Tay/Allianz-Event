@@ -1,5 +1,5 @@
 import React from 'react'
-import RS from './images/rs.png'
+import STTELEMEDIA from './images/STTelemedia.png'
 import {AiFillPhone} from 'react-icons/ai'
 import {MdEmail} from 'react-icons/md'
 
@@ -13,17 +13,17 @@ const Contact = () => {
         <div className="grid grid-cols-12">
             <div className='col-span-12 md:col-span-4'>
                 <div className='flex justify-center mt-10 mb-5'>
-                      <img src={RS} alt='' width={100} height={100}/>
+                      <img src={STTELEMEDIA} className='p-2' alt=''/>
                   </div>
                   <div className='text-center'>
-                  <p className='sttelemedia font-bold text-2xl'>Company Information:</p>
-                      <p>STTelemdia Global Data Centres</p>
-                      <a href="www.sttelemediagdc.com" className='sttelemedia italic text-red-600'>www.sttelemediagdc.com/</a>
+                  <p className='sttelemedia font-bold text-2xl text-neutral-600'>Company Information:</p>
+                      <p>STTelemedia Global Data Centres</p>
+                      <a href="www.sttelemediagdc.com" className='sttelemedia italic text-red-600'>www.sttelemediagdc.com</a>
                   </div>
             </div>
             <div className='col-span-12 md:col-span-4'>
             <div className='flex justify-center mb-5'>
-                      <AiFillPhone className='mt-10' size={100}/>
+                      <AiFillPhone style={{color:"#525252"}} className='mt-10' size={100}/>
                   </div>
                   <div className='text-center'>
                   <p className='sttelemedia font-bold text-2xl'>Phone Number:</p>
@@ -33,7 +33,7 @@ const Contact = () => {
                 </div>
                 <div className='col-span-12 md:col-span-4'>
                 <div className='flex justify-center mb-5'>
-                      <MdEmail className='mt-10' size={100}/>
+                      <MdEmail style={{color:"#525252"}} className='mt-10' size={100}/>
                   </div>
                   <div className='text-center mb-20'>
                   <p className='sttelemedia font-bold text-2xl'>Email Address:</p>
