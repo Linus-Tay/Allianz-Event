@@ -35,7 +35,7 @@ const Venue = () => {
                     </GoogleMapReact>
         </div>
         <p style={{ width: '75%' }} className='pt-8 sttelemedia font-bold m-auto my-5 text-center text-xl italic'><span className='text-2xl'>Location:</span> <span className='font-bold text-red-500'> Ola Beach Club, Sentosa</span> </p>
-        <p style={{ width: '75%' }} className='sttelemedia font-bold m-auto pb-10 text-center text-xl italic'><span className='text-2xl'>Address:</span><span className='font-bold text-red-500'> 46 Siloso Bch Walk, Singapore 099005</span>  </p>
+        <p style={{ width: '75%' }} className='sttelemedia font-bold m-auto pb-10 text-center text-xl italic'><span className='text-2xl'>Address:</span><span className='font-bold text-red-500'> 46 Siloso Beach Walk, Singapore 099005</span>  </p>
         </Fade>
     </div>
     )
