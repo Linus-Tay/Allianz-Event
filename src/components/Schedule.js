@@ -17,7 +17,7 @@ const Schedule = () => {
 
             <Fade triggerOnce>
                 <div className='container mx-auto py-10 md:px-0 lg:px-0 md:max-w-2xl'>       
-                    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <div className="relative shadow-md sm:rounded-lg">
                     <table  className="w-full text-sm text-left text-gray-500">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                             <tr>
