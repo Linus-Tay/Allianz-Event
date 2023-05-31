@@ -7,7 +7,15 @@ import backgroundVideo from './video/testvideo.mp4'
 const Hero = () => {
   return (
     <div className='' id='hero'>
-      <video autoPlay loop muted src={backgroundVideo}/>
+        <div dangerouslySetInnerHTML={{ __html: `
+        <video
+          loop
+          muted
+          autoplay
+          playsinline
+          src="${backgroundVideo}"
+        />,
+      ` }}></div>
       <div className='content'>
         <Fade cascade triggerOnce>
           <img className='m-auto' src={Sad23} alt=''/>
