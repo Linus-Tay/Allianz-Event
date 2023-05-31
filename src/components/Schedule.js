@@ -38,7 +38,7 @@ const Schedule = () => {
                                     11.00am
                                     <p>to 1.30pm</p>
                                 </th>
-                                <td className="px-6 py-4 sttelemedia">
+                                <td className="px-6 py-4 sttelemedia font-semibold">
                                 Luggage Drop-off at Village Hotel Sentosa
                                 <br/>
                                 <br/>
@@ -52,7 +52,7 @@ const Schedule = () => {
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     1.30pm
                                 </th>
-                                <td className="px-6 py-4 sttelemedia">
+                                <td className="px-6 py-4 sttelemedia font-semibold">
                                 Registration Opens
                                 </td>
                                 <td className="px-6 py-4 sttelemedia">
@@ -63,7 +63,7 @@ const Schedule = () => {
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     1.50pm
                                 </th>
-                                <td className="px-6 py-4 sttelemedia">
+                                <td className="px-6 py-4 sttelemedia font-semibold">
                                 Welcome Address
                                 </td>
                                 <td className="px-6 py-4 sttelemedia">
@@ -74,7 +74,7 @@ const Schedule = () => {
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     2.00pm
                                 </th>
-                                <td className="px-6 py-4 sttelemedia">
+                                <td className="px-6 py-4 sttelemedia font-semibold">
                                 Mass Briefing for STT GDC "Hunt The Coin" Challenge
                                 </td>
                                 <td className="px-6 py-4 sttelemedia">
@@ -85,7 +85,7 @@ const Schedule = () => {
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     2.15pm
                                 </th>
-                                <td className="px-6 py-4 sttelemedia">
+                                <td className="px-6 py-4 sttelemedia font-semibold">
                                 "Hunt The Coin" Flag-Off!
                                 </td>
                                 <td className="px-6 py-4 sttelemedia">
@@ -96,7 +96,7 @@ const Schedule = () => {
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     4.00pm
                                 </th>
-                                <td className="px-6 py-4 sttelemedia">
+                                <td className="px-6 py-4 sttelemedia font-semibold">
                                 Teams report back to Ola Beach Club
                                 </td>
                                 <td className="px-6 py-4 sttelemedia">
@@ -107,7 +107,7 @@ const Schedule = () => {
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     4.15pm
                                 </th>
-                                <td className="px-6 py-4 sttelemedia">
+                                <td className="px-6 py-4 sttelemedia font-semibold">
                                      Water Sports Station Open
                                      <hr class="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"></hr>
                                      <p>Free & Easy</p>
@@ -120,7 +120,7 @@ const Schedule = () => {
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     6.00pm
                                 </th>
-                                <td className="px-6 py-4 sttelemedia">
+                                <td className="px-6 py-4 sttelemedia font-semibold">
                                 Dinner Commences
                                 <hr class="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"></hr>
                                     <p>DJ on the Decks - Sunset DJ Set</p>
@@ -133,7 +133,7 @@ const Schedule = () => {
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     7.00pm
                                 </th>
-                                <td className="px-6 py-4 sttelemedia">
+                                <td className="px-6 py-4 sttelemedia font-semibold">
                                 Special Stage Performance
                                 <hr class="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"></hr>
                                     <p>Disbursement of Hotel Room Access Cards</p>
@@ -148,7 +148,7 @@ const Schedule = () => {
                                 <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     9.00pm
                                 </th>
-                                <td className="px-6 py-4 sttelemedia">
+                                <td className="px-6 py-4 sttelemedia font-semibold">
                                 -Thank you for coming. See you next year!
                                 </td>
                                 <td className="px-6 py-4 sttelemedia">

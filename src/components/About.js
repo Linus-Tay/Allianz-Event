@@ -4,13 +4,13 @@ import { Fade } from 'react-awesome-reveal'
 const About = () => {
   return (
     <div className='bg-gray-900' id='about'>
-        <div className="text-gray-200 grid grid-cols-12 gap-4 p-10">
-            <div className='p-10 col-span-12 md:col-span-6'>
+        <div className="text-gray-200 grid grid-cols-12 py-8">
+            <div className='p-10 col-span-12 md:col-span-5'>
                 <p className='sttelemedia text-red-600 pb-2 text-xl font-bold '>ABOUT</p>
                 <p className='sttelemedia text-lg font-light'>Let's set off on a voyage of reconnection, and rediscovery of friendships in the peaceful embrace of nature, admist soaring trees and exquisite beaches of Sentosa.
                 </p>
             </div>
-            <div className='p-10 col-span-12 md:col-span-3'>
+            <div className='p-10 col-span-12 md:col-span-4'>
                 <p className='sttelemedia text-red-600 pb-2 text-xl font-bold'>WHERE</p>
                 <p className='sttelemedia text-lg '> Event Grounds: Ola Beach Club
                 </p><br/>
