@@ -2,7 +2,7 @@ import React from 'react'
 import { Fade } from "react-awesome-reveal";
 import './Hero.css'
 import Sad23 from './images/SAD23.png'
-import backgroundVideo from './video/video.mp4'
+import backgroundVideo from './video/testvideo.mp4'
 
 const Hero = () => {
   return (
