@@ -9,7 +9,7 @@ const Venue = () => {
     const defaultProps = { 
         event: {lat: 1.2530770, lng: 103.8151870}, 
         staycation: {lat: 1.252588868855636, lng: 103.82030546631348}, 
-        zoom: 16
+        zoom: 15
      }
 
     return (
@@ -23,8 +23,8 @@ const Venue = () => {
                         key: 'AIzaSyD1LzKWYo55CA_wsGnBH9s0N5a6uLJbeCw', 
                         language: 'en'
                     }}
-                    defaultCenter={defaultProps.center}
-                    center={defaultProps.center}
+                    defaultCenter={defaultProps.staycation}
+                    center={defaultProps.staycation}
                     defaultZoom={defaultProps.zoom}
                     >
                         <FaUmbrellaBeach
