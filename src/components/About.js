@@ -6,19 +6,24 @@ const About = () => {
     <div className='bg-gray-900' id='about'>
         <div className="text-gray-200 grid grid-cols-12 gap-4 p-10">
             <div className='p-10 col-span-12 md:col-span-6'>
-                <p className='sttelemedia text-red-600 pb-2 text-3xl font-bold '>BRIEF TAKEAWAY</p>
-                <p className='sttelemedia text-lg font-light'>Colleagues will convene at Sentosa to set off on a voyage of reconnection and rediscovery of friendships. The day includes team-building acitivites, performances and dinner.
+                <p className='sttelemedia text-red-600 pb-2 text-3xl font-bold '>ABOUT</p>
+                <p className='sttelemedia text-lg font-light'>Let's set off on a voyage of reconnection, and rediscovery of friendships in the peaceful embrace of nature, admist soaring trees and exquisite beaches of Sentosa.
                 </p>
             </div>
             <div className='p-10 col-span-12 md:col-span-3'>
                 <p className='sttelemedia text-red-600 pb-2 text-xl font-bold'>WHERE</p>
-                <p className='sttelemedia text-lg font-light'> Ola Beach Club, Sentosa 
+                <p className='sttelemedia text-lg '> Event Grounds: Ola Beach Club
+                </p><br/>
+                <p className='sttelemedia text-lg'> Staycation Hotel: Village Hotel Sentosa
                 </p>
             </div>
             <div className='p-10 col-span-12 md:col-span-3'>
                 <p className='sttelemedia text-red-600 pb-2 text-xl font-bold'>WHEN</p>
-                <p className='sttelemedia text-lg'> 14 July 2023, Friday 
+                <p className='sttelemedia text-lg'> Event Day: 14 July 2023
+                </p><br/>
+                <p className='sttelemedia text-lg'> Check Out Day: 15 July 2023
                 </p>
+                
             </div>
         </div>
         <div className='bg-white py-24'>

@@ -1,21 +1,23 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react';
-import { ImLocation } from 'react-icons/im'
+import { FaUmbrellaBeach } from 'react-icons/fa'
+import { BiHotel } from 'react-icons/bi'
 import Fade from 'react-awesome-reveal'
 
 const Venue = () => {
 
     const defaultProps = { 
-        center: {lat: 1.2530770, lng: 103.8151870}, 
+        event: {lat: 1.2530770, lng: 103.8151870}, 
+        staycation: {lat: 1.252588868855636, lng: 103.82030546631348}, 
         zoom: 16
      }
 
     return (
         <div id='venue' className='py-10 bg-white'>
          <p style={{ letterSpacing: '3px '}} className='pt-20 text-red-500 text-sm font-black sttelemedia text-center'>EVENT VENUE</p>
-         <p style={{ color: '#5a5a5a' }} className='pt-4 sttelemedia text-4xl md:text-5xl font-bold text-center '>The Event's Location</p>
+         <p style={{ color: '#5a5a5a' }} className='pt-4 sttelemedia text-4xl md:text-5xl font-bold text-center '>How To Get There</p>
         <Fade triggerOnce>
-        <div className='m-auto mt-10 border-solid border-4 border-red-600' style={{ height: '40vh', width: '85%'}}>
+        <div className='container mx-auto mt-10 border-solid border-2 border-red-600' style={{ height: '40vh', width: '85%'}}>
                 <GoogleMapReact 
                     bootstrapURLKeys={{
                         key: 'AIzaSyD1LzKWYo55CA_wsGnBH9s0N5a6uLJbeCw', 
@@ -25,17 +27,45 @@ const Venue = () => {
                     center={defaultProps.center}
                     defaultZoom={defaultProps.zoom}
                     >
-                        <ImLocation
+                        <FaUmbrellaBeach
                         size={40}
-                        color='red'
-                        lat={defaultProps.center.lat}
-                        lng={defaultProps.center.lng}
+                        color='#DC2626'
+                        lat={defaultProps.event.lat}
+                        lng={defaultProps.event.lng}
                         >
-                            </ImLocation>
+                         </FaUmbrellaBeach>
+                         <BiHotel
+                        size={40}
+                        color='#00b0e1'
+                        lat={defaultProps.staycation.lat}
+                        lng={defaultProps.staycation.lng}
+                        ></BiHotel>
                     </GoogleMapReact>
         </div>
-        <p style={{ width: '75%' }} className='pt-8 sttelemedia font-bold m-auto my-5 text-center text-xl italic'><span className='text-2xl'>Location:</span> <span className='font-bold text-red-500'> Ola Beach Club, Sentosa</span> </p>
-        <p style={{ width: '75%' }} className='sttelemedia font-bold m-auto pb-10 text-center text-xl italic'><span className='text-2xl'>Address:</span><span className='font-bold text-red-500'> 46 Siloso Beach Walk, Singapore 099005</span>  </p>
+        <p style={{ width: '75%' }} className='pt-4 sttelemedia font-bold m-auto my-5 text-center text-xl'>EVENT VENUE:<span className='font-bold text-red-600'> OLA BEACH CLUB</span><br/><span className='font-medium italic'>46 Silosa Beach Walk Singapore 099005</span></p>
+        <p style={{ width: '75%' }} className='sttelemedia font-bold m-auto pb-12 text-center text-xl'>STAYCATION:<span className='font-bold' style={{ color: "#00b0e1"}}> VILLAGE HOTEL SENTOSA</span><br/><span className='font-medium italic'>10 Artillery Avenue Singapore 099951</span></p>
+        </Fade>
+        <Fade triggerOnce>
+            <div className='container rounded-xl mx-auto px-4 border-2 border-red-600 pt-4 pb-6' style={{ width: '85%'}}>
+                <ul className="m-auto max-w-2xl space-y-1 text-neutral-600 list-disc list-inside">
+                <p className="my-2 mt-4 text-lg font-semibold text-gray-900">STEP 1: Getting to Village Hotel Sentosa</p>
+                    <li>By Taxi/Private Hire: Alight directly at Village Hotel Sentosa Lobby.</li>
+                    <li>By Car: Parking lots are available and based on first-come-first-served basis.</li>
+                    <li>By MRT & Sentosa Express: Alight at Harbourfront Station, and board the Sentosa Express in Vivocity, Level 3. Alight at Imbiah Station, and walk towards Village Hotel Sentosa.</li>
+                </ul>
+                <ul className="m-auto max-w-2xl space-y-1 text-neutral-600 list-disc list-inside">
+                <p className="my-2 mt-4 text-lg font-semibold text-gray-900">STEP 2: Luggage Drop @ Staycation Hotel</p>
+                    <li>Drop off your luggage at Village Hotel Sentosa, between 11:30am to 1:30pm.</li>
+                    <li>Our friendly event crew will be on hand to tag your luggage in accordance to your room number.</li>
+                </ul>
+                
+                <ul className="m-auto max-w-2xl space-y-1 text-neutral-600 list-disc list-inside">
+                <p className="my-2 mt-4 text-lg font-semibold text-gray-900">STEP 3: Getting to Ola Beach Club</p>
+                    <li>You may take our STT GDC shuttle service from the Hotel Lobby towards Beach Station.</li>
+                    <li>Please arrive at our Event Venue (Ola Beach Club) at 1:30pm to register your attendance.</li>
+                </ul>
+            </div>
+
         </Fade>
     </div>
     )

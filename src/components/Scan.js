@@ -396,6 +396,20 @@ const downloadRespective = () => {
     return <button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2" onClick={resetRegistration}>Reset Registration</button>
   }
 
+  const [allowChange, setAllowChange] = useState(false)
+  const [originalName, setOriginalName] = useState(name)
+  const [originalEmail, setOriginalEmail] = useState(email)
+  const [originalPhoneNumber, setOriginalPhoneNumber] = useState(phoneNumber)
+
+  function AllowChangeToData() {
+    setAllowChange(!allowChange)
+    
+  }
+
+  function changeName() {
+    const original = name
+
+  }
 
   return (
     <div>
@@ -514,10 +528,10 @@ const downloadRespective = () => {
             </span>
           </button>
           
-          <Link to="/screen" type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
+          <Link to="/screen" target='_blank' type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
             Screen Page
           </Link>
-          <Link to="/edit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
+          <Link to="/edit" target='_blank' className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
             Edit Page
           </Link>
           <button onClick={downloadLatest} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2">
@@ -527,19 +541,27 @@ const downloadRespective = () => {
         </div>
         <div className="grid grid-cols-2 gap-4 pt-2">
           <div>
-            <p className='text-center font-bold text-xl'>Latest Data Displayed: </p>
-            <dl className="pb-8 m-auto max-w-md text-gray-900 divide-y divide-gray-200">
-                <p className="flex flex-col pb-3">
+            <div className='flex justify-center '>
+            <label className="mr-2 relative flex-none items-center cursor-pointer">
+            <input type="checkbox" value="" className="sr-only peer" />
+            <div onClick={AllowChangeToData} className="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-blue-600"></div>
+            </label> 
+            <p className='flex-none font-bold text-xl'>Latest Data Displayed:</p>
+            </div>
+
+          
+            <dl className="mt-2 pb-8 m-auto max-w-md text-gray-900 divide-y divide-gray-200">
+                <p className="flex pb-3">
                     <dt className="mb-1 text-gray-500">Name</dt>
-                    <dd className="font-semibold">{name}</dd>
+                    <dd className="font-semibold ml-2"><input value={name} disabled={allowChange}/></dd>
                 </p>
-                <p className="flex flex-col py-3">
+                <p className="flex py-3">
                     <dt className="mb-1 text-gray-500">Email</dt>
-                    <dd className="font-semibold">{email}</dd>
+                    <dd className="font-semibold ml-2"><input className='w-full' value={email} disabled={allowChange}/></dd>
                 </p>
-                <p className="flex flex-col pt-3">
+                <p className="flex pt-3">
                     <dt className="mb-1 text-gray-500">Phone number</dt>
-                    <dd className="font-semibold">{phoneNumber}</dd>
+                    <dd className="font-semibold ml-2"><input value={phoneNumber} disabled={allowChange}/></dd>
                 </p>
             </dl>
           </div>

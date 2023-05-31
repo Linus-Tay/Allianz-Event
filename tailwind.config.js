@@ -6,6 +6,7 @@ module.exports = withMT({
   "./node_modules/flowbite/**/*.js"],
   theme: {
     extend: {},
+    disc: 'disc',
   },
   plugins: [
     require('flowbite/plugin'),
