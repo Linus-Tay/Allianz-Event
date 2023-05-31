@@ -8,23 +8,14 @@ import { toast } from 'react-toastify';
 export const Test = () => {
 
     const customStyles = {
-        overlay: {
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.5)'
-        },
         content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            width: "85%",
-            transform: 'translate(-50%, -50%)',
-          },
-    }
+          top: '25%',
+          left: '5%',
+          right: '5%',
+          bottom: '25%',
+        },
+      };
+      
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -246,11 +237,10 @@ export const Test = () => {
             <fieldset>
         <legend class="sr-only">Checkbox variants</legend>
         <Modal
-                      ariaHideApp={false}
-                      isOpen={modalIsOpen}
-                      style={customStyles}
-                      onRequestClose={closeModal}
-                      contentLabel="Example Modal"
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+                contentLabel="Example Modal"
                     ><p className='text-center text-lg font-bold py-4'>Terms and Conditions</p>
                         <p className='py-4 text-justify'>“By submitting on this platform, I consent for Synonym Private Limited, STT GDC Private Limited, and associated parties (including third party service providers and representatives) (STT Persons) to collect, use, disclose, store, retain and/or process (“Use”) my personal data and information in the manner and for the purposes described in their respective personal data policies, <a className='text-blue-600 hover:underline dark:text-blue-500' href="https://www.sttelemediagdc.com/pdpa" target="_blank">https://www.sttelemediagdc.com/pdpa</a>, and in particular for the purposes of processing, servicing and managing my orders and general administration in connection with the foregoing and contacting me at the contacts that I have provided. I confirm the accuracy of the information that I have furnished and further confirm that where I have furnished personal data of other individuals, I have obtained consent from such individuals to disclose such information, except to the extent that such consent is not required under relevant laws. I will indemnify STT Persons for any loss or damage that they may sustain from or in connection with the use of the information that I have furnished and will not hold them liable for any loss or damage that may be incurred by me.”</p>
                         <div className='py-4 text-center'>
