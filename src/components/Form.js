@@ -141,7 +141,7 @@ export const Test = () => {
         <div className="grid md:grid-cols-2 md:gap-6">
         <div className="relative z-0 w-full mb-6 group">
                 <input name="department" type="text" onChange={(e) => setFormData({...formData, nric: e.target.value})} value={formData.nric} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none    focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                <label for="floating_company" className="sttelemedia peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus: peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">NRIC</label>
+                <label for="floating_company" className="sttelemedia peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus: peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">NRIC Number/ Identification Number</label>
                 <p className='sttelemedia italic text-sm text-gray-600'>*for purpose of the Hotel arrangement and Pre Check-In</p>
             </div>
             <div className="relative z-0 w-full mb-6 group">
@@ -151,7 +151,7 @@ export const Test = () => {
         </div>
         <div className="relative z-0 w-full mb-6 group">
             <input name="user_email" type="email" onChange={(e) => setFormData({...formData, email: e.target.value})} value={formData.email} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none    focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-            <label for="floating_email" className="sttelemedia peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus: peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ST Telemedia Email address</label>
+            <label for="floating_email" className="sttelemedia peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus: peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ST Telemedia Email Address</label>
         </div>     
         
         <fieldset>
@@ -211,7 +211,7 @@ export const Test = () => {
         <fieldset>
         <legend class="sr-only">Checkbox variants</legend>
         <p className='font-bold pt-8'>Please indicate if you are keen to participate in any of the following Water Sports:</p>
-        <p className='sttelemedia italic text-sm text-gray-600 pb-4'>*Allocation of slots is based on availability</p>
+        <p className='sttelemedia italic text-sm text-gray-600 pb-4'>*Allocation of slots is based on availability.</p>
         <div class="flex items-center mb-4">
             <input onChange={(e) => setFormData({...formData.waterSports, standUpPaddleBoarding: e.target.value})} id="checkbox-1" type="checkbox" value="Yes" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
             <label for="checkbox-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Stand Up Paddle Boarding</label>
