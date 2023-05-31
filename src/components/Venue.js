@@ -42,7 +42,7 @@ const Venue = () => {
                         ></BiHotel>
                     </GoogleMapReact>
         </div>
-        <p style={{ width: '75%' }} className='pt-4 sttelemedia font-bold m-auto my-5 text-center text-xl'>EVENT VENUE:<span className='font-bold text-red-600'> OLA BEACH CLUB</span><br/><span className='font-medium italic'>46 Silosa Beach Walk Singapore 099005</span></p>
+        <p style={{ width: '75%' }} className='pt-4 sttelemedia font-bold m-auto my-5 text-center text-xl'>EVENT VENUE:<span className='font-bold text-red-600'> OLA BEACH CLUB <FaUmbrellaBeach className='flex-inline'/></span><br/><span className='font-medium italic'>46 Silosa Beach Walk Singapore 099005</span></p>
         <p style={{ width: '75%' }} className='sttelemedia font-bold m-auto pb-12 text-center text-xl'>STAYCATION:<span className='font-bold' style={{ color: "#00b0e1"}}> VILLAGE HOTEL SENTOSA</span><br/><span className='font-medium italic'>10 Artillery Avenue Singapore 099951</span></p>
         </Fade>
         <Fade triggerOnce>
