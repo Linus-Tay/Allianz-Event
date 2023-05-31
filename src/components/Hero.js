@@ -7,7 +7,7 @@ import backgroundVideo from './video/testvideo.mp4'
 const Hero = () => {
   return (
     <div className='' id='hero'>
-      <video autoplay loop muted playsinline src={backgroundVideo}/>
+      <video autoPlay loop muted playsinline src={backgroundVideo}/>
       <div className='content'>
         <Fade cascade triggerOnce>
           <img className='m-auto' src={Sad23} alt=''/>
