@@ -42,8 +42,28 @@ const Venue = () => {
                         ></BiHotel>
                     </GoogleMapReact>
         </div>
-        <p style={{ width: '75%' }} className='pt-4 sttelemedia font-bold m-auto my-5 text-center text-xl'>EVENT VENUE:<span className='font-bold text-red-600'> OLA BEACH CLUB <FaUmbrellaBeach className='flex-inline'/></span><br/><span className='font-medium italic'>46 Silosa Beach Walk Singapore 099005</span></p>
-        <p style={{ width: '75%' }} className='sttelemedia font-bold m-auto pb-12 text-center text-xl'>STAYCATION:<span className='font-bold' style={{ color: "#00b0e1"}}> VILLAGE HOTEL SENTOSA</span><br/><span className='font-medium italic'>10 Artillery Avenue Singapore 099951</span></p>
+            <div className='container w-max flex items-center pt-4 sttelemedia font-bold m-auto mt-5 text-xl'>
+                <div className='text-red-600 flex-row'>
+                <FaUmbrellaBeach/>
+                </div>
+                <p className='flex items-center ml-2'>
+                    EVENT VENUE: 
+                    <span className='ml-2 font-bold text-red-600'>
+                        OLA BEACH CLUB</span>
+                </p>
+            </div>
+            <p className='sttelemedia text-center font-medium italic mb-5'>46 Silosa Beach Walk Singapore 099005</p>
+            <div className='container w-max flex items-center pt-4 sttelemedia font-bold m-auto mt-5 text-xl'>
+                <div className=' flex-row'>
+                <BiHotel style={{ color: "#00b0e1"}}/>
+                </div>
+                <p className='flex items-center ml-2'>
+                    STAYCATION:
+                    <span className='ml-2 font-bold' style={{ color: "#00b0e1"}}>
+                    VILLAGE HOTEL SENTOSA</span>
+                </p>
+            </div>
+            <p className='sttelemedia text-center font-medium italic mb-9'>10 Artillery Avenue Singapore 0999515</p>
         </Fade>
         <Fade triggerOnce>
             <div className='container rounded-xl mx-auto px-4 border-2 border-red-600 pt-4 pb-6' style={{ width: '85%'}}>
