@@ -5,9 +5,8 @@ import Form from './Form'
 
 export const Registration = () => {
     return (
+        <Fade triggerOnce>
         <div className='p-10'>
-        <Fade duration={2000} triggerOnce >
-        
         <nav className="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50" aria-label="Breadcrumb">
         <ol className="inline-flex items-center space-x-1 md:space-x-3">
             <li className="inline-flex items-center">
@@ -27,8 +26,8 @@ export const Registration = () => {
 
         <h1 className="sttelemedia py-10 text-center mb-4 text-4xl leading-none tracking-tight md:text-5xl lg:text-6xl">Register Now</h1>
             <Form/>
-            </Fade>
         </div>
+        </Fade>
     )
 }
 

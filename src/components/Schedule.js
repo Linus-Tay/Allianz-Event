@@ -1,11 +1,11 @@
 import React from 'react'
-import { BsMusicNoteBeamed, BsFillKeyFill, BsStopwatch } from 'react-icons/bs'
+/*import { BsMusicNoteBeamed, BsFillKeyFill, BsStopwatch } from 'react-icons/bs'
 import { MdDinnerDining } from 'react-icons/md'
 import { RiTreasureMapFill } from 'react-icons/ri'
 import { SlSpeech } from 'react-icons/sl'
 import { AiFillStop, AiFillQuestionCircle, AiFillGift } from 'react-icons/ai'
 import { FaUserCheck, FaLuggageCart } from 'react-icons/fa'
-import { BiWater } from 'react-icons/bi'
+import { BiWater } from 'react-icons/bi'*/
 import Fade from 'react-awesome-reveal'
 
 const Schedule = () => {
@@ -17,7 +17,7 @@ const Schedule = () => {
 
             <Fade triggerOnce>
                 <div className='container mx-auto py-10 md:px-0 lg:px-0 md:max-w-2xl'>       
-                    <div className="relative shadow-md sm:rounded-lg">
+                    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table  className="w-full text-sm text-left text-gray-500">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                             <tr>
