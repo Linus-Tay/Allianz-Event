@@ -42,7 +42,7 @@ const Venue = () => {
                         ></BiHotel>
                     </GoogleMapReact>
         </div>
-            <div className='container w-max flex items-center pt-4 sttelemedia font-bold m-auto mt-5 text-xl'>
+            <div className='container w-max flex items-center pt-4 sttelemedia font-bold m-auto mt-5 md:text-xl'>
                 <div className='text-red-600 flex-row'>
                 <FaUmbrellaBeach/>
                 </div>
