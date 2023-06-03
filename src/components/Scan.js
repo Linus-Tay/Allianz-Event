@@ -154,11 +154,13 @@ const Scan = () => {
             setEmail(doc.data().formData.email)
             localStorage.setItem("userData", JSON.stringify(doc.data().formData));
         })
-        updateCount()
+        
         }
 
     })
       setValue('')
+      setTimeout(() => updateCount(), 1);
+      
     }
   }
 
@@ -275,7 +277,6 @@ const downloadRespective = () => {
       setSearch(information)
     })
   }
-
 
   function closeModal() {
     setIsOpen(false);
