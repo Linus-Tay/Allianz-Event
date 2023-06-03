@@ -53,11 +53,11 @@ const Venue = () => {
                 </p>
             </div>
             <p className='sttelemedia text-center font-medium italic mb-5'>46 Silosa Beach Walk Singapore 099005</p>
-            <div className='container w-max flex items-center pt-4 sttelemedia font-bold m-auto mt-5 text-xl'>
+            <div className='container w-max flex items-center pt-4 sttelemedia font-bold m-auto mt-5 md:text-xl'>
                 <div className=' flex-row'>
                 <BiHotel style={{ color: "#00b0e1"}}/>
                 </div>
-                <p className='flex items-center ml-2'>
+                <p className='text-sm flex items-center ml-2'>
                     STAYCATION:
                     <span className='ml-2 font-bold' style={{ color: "#00b0e1"}}>
                     VILLAGE HOTEL SENTOSA</span>
