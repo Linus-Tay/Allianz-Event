@@ -375,7 +375,7 @@ const downloadRespective = () => {
   }
 
   const [toggle, setToggle] = useState(false)
-  const [timerValue, setTimerValue] = useState()
+  const [timerValue, setTimerValue] = useState("5")
 
   const handleTimerValue = (event) => {
     setTimerValue(event.target.value)
