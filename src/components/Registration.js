@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import Form from './Form'
 
 export const Registration = () => {
+
+    window.scrollTo(0, 0);
+
     return (
         <Fade triggerOnce>
         <div className='p-10'>

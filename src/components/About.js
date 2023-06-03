@@ -2,6 +2,9 @@ import React from 'react'
 import { Fade } from 'react-awesome-reveal'
 
 const About = () => {
+
+  window.scrollTo(0, 0);
+
   return (
     <div className='bg-gray-900' id='about'>
         <div className="text-gray-200 grid grid-cols-12 py-8">

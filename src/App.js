@@ -13,16 +13,7 @@ function App() {
   return (
     <>
       <Navbar/>
-      <ToastContainer
-            position="top-right"
-            autoClose={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            theme="light"
-            />
+      <ToastContainer/>
       <Hero/>
       <About/>
       <Schedule/>
