@@ -11,7 +11,6 @@ const Screen = () => {
       try {
         const timerValue = localStorage.getItem("timerValue")
         const toggle = parseInt(localStorage.getItem("toggle"))
-        console.log(toggle)
         const data = JSON.parse(localStorage.getItem("userData"))
         setName(data.name)
         setPhoneNumber(data.phoneNumber)
