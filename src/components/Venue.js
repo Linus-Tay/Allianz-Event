@@ -66,7 +66,7 @@ const Venue = () => {
             <p className='sttelemedia text-center font-medium italic mb-9'>10 Artillery Avenue Singapore 0999515</p>
         </Fade>
         <Fade triggerOnce>
-            <div className='container rounded-xl mx-auto px-4 border-2 border-red-600 pt-4 pb-6' style={{ width: '85%'}}>
+            <div className='container rounded-xl mx-auto px-4 border-2 border-red-600 pt-4 pb-6 mb-16' style={{ width: '85%'}}>
                 <ul className="m-auto max-w-2xl space-y-1 text-neutral-600 list-disc list-inside">
                 <p className="my-2 mt-4 text-lg font-semibold text-gray-900">STEP 1: Getting to Village Hotel Sentosa</p>
                     <li>By Taxi/Private Hire: Alight directly at Village Hotel Sentosa Lobby.</li>
