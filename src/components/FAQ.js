@@ -62,7 +62,8 @@ const FAQ = () => {
                     </AccordionHeader>
                     <AccordionBody className={open === 3 ? 'sttelemedia duration-500 px-4 py-4 bg-red-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
                     We understand that the past few years has been tough on both personal and work arrangements due to the pandemic. Hence, as part of our drive to celebrate and reward the STT GDC spirit that we have witness, the company decided to include a well-deserved reward for the collective effort demonstrated through the tough times. 
-Staff of STT GDC are entitled to the 1-night stay (with one breakfast the next morning) at Village Hotel Sentosa. Any incremental charges incurred during your stay will be borne by yourself, and will be settled directly with the Hotel.
+                    <br/>
+                        <br/>Staff of STT GDC are entitled to the 1-night stay (with one breakfast the next morning) at Village Hotel Sentosa. Any incremental charges incurred during your stay will be borne by yourself, and will be settled directly with the Hotel.
 
                     </AccordionBody>
                 </Accordion>
@@ -80,7 +81,8 @@ Staff of STT GDC are entitled to the 1-night stay (with one breakfast the next m
                     </AccordionHeader>
                     <AccordionBody className={open === 5 ? 'sttelemedia duration-500 px-4 py-4 bg-red-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
                     You may drop off your luggage at the hotel lobby between 11.00am to 1.30pm on the day of the event. Our friendly event crew and hotel concierge will be on hand to receive them.
-There will also be a complimentary shuttle service from the Hotel lobby towards Beach Station. The event venue (Ola Beach Club) is a short walk away upon alighting.
+                    <br/>
+                        <br/>There will also be a complimentary shuttle service from the Hotel lobby towards Beach Station. The event venue (Ola Beach Club) is a short walk away upon alighting.
 
                     </AccordionBody>
                 </Accordion>
@@ -90,9 +92,12 @@ There will also be a complimentary shuttle service from the Hotel lobby towards 
                     </AccordionHeader>
                     <AccordionBody className={open === 6 ? 'sttelemedia duration-500 px-4 py-4 bg-red-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
                     “Hunt The Coin” is a unique team-based treasure hunt activity that is specially arranged for participants of the Staff Appreciation Day event.
-As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band at random with a team number written on it. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden coins baring the STT logo within a given duration. 
-Teams that find these coins will be rewarded with a cash prize reward equivalent to the coins. There will be 1 gold coin (worth SGD 1,500) and 5 silver coins (worth SGD 700) to be found. The coins will be hidden in various spots across Sentosa, and teams can redeem cash of corresponding value when you find them. To aid teams in locating these coins, hints will be released at a given interval that helps point you towards their respective location. Circles denoting the vicinity of the coin locations will also shrink at the given internal.
-All the best, and good luck!
+                    <br/>
+                        <br/>As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band at random with a team number written on it. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden coins baring the STT logo within a given duration. 
+                        <br/>
+                        <br/>Teams that find these coins will be rewarded with a cash prize reward equivalent to the coins. There will be 1 gold coin (worth SGD 1,500) and 5 silver coins (worth SGD 700) to be found. The coins will be hidden in various spots across Sentosa, and teams can redeem cash of corresponding value when you find them. To aid teams in locating these coins, hints will be released at a given interval that helps point you towards their respective location. Circles denoting the vicinity of the coin locations will also shrink at the given internal.
+<br/>
+                        <br/>All the best, and good luck!
                         <br/>
                         <br/>
                         <span className='italic'>*You will receive an EDM closer to date with more details and explanation to the rules of this Treasure Hunt.</span>
