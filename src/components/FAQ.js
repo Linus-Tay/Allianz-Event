@@ -53,7 +53,7 @@ const FAQ = () => {
                     Will this be an event held annually?
                     </AccordionHeader>
                     <AccordionBody className={open === 2 ? 'sttelemedia duration-500 px-4 py-4 bg-red-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
-                    An initiative by STT GDC Group HR Department to bring together staff of STT GDC as one cohesive family, to have fun and bond over a fun-filled day of activities.
+                    Our HR initiatives are long term, and this event will be the first of many such cohesion and bonding events that are currently being planned for the near future. 
                     </AccordionBody>
                 </Accordion>
                 <Accordion className={open === 3 ? '':'px-4'} open={open === 3} icon={<Icon id={3} open={open} />}  >
@@ -93,7 +93,9 @@ There will also be a complimentary shuttle service from the Hotel lobby towards 
 As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band at random with a team number written on it. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden coins baring the STT logo within a given duration. 
 Teams that find these coins will be rewarded with a cash prize reward equivalent to the coins. There will be 1 gold coin (worth SGD 1,500) and 5 silver coins (worth SGD 700) to be found. The coins will be hidden in various spots across Sentosa, and teams can redeem cash of corresponding value when you find them. To aid teams in locating these coins, hints will be released at a given interval that helps point you towards their respective location. Circles denoting the vicinity of the coin locations will also shrink at the given internal.
 All the best, and good luck!
-
+                        <br/>
+                        <br/>
+                        <span className='italic'>*You will receive an EDM closer to date with more details and explanation to the rules of this Treasure Hunt.</span>
                     </AccordionBody>
                 </Accordion>
             </Fragment>
