@@ -543,10 +543,9 @@ const downloadRespective = () => {
         <div className="grid grid-cols-2 gap-4 pt-2">
           <div>
             <div className='flex justify-center '>
-            <label className="mr-2 relative flex-none items-center cursor-pointer">
-            <input type="checkbox" value="" className="sr-only peer" />
-            <div onClick={AllowChangeToData} className="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-blue-600"></div>
-            </label> 
+            <button onClick={downloadLatest} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1 text-center inline-flex items-center mr-2">
+              Update Change
+            </button>
             <p className='flex-none font-bold text-xl'>Latest Data Displayed:</p>
             </div>
 
@@ -554,15 +553,15 @@ const downloadRespective = () => {
             <dl className="mt-2 pb-8 m-auto max-w-md text-gray-900 divide-y divide-gray-200">
                 <p className="flex pb-3">
                     <dt className="mb-1 text-gray-500">Name</dt>
-                    <dd className="font-semibold ml-2"><input value={name} disabled={allowChange}/></dd>
+                    <dd className="font-semibold ml-2 w-full"><input className='w-full' value={name} disabled={allowChange}/></dd>
                 </p>
                 <p className="flex py-3">
                     <dt className="mb-1 text-gray-500">Email</dt>
-                    <dd className="font-semibold ml-2"><input className='w-full' value={email} disabled={allowChange}/></dd>
+                    <dd className="font-semibold ml-2 w-full"><input className='w-full' value={email} disabled={allowChange}/></dd>
                 </p>
                 <p className="flex pt-3">
-                    <dt className="mb-1 text-gray-500">Phone number</dt>
-                    <dd className="font-semibold ml-2"><input value={phoneNumber} disabled={allowChange}/></dd>
+                    <dt className="mb-1 text-gray-500 w-1/3">Phone number</dt>
+                    <dd className="font-semibold ml-2 w-full"><input className='w-full' value={phoneNumber} disabled={allowChange}/></dd>
                 </p>
             </dl>
           </div>
