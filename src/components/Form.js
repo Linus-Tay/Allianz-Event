@@ -15,10 +15,12 @@ export const Test = () => {
 
     const customStyles = {
         content: {
-          top: '30%',
-          left: '10%',
-          right: '10%',
-          bottom: '35%',
+          top: '50%',
+          left: '50%',
+          right: 'auto',
+          bottom: 'auto',
+          marginRight: '-40%',
+          transform: 'translate(-50%, -50%)',
         },
       };
       
@@ -152,7 +154,7 @@ export const Test = () => {
 
   function HandleModal () {
     if (openWhich === 'tShirt') {
-        return <div className='text-center'><img className='pb-8' src={tShirtSizeChart} alt=""/><button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5" onClick={closeModal}>Close</button></div>
+        return <div className='text-center'><img className='pb-8 w-full' src={tShirtSizeChart} alt=""/><button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5" onClick={closeModal}>Close</button></div>
     } else if (openWhich === 'tankTop') {
         return <div className='text-center'><img className='pb-8' src={tankTopSizeChart} alt=""/><button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5" onClick={closeModal}>Close</button></div>
     } else {
