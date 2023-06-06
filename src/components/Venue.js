@@ -13,8 +13,12 @@ const Venue = () => {
      }
     
      const showInMapClicked1 = () => {
-    window.open("https://maps.google.com?q="+defaultProps.event.lat+","+defaultProps.event.lng );
-  };
+        window.open("https://maps.google.com?q=46 Silosa Beach Walk Singapore 099005" )
+    }
+    const showInMapClicked2 = () => {
+        window.open("https://maps.google.com?q=10 Artillery Avenue Singapore 099951" )
+    }
+
 
     return (
         <div id='venue' className='py-10 bg-white'>
@@ -32,7 +36,8 @@ const Venue = () => {
                     defaultZoom={defaultProps.zoom}
                     >
                         <FaUmbrellaBeach
-                        onclick={showInMapClicked1}
+                        onClick={showInMapClicked1}
+                        className='cursor-pointer'
                         size={40}
                         color='#DC2626'
                         lat={defaultProps.event.lat}
@@ -40,6 +45,8 @@ const Venue = () => {
                         >
                          </FaUmbrellaBeach>
                          <BiHotel
+                        onClick={showInMapClicked2}
+                        className='cursor-pointer'
                         size={40}
                         color='#00b0e1'
                         lat={defaultProps.staycation.lat}
@@ -57,7 +64,7 @@ const Venue = () => {
                         OLA BEACH CLUB</span>
                 </p>
             </div>
-            <p onclick={showInMapClicked1} className='sttelemedia text-center font-medium italic mb-5'>46 Silosa Beach Walk Singapore 099005</p>
+            <p onClick={showInMapClicked1} className='cursor-pointer underline sttelemedia text-center font-medium italic mb-5'>46 Silosa Beach Walk Singapore 099005</p>
             <div className='container w-max flex items-center pt-4 sttelemedia font-bold m-auto mt-5 md:text-xl'>
                 <div className=' flex-row'>
                 <BiHotel style={{ color: "#00b0e1"}}/>
@@ -68,7 +75,7 @@ const Venue = () => {
                     VILLAGE HOTEL SENTOSA</span>
                 </p>
             </div>
-            <p className='sttelemedia text-center font-medium italic mb-9'>10 Artillery Avenue Singapore 0999515</p>
+            <p onClick={showInMapClicked2} className='cursor-pointer underline sttelemedia text-center font-medium italic mb-9'>10 Artillery Avenue Singapore 099951</p>
         </Fade>
         <Fade triggerOnce>
             <div className='container rounded-xl mx-auto px-4 border-2 border-red-600 pt-4 pb-6 mb-16' style={{ width: '85%'}}>
