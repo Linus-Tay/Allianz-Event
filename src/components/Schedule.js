@@ -42,7 +42,7 @@ const Schedule = () => {
                                 Luggage Drop-off at Village Hotel Sentosa
                                 <br/>
                                 <br/>
-                                <span className='italic'>*A shuttle service from the Hotel lobby to Beach Station will be available during this duration.</span>
+                                <span className='italic'>*An <span classname="font-bold underline">exclusive</span> shuttle service from the Hotel lobby to Beach Station will be available during this duration.</span>
                                 </td>
                                 <td className="px-6 py-4 sttelemedia">
                                 Village Hotel Sentosa
