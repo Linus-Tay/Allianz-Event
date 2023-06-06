@@ -24,8 +24,6 @@ const About = () => {
                 <p className='sttelemedia text-red-600 pb-2 text-xl font-bold'>WHEN</p>
                 <p className='sttelemedia text-lg'> Event Day: 14 July 2023
                 </p><br/>
-                <p className='sttelemedia text-lg'> Check Out Day: 15 July 2023
-                </p>
                 
             </div>
         </div>
