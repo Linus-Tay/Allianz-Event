@@ -11,6 +11,10 @@ const Venue = () => {
         staycation: {lat: 1.252588868855636, lng: 103.82030546631348}, 
         zoom: 15
      }
+    
+     const showInMapClicked1 = () => {
+    window.open("https://maps.google.com?q="+defaultProps.event.lat+","+defaultProps.event.lng );
+  };
 
     return (
         <div id='venue' className='py-10 bg-white'>
@@ -28,6 +32,7 @@ const Venue = () => {
                     defaultZoom={defaultProps.zoom}
                     >
                         <FaUmbrellaBeach
+                        onclick={showInMapClicked1}
                         size={40}
                         color='#DC2626'
                         lat={defaultProps.event.lat}
@@ -52,7 +57,7 @@ const Venue = () => {
                         OLA BEACH CLUB</span>
                 </p>
             </div>
-            <p className='sttelemedia text-center font-medium italic mb-5'>46 Silosa Beach Walk Singapore 099005</p>
+            <p onclick={showInMapClicked1} className='sttelemedia text-center font-medium italic mb-5'>46 Silosa Beach Walk Singapore 099005</p>
             <div className='container w-max flex items-center pt-4 sttelemedia font-bold m-auto mt-5 md:text-xl'>
                 <div className=' flex-row'>
                 <BiHotel style={{ color: "#00b0e1"}}/>
