@@ -46,7 +46,7 @@ const Venue = () => {
                 <div className='text-red-600 flex-row'>
                 <FaUmbrellaBeach/>
                 </div>
-                <p className='flex items-center ml-2'>
+                <p className='text-sm flex items-center ml-2'>
                     EVENT VENUE: 
                     <span className='ml-2 font-bold text-red-600'>
                         OLA BEACH CLUB</span>
