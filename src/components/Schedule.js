@@ -135,8 +135,9 @@ const Schedule = () => {
                                 </th>
                                 <td className="px-6 py-4 sttelemedia font-semibold">
                                 Special Stage Performance
-                                <hr class="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                                <hr class="h-px my-1 bg-gray-200 border-0"></hr>
                                     <p>Lucky Draw</p>
+<hr class="h-px my-1 bg-gray-200 border-0"></hr>
                                     <p>Disbursement of Hotel Room Access Cards</p>
                                     <br/>
                                 <span className='italic'>*Details will be further communicated during the event.</span>
