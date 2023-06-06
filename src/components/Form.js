@@ -287,7 +287,7 @@ export const Test = () => {
             </label>
             
         </div>
-        <option onClick={handleOpen} value="tShirt" className='w-full border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for T-Shirt size chart.</option>
+        <button type="button" onClick={handleOpen} value="tShirt" className='w-full border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for T-Shirt size chart.</button>
         <img src={tShirt} alt=""/>
         
 
@@ -297,7 +297,7 @@ export const Test = () => {
             Drifit Tank Top
             </label>
         </div>
-        <option onClick={handleOpen} value="tankTop" className='w-full cursor-pointer sttelemedia italic text-sm text-gray-600 pb-4'>*Click here for size chart.</option>
+        <button type="button" onClick={handleOpen} value="tankTop" className='w-full border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for Tank Top size chart.</button>
         <img src={tankTop} alt=""/>     
         </fieldset>
 
