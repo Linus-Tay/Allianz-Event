@@ -21,7 +21,7 @@ export const Test = () => {
           bottom: 'auto',
           marginRight: '-40%',
           transform: 'translate(-50%, -50%)',
-          height: '80%'
+          height: 'auto'
         },
       };
       

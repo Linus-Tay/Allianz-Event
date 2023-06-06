@@ -26,8 +26,6 @@ const About = () => {
                 </p><br/>
                 <p className='sttelemedia text-lg'> Check Out Day: 15 July 2023
                 </p>
-  <p className='sttelemedia text-lg'> Check Out Timing: 12pm
-                </p>
                 
             </div>
         </div>
