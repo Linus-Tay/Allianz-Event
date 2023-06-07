@@ -76,7 +76,7 @@ const Venue = () => {
                 </p>
             </div>
             <p onClick={showInMapClicked2} className='cursor-pointer underline sttelemedia text-center font-medium italic'>10 Artillery Avenue Singapore 099951</p>
-            <p className='sttelemedia text-center font-medium italic mb-9'>Check Out Timing: 12pm</p>
+            <p className='sttelemedia text-center font-medium italic mb-9'>Check Out Timing: 15 July 2023 @ 12pm</p>
         </Fade>
         <Fade triggerOnce>
             <div className='container rounded-xl mx-auto px-4 border-2 border-red-600 pt-4 pb-6 mb-16' style={{ width: '85%'}}>
