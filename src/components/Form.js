@@ -340,7 +340,7 @@ export const Test = () => {
             </label>
             
         </div>
-        <button type="button" onClick={handleOpen} value="tShirt" className='w-full border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for T-Shirt size chart.</button>
+        <button type="button" onClick={handleOpen} value="tShirt" className='w-full text-red-600 border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for T-Shirt size chart.</button>
         <img src={tShirt} alt=""/>
         
         <p className='font-bold italic text-sm py-4 pt-8'>Drifit Tank Top</p>
@@ -407,7 +407,7 @@ export const Test = () => {
             </label>
             
         </div>
-        <button type="button" onClick={handleOpen} value="tankTop" className='w-full border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for Tank Top size chart.</button>
+        <button type="button" onClick={handleOpen} value="tankTop" className='text-red-600 w-full border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for Tank Top size chart.</button>
         <img src={tankTop} alt=""/>     
         </fieldset>
 

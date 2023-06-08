@@ -78,7 +78,7 @@ const Venue = () => {
                 </p>
             </div>
             <p onClick={showInMapClicked2} className='cursor-pointer sttelemedia text-center font-medium '>Google Maps: <span className='underline italic'>10 Artillery Avenue Singapore 099951</span></p>
-            <p className='sttelemedia text-center font-medium italic mb-9'>Check Out Timing: 12pm</p>
+            <p className='sttelemedia text-center font-medium italic mb-9'>Check Out Timing: 15 July 2023 @ 12pm</p>
         </Fade>
         <Fade triggerOnce>
             <div className='container rounded-xl mx-auto px-4 pt-4 pb-6 mb-16' style={{ width: '85%'}}>
