@@ -85,7 +85,7 @@ const Venue = () => {
                 <ul className="m-auto max-w-2xl space-y-1 text-neutral-600 list-disc list-inside">
                 <p className="my-2 mt-4 text-lg font-semibold text-gray-900">STEP 1: Getting to Village Hotel Sentosa</p>
                     <li>By Taxi/Private Hire: Alight directly at Village Hotel Sentosa Lobby.</li>
-                    <li>By Car: Parking lots are available and based on first-come-first-served basis.</li>
+                    <li>By Car: Parking lots are available and based on first-come-first-served basis. (Complimentary parking coupons are provided for staff who have opted-in to the Statcation at Village Hotel Sentosa)</li>
                     <li>By MRT & Sentosa Express: Alight at Harbourfront Station, and board the Sentosa Express in Vivocity, Level 3. Alight at Imbiah Station, and walk towards Village Hotel Sentosa. (approx 300m/ 5-min walk)</li>
                 </ul>
                 <ul className="m-auto max-w-2xl space-y-1 text-neutral-600 list-disc list-inside">
