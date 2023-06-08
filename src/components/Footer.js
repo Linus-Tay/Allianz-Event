@@ -16,7 +16,7 @@ const Footer = () => {
 
                 </div>
                 <br/>
-                <p className='sttelemedia italic text-sm'>© 2023 Singapore Technologies Telemedia Pte Ltd</p>
+                <p className='sttelemedia italic text-sm'>© 2023 STT GDC Pte Ltd</p>
             </div>
         </div>
     </div>
