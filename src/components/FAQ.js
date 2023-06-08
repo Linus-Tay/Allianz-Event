@@ -59,6 +59,7 @@ const FAQ = () => {
                 <Accordion className={open === 3 ? '':'px-4'} open={open === 3} icon={<Icon id={3} open={open} />}  >
                     <AccordionHeader onClick={() => handleOpen(3)} className={open === 3 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
                     Why is there hotel accommodation provided for 1 night?
+                    </AccordianHeader>
                     <AccordionBody className={open === 3 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
                     The growth of our business in these uncertain times would not have been possible without each and everyone's steadfastness and resilience in the face of challenges. Let's embrace this time and opportunity to recharge ourselves, foster a sense of unity and build camaraderie with one another as we celebrate our achievements, and continue on an inspiring journey of growth and success built with you.
 <br/><br/>
