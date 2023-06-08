@@ -23,9 +23,9 @@ const Venue = () => {
     return (
         <div id='venue' className='py-10 bg-white'>
          <p style={{ letterSpacing: '3px '}} className='pt-20 text-red-500 text-sm font-black sttelemedia text-center'>EVENT VENUE</p>
-         <p style={{ color: '#5a5a5a' }} className='pt-4 sttelemedia text-4xl md:text-5xl font-bold text-center '>How To Get There</p>
+         <p style={{ color: '#5a5a5a' }} className='pt-4 sttelemedia text-4xl md:text-5xl font-bold text-center '>Getting there</p>
         <Fade triggerOnce>
-        <div className='container mx-auto mt-10 border-solid border-2 border-red-600' style={{ height: '40vh', width: '85%'}}>
+        <div className='container mx-auto mt-10' style={{ height: '40vh', width: '85%'}}>
                 <GoogleMapReact 
                     bootstrapURLKeys={{
                         key: 'AIzaSyD1LzKWYo55CA_wsGnBH9s0N5a6uLJbeCw', 
@@ -34,6 +34,8 @@ const Venue = () => {
                     defaultCenter={defaultProps.staycation}
                     center={defaultProps.staycation}
                     defaultZoom={defaultProps.zoom}
+                    
+                    
                     >
                         <FaUmbrellaBeach
                         onClick={showInMapClicked1}
@@ -48,7 +50,7 @@ const Venue = () => {
                         onClick={showInMapClicked2}
                         className='cursor-pointer'
                         size={40}
-                        color='#00b0e1'
+                        color='#DC2626'
                         lat={defaultProps.staycation.lat}
                         lng={defaultProps.staycation.lng}
                         ></BiHotel>
@@ -64,30 +66,30 @@ const Venue = () => {
                         OLA BEACH CLUB</span>
                 </p>
             </div>
-            <p onClick={showInMapClicked1} className='cursor-pointer underline sttelemedia text-center font-medium italic mb-5'>46 Silosa Beach Walk Singapore 099005</p>
+            <p onClick={showInMapClicked1} className='cursor-pointer sttelemedia text-center font-medium mb-5'>Google Maps: <span className='underline italic'>46 Silosa Beach Walk Singapore 099005</span></p>
             <div className='container w-max flex items-center pt-4 sttelemedia font-bold m-auto mt-5 md:text-xl'>
                 <div className=' flex-row'>
-                <BiHotel style={{ color: "#00b0e1"}}/>
+                <BiHotel style={{ color: "#DC2626"}}/>
                 </div>
                 <p className='text-sm flex items-center ml-2'>
                     STAYCATION:
-                    <span className='ml-2 font-bold' style={{ color: "#00b0e1"}}>
+                    <span className='ml-2 font-bold' style={{ color: "#DC2626"}}>
                     VILLAGE HOTEL SENTOSA</span>
                 </p>
             </div>
-            <p onClick={showInMapClicked2} className='cursor-pointer underline sttelemedia text-center font-medium italic'>10 Artillery Avenue Singapore 099951</p>
+            <p onClick={showInMapClicked2} className='cursor-pointer sttelemedia text-center font-medium '>Google Maps: <span className='underline italic'>10 Artillery Avenue Singapore 099951</span></p>
             <p className='sttelemedia text-center font-medium italic mb-9'>Check Out Timing: 12pm</p>
         </Fade>
         <Fade triggerOnce>
-            <div className='container rounded-xl mx-auto px-4 border-2 border-red-600 pt-4 pb-6 mb-16' style={{ width: '85%'}}>
+            <div className='container rounded-xl mx-auto px-4 pt-4 pb-6 mb-16' style={{ width: '85%'}}>
                 <ul className="m-auto max-w-2xl space-y-1 text-neutral-600 list-disc list-inside">
                 <p className="my-2 mt-4 text-lg font-semibold text-gray-900">STEP 1: Getting to Village Hotel Sentosa</p>
                     <li>By Taxi/Private Hire: Alight directly at Village Hotel Sentosa Lobby.</li>
                     <li>By Car: Parking lots are available and based on first-come-first-served basis.</li>
-                    <li>By MRT & Sentosa Express: Alight at Harbourfront Station, and board the Sentosa Express in Vivocity, Level 3. Alight at Imbiah Station, and walk towards Village Hotel Sentosa.</li>
+                    <li>By MRT & Sentosa Express: Alight at Harbourfront Station, and board the Sentosa Express in Vivocity, Level 3. Alight at Imbiah Station, and walk towards Village Hotel Sentosa. (approx 300m/ 5-min walk)</li>
                 </ul>
                 <ul className="m-auto max-w-2xl space-y-1 text-neutral-600 list-disc list-inside">
-                <p className="my-2 mt-4 text-lg font-semibold text-gray-900">STEP 2: Luggage Drop @ Staycation Hotel</p>
+                <p className="my-2 mt-4 text-lg font-semibold text-gray-900">STEP 2: Luggage Drop @ Village Hotel Sentosa</p>
                     <li>Drop off your luggage at Village Hotel Sentosa, between 11:30am to 1:30pm.</li>
                     <li>Our friendly event crew will be on hand to tag your luggage in accordance to your room number.</li>
                 </ul>
