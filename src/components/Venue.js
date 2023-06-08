@@ -13,10 +13,10 @@ const Venue = () => {
      }
     
      const showInMapClicked1 = () => {
-        window.open("https://maps.google.com?q=46 Silosa Beach Walk Singapore 099005" )
+        window.open("https://maps.google.com?q=Ola Beach Club" )
     }
     const showInMapClicked2 = () => {
-        window.open("https://maps.google.com?q=10 Artillery Avenue Singapore 099951" )
+        window.open("https://maps.google.com?q=Village Hotel Sentosa" )
     }
 
 
