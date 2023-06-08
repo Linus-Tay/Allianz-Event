@@ -98,7 +98,7 @@ Complimentary parking coupons are provided for staff who have opted-in to the St
                     <AccordionHeader onClick={() => handleOpen(7)} className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
                     What is the "Hunt The Medallion" Challenge about? 
                     </AccordionHeader>
-                    <AccordionBody className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}
+                    <AccordionBody className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
                     “Hunt The Coin” is an exhilarating team-based treasure hunt activity for 6 coins that is specially planned for participating staff at the event!
 <br/><br/>
 As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band with a team number indicated and assigned randomly. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden coins baring the STT logo within a given duration.
