@@ -94,7 +94,7 @@ Complimentary parking coupons are provided for staff who have opted-in to the St
                     There will also be a complimentary shuttle service from Village Hotel Sentosa lobby towards Beach Station. The event venue (Ola Beach Club) is a short walk away upon alighting.
                     </AccordionBody>
                 </Accordion>
-                <Accordion className={open === 7 ? '':'px-4'} open={open === 7} icon={<Icon id={7} open={open} />}
+                <Accordion className={open === 7 ? '':'px-4'} open={open === 7} icon={<Icon id={7} open={open} />}>
                     <AccordionHeader onClick={() => handleOpen(7)} className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
                     What is the "Hunt The Medallion" Challenge about? 
                     </AccordionHeader>
