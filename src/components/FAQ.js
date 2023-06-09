@@ -100,11 +100,11 @@ Complimentary parking coupons are provided for staff who have opted-in to the St
                     What is the "Hunt The Medallion" Challenge about? 
                     </AccordionHeader>
                     <AccordionBody className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
-                    “Hunt The Coin” is an exhilarating team-based treasure hunt activity for 6 coins that is specially planned for participating staff at the event!
+                    “Hunt The Medallion” is an exhilarating team-based treasure hunt activity for 6 medallions that is specially planned for participating staff at the event!
 <br/><br/>
-As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band with a team number indicated and assigned randomly. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden coins baring the STT logo within a given duration.
+As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band with a team number indicated and assigned randomly. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden medallions baring the STT logo within a given duration.
 <br/><br/>
-Teams that find these coins will be rewarded with a cash prize reward equivalent to the coins. There will be 1 gold coin (worth SGD 1,500) and 5 silver coins (worth SGD 700) to be found. The coins will be hidden in various spots across Sentosa, and teams can redeem cash of corresponding value when you find them. To aid teams in locating these coins, hints will be released at a given interval that helps point you towards their respective location. Circles denoting the vicinity of the coin locations will also shrink at the given internal.
+Teams that find these medallions will be rewarded with a cash prize reward equivalent to the medallions. There will be 1 gold medallion (worth SGD 1,500) and 5 silver medallions (worth SGD 700) to be found. The medallions will be hidden in various spots across Sentosa, and teams can redeem cash of corresponding value when you find them. To aid teams in locating these medallions, hints will be released at a given interval that helps point you towards their respective location. Circles denoting the vicinity of the medallion locations will also shrink at the given internal.
 <br/>
 You can find out more about how to play and rules of the game here.
 <br/>
