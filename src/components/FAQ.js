@@ -70,7 +70,7 @@ Each STT GDC staff is entitled to the 1-night stay (with one breakfast for 1 pro
                     <AccordionHeader onClick={() => handleOpen(4)} className={open === 4 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
                     I will be driving to the venue, where can I park? Is parking provided?
                     </AccordionHeader>
-                    <AccordionBody className={open === 4 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}
+                    <AccordionBody className={open === 4 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
                    
 Complimentary parking coupons are provided for staff who have opted-in to the Staycation at Village Hotel Sentosa. Parking lots at the hotel are based on availability.
                     </AccordionBody>
