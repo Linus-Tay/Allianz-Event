@@ -71,8 +71,47 @@ Each STT GDC staff is entitled to the 1-night stay (with one breakfast for 1 pro
                     I will be driving to the venue, where can I park? Is parking provided?
                     </AccordionHeader>
                     <AccordionBody className={open === 4 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
-                   
-Complimentary parking coupons are provided for staff who have opted-in to the Staycation at Village Hotel Sentosa. Parking lots at the hotel are based on availability.
+                    Complimentary parking coupons are provided for staff who have opted-in to the Staycation at Village Hotel Sentosa. Parking lots at the hotel are based on availability.
+                    <br/><br/>
+                    If the hotel carpark is full, you may find alternative parking at “Beach Station Carpark”. It is a short 5-min walk away from the Hotel.
+                    <br/><br/>
+                    The following rates apply at Beach Station Carpark:
+
+                    
+                    <div className="relative overflow-x-auto py-5">
+                        <table className="w-full text-sm text-left text-gray-500">
+                            <thead className="text-xs text-neutral-600 uppercase bg-gray-50">
+                                <tr className='text-center'>
+                                    <th scope="col" className="text-neutral-600 px-6 py-3">
+                                        TIME
+                                    </th>
+                                    <th scope="col" className="text-neutral-600 px-6 py-3">
+                                        CHARGES
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="text-center bg-white border-b">
+                                    <th scope="row" className="px-6 py-4 font-medium text-neutral-600 whitespace-nowrap">
+                                        7am - 5pm
+                                    </th>
+                                    <td className="px-6 py-4 text-neutral-600">
+                                        $1.20 per hour <br/> <span className='italic'>based on per-minute charging of $0.02/min</span>
+                                    </td>
+                                </tr>
+                                <tr className="text-center bg-white border-b">
+                                    <th scope="row" className="px-6 py-4 font-medium text-neutral-600 whitespace-nowrap">
+                                        5.01pm - 6.59am
+                                    </th>
+                                    <td className="px-6 py-4 text-neutral-600">
+                                        $2.40 per entry
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
                     </AccordionBody>
                 </Accordion>
                 <Accordion className={open === 5 ? '':'px-4'} open={open === 5} icon={<Icon id={5} open={open} />}  >
@@ -101,14 +140,22 @@ Complimentary parking coupons are provided for staff who have opted-in to the St
                     </AccordionHeader>
                     <AccordionBody className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
                     “Hunt The Medallion” is an exhilarating team-based treasure hunt activity for 6 medallions that is specially planned for participating staff at the event!
-<br/><br/>
-As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band with a team number indicated and assigned randomly. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden medallions baring the STT logo within a given duration.
-<br/><br/>
-Teams that find these medallions will be rewarded with a cash prize reward equivalent to the medallions. There will be 1 gold medallion (worth SGD 1,500) and 5 silver medallions (worth SGD 700) to be found. The medallions will be hidden in various spots across Sentosa, and teams can redeem cash of corresponding value when you find them. To aid teams in locating these medallions, hints will be released at a given interval that helps point you towards their respective location. Circles denoting the vicinity of the medallion locations will also shrink at the given internal.
-<br/>
-You can find out more about how to play and rules of the game here.
-<br/>
-Not to worry, there will be a game briefing before we start the hunt too!
+                    <br/><br/>
+                    As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band with a team number indicated and assigned randomly. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden medallions baring the STT logo within a given duration.
+                    <br/><br/>
+                    Teams that find these medallions will be rewarded with a cash prize reward equivalent to the medallions. There will be 1 gold medallion (worth SGD 1,500) and 5 silver medallions (worth SGD 700) to be found. The medallions will be hidden in various spots across Sentosa, and teams can redeem cash of corresponding value when you find them. To aid teams in locating these medallions, hints will be released at a given interval that helps point you towards their respective location. Circles denoting the vicinity of the medallion locations will also shrink at the given internal.
+                    <br/><br/>
+                    You can find out more about how to play and rules of the game here.
+                    <br/><br/>
+                    Not to worry, there will be a game briefing before we start the hunt too!
+                    </AccordionBody>
+                </Accordion>
+                <Accordion className={open === 8 ? '':'px-4'} open={open === 8} icon={<Icon id={8} open={open} />}>
+                    <AccordionHeader onClick={() => handleOpen(8)} className={open === 8 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
+                    Will entry into Sentosa be complimentary?
+                    </AccordionHeader>
+                    <AccordionBody className={open === 8 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
+                    For staff that have registered successfully for this event, entry into Sentosa will be complimentary. More details will be shared with you closer to date.
                     </AccordionBody>
                 </Accordion>
             </Fragment>
