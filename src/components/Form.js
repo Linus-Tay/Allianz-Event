@@ -96,7 +96,7 @@ export const Test = () => {
         makeNameNice(formData.name, formData.email, formData.nric)
         addDoc(colRef, {formData})   
 
-        /*try {
+        try {
             try {   
                 emailjs.sendForm('service_0vx2lmc', 'template_6f6y7io', form.current, 'jlvn9xBiUTISdQ3Fq')
                 .then((result) => {
@@ -145,7 +145,7 @@ export const Test = () => {
                 progress: 0,
                 theme: "light",
                 })
-          }, 1);*/
+          }, 1);
   };
 
   const handleOpen = (e) => {
