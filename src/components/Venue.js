@@ -96,7 +96,7 @@ const Venue = () => {
                 
                 <ul className="m-auto max-w-2xl space-y-1 text-neutral-600 list-disc list-inside">
                 <p className="my-2 mt-4 text-lg font-semibold text-gray-900">STEP 3: Getting to Ola Beach Club</p>
-                    <li>You may take our STT GDC shuttle service from the Hotel Lobby towards Beach Station.</li>
+                    <li>You may take our STT GDC shuttle service from the Hotel Lobby towards Beach Station. (The shuttle service departs once every 15min.”)</li>
                     <li>Please arrive at our Event Venue (Ola Beach Club) at 1:30pm to register your attendance.</li>
                 </ul>
             </div>

@@ -16,6 +16,7 @@ togetherness with exhilarating team
 building activities to foster lasting
 camaraderie on Day 1, indulging in selfcare and relaxation as you recharge your
 energy by the seaside on Day 2.
+<br/><br/><span className='font-bold'>Please register by 23 June 2023 to secure your 1-night stay as part of the event. Any requests after 23 June 2023 will automatically be rejected, and will only be considered on a case-by-case basis.</span>
                 </p>
             </div>
             <div className='p-10 col-span-12 md:col-span-4'>
@@ -36,11 +37,8 @@ Accommodation: Village Hotel Sentosa
         <div className='bg-white py-24'>
         <div className='container m-auto'>
           <Fade triggerOnce duration={1000}>
-          <p style={{ letterSpacing: '3px '}} className='text-red-500 text-sm font-bold sttelemedia text-center'>UNWIND, CONNECT, AND RECHARGE
+          <p style={{ letterSpacing: '3px '}} className='text-red-500 font-bold sttelemedia text-center text-4xl'>UNWIND, CONNECT, AND RECHARGE
 </p>
-          </Fade>
-          <Fade triggerOnce duration={2000}>
-          <p style={{ color: '#5a5a5a' }} className='pt-4 sttelemedia text-4xl md:text-5xl font-bold text-center '>[RE]Connect</p>
           </Fade>
           <Fade triggerOnce duration={2500}>
           <p style={{ color: '#5a5a5a' }} className='text-neutral-600 sttelemedia text-2xl pt-4 md:text-3xl font-bold text-center'>"Rekindling Connections: Staff Appreciation Day"</p>
