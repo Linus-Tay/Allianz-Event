@@ -37,7 +37,7 @@ const Navbar = () => {
         <Link to="hero" className="cursor-pointer flex items-center">
             <img src={Logo} className="h-8 md:h-10 md:h-18 md:mr-3" alt="STTelemedia" />
         </Link>
-        <div className="flex lg:order-2">
+        <div className="flex order-2">
             <Linkto to="registration" className="sttelemedia bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 px-2 py-1 text-white mr-2 text-center">Register</Linkto>
             <span className='w-28 text-xs text-neutral-600' style={{marginRight:"-8px"}}>Registration closes on 23 June 2023</span>
             <button onClick={ToggleSidebar} data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 text-sm rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-sticky" aria-expanded="false">
