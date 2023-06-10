@@ -7,8 +7,8 @@ import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import tShirt from './images/tshirt.png'
 import tankTop from './images/tank top.png'
-import tShirtSizeChart from './images/tshirt size chart.jpeg'
-import tankTopSizeChart from './images/tank top size chart.jpeg'
+import tShirtSizeChart from './images/tshirt size chart.jpg'
+import tankTopSizeChart from './images/tank top size chart.jpg'
 import emailjs from '@emailjs/browser';
 
 export const Test = () => {
@@ -284,6 +284,7 @@ export const Test = () => {
         <legend className="sr-only">Accomodation</legend>
             <p className='font-bold py-4 pt-8'>As a participant of this event, you are entitled to one (1) Event Apparel, please select your preference and indicate your size:</p>
             <p className='font-bold italic text-sm py-4 pt-8'>Drifit T-Shirt</p>
+            <button type="button" onClick={handleOpen} value="tShirt" className='w-full text-red-600 border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for T-Shirt size chart.</button>
         <div className="flex items-center mb-1">
             <input onInput={(e) => setFormData({...formData, tShirt: e.target.value})} id="apparel-option-1" type="radio" name="apparel" value="2XS" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label for="apparel-option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
@@ -340,10 +341,10 @@ export const Test = () => {
             </label>
             
         </div>
-        <button type="button" onClick={handleOpen} value="tShirt" className='w-full text-red-600 border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for T-Shirt size chart.</button>
-        <img src={tShirt} alt=""/>
         
+    
         <p className='font-bold italic text-sm py-4 pt-8'>Drifit Tank Top</p>
+        <button type="button" onClick={handleOpen} value="tankTop" className='text-red-600 w-full border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for Tank Top size chart.</button>
         <div className="flex items-center mb-1">
             <input onInput={(e) => setFormData({...formData, tankTop: e.target.value})} id="apparel-option-9" type="radio" name="apparel" value="2XS" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label for="apparel-option-9" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
@@ -407,8 +408,8 @@ export const Test = () => {
             </label>
             
         </div>
-        <button type="button" onClick={handleOpen} value="tankTop" className='text-red-600 w-full border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for Tank Top size chart.</button>
-        <img src={tankTop} alt=""/>     
+       
+        
         </fieldset>
 
             <fieldset>
