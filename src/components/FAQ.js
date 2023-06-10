@@ -155,7 +155,7 @@ Each STT GDC staff is entitled to the 1-night stay (with one breakfast for 1 pro
                     Will entry into Sentosa be complimentary?
                     </AccordionHeader>
                     <AccordionBody className={open === 8 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
-                    For staff that have registered successfully for this event, entry into Sentosa will be complimentary. More details will be shared with you closer to date.
+                    For staff who have registered successfully for this event, entry into Sentosa will be complimentary. More details will be shared with you closer to date.
                     </AccordionBody>
                 </Accordion>
             </Fragment>
