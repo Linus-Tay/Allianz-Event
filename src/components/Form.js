@@ -286,7 +286,7 @@ export const Test = () => {
             <p className='font-bold italic text-sm py-4 pt-8'>Cotton T-Shirt</p>
             <button type="button" onClick={handleOpen} value="tShirt" className='w-full text-red-600 border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for T-Shirt size chart.</button>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value})} id="apparel-option-1" type="radio" name="apparel" value="2XS" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value})} id="apparel-option-1" type="radio" name="apparel" value="XS" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             XS 
             </label>
@@ -300,7 +300,7 @@ export const Test = () => {
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value})} id="apparel-option-4" type="radio" name="apparel" value="MS" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value})} id="apparel-option-4" type="radio" name="apparel" value="M" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-4" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             M
             </label>
@@ -336,21 +336,21 @@ export const Test = () => {
         </div>
         <p className='font-bold italic text-sm py-4 pt-8'>Cotton T-Shirt for Kids</p>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value})} id="apparel-option-8" type="radio" name="apparel" value="3XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value})} id="apparel-option-8" type="radio" name="apparel" value="YXS" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-8" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             YXS
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value})} id="apparel-option-8" type="radio" name="apparel" value="3XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value})} id="apparel-option-8" type="radio" name="apparel" value="YM" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-8" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             YM
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value})} id="apparel-option-8" type="radio" name="apparel" value="3XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value})} id="apparel-option-8" type="radio" name="apparel" value="YXL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-8" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             YXL
             </label>
@@ -361,7 +361,7 @@ export const Test = () => {
         <p className='font-bold italic text-sm py-4 pt-8'>Cotton Tank Top</p>
         <button type="button" onClick={handleOpen} value="tankTop" className='text-red-600 w-full border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for Tank Top size chart.</button>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value})} id="apparel-option-9" type="radio" name="apparel" value="2XS" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value})} id="apparel-option-9" type="radio" name="apparel" value="S" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-9" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             S 
             </label>
@@ -403,7 +403,7 @@ export const Test = () => {
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value})} id="apparel-option-17" type="radio" name="apparel" value="5XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value})} id="apparel-option-17" type="radio" name="apparel" value="4XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-17" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             4XL
             </label>
