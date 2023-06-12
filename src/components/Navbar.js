@@ -35,12 +35,12 @@ const Navbar = () => {
         <nav className="ease-in duration-300 bg-white w-full fixed z-0 top-0 left-0">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to="hero" className="cursor-pointer flex items-center">
-            <img src={Logo} className="h-8 md:h-10 md:h-18 md:mr-3" alt="STTelemedia" />
+            <img src={Logo} className="h-7 md:h-10 md:h-18 md:mr-3" alt="STTelemedia" />
         </Link>
         <div className="flex order-2">
             <Linkto to="registration" className="sttelemedia bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm py-3 px-2 text-white mr-2 text-center">Register</Linkto>
-            <span className='w-28 text-xs text-neutral-600 mt-1' style={{marginRight:"-8px"}}>Registration closes on 23 June 2023</span>
-            <button onClick={ToggleSidebar}  style={{marginRight:"-10px"}} data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 text-sm rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-sticky" aria-expanded="false">
+            <span style={{ fontSize: "10px", marginRight:"-12px"}} className='w-24 text-neutral-600 mt-1'>Registration closes on 23 June 2023</span>
+            <button onClick={ToggleSidebar}  style={{marginRight:"-20px"}} data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 text-sm rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-sticky" aria-expanded="false">
                 <svg className="w-6 h-6" aria-hidden="true" fill="#525252" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"></path></svg>
             </button>
         </div>

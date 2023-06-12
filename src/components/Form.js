@@ -172,16 +172,17 @@ export const Test = () => {
         <ToastContainer/>
         <p className='font-bold py-4'>Please enter the necessary information below: </p>
         <div>
+            
             <div className="relative z-0 w-full mb-6 group">
                 <input name="name" type="text" onInput={(e) => setFormData({...formData, name: e.target.value})} value={formData.name} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none    focus:outline-none focus:ring-0 focus:border-blue-600 peer"  placeholder=" " required />
-                <label htmlFor="floating_full_name" className="sttelemedia peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus: peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Full name</label>
+                <label htmlFor="floating_full_name" className="sttelemedia peer-focus:font-medium absolute text-sm text-gray-500 overflow-y-auto duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus: peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Full name</label>
                 <p className='sttelemedia italic text-sm text-gray-600'>*as per NRIC or Identification Card</p>
             </div>
         </div>
         <div className="grid md:grid-cols-2 md:gap-6">
         <div className="relative z-0 w-full mb-6 group">
                 <input name="nric" type="text" onInput={(e) => setFormData({...formData, nric: e.target.value})} value={formData.nric} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none    focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                <label htmlFor="floating_company" className="sttelemedia peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus: peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">NRIC Number/ Identification Number</label>
+                <label htmlFor="floating_company" className="sttelemedia peer-focus:font-medium absolute text-sm text-gray-500 overflow-x-visible duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus: peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">NRIC Number/ Identification Number</label>
                 <p className='sttelemedia italic text-sm text-gray-600'>*for purpose of the Hotel arrangement and Pre Check-In</p>
             </div>
             <div className="relative z-0 w-full mb-6 group">

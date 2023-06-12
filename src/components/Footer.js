@@ -8,8 +8,8 @@ const Footer = () => {
         <div className='container'>
             <div className='bottom'>
                 <span className='line'></span>
-                <div className='text-center flex align-center justify-center'>
-                  <AiFillLinkedin className='mr-2' size={25}/> Share your memorable stories and experiences at STT GDC on LinkedIn and tag us
+                <div className='flex justify-center '>
+                  <span className='inline-block align-baseline'><AiFillLinkedin size={30}/></span>Share your memorable stories and experiences at STT GDC on LinkedIn and tag us
 @ST Telemedia Global Data Centres!
 
 <br/><br/>#BuiltForFun #LifeatSTTGDC #EnablingOurDigitalFuture

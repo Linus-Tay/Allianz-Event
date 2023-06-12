@@ -9,8 +9,8 @@ export const Registration = () => {
 
     return (
         <Fade triggerOnce>
-        <div className='p-10'>
-        <nav className="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50" aria-label="Breadcrumb">
+        <div className='p-2'>
+        <nav className="flex px-4 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50" aria-label="Breadcrumb">
         <ol className="inline-flex items-center space-x-1 md:space-x-3">
             <li className="inline-flex items-center">
             <Link to="/" className="sttelemedia inline-flex items-center text-sm font-semibold text-gray-700 hover:text-red-600">
