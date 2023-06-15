@@ -140,11 +140,11 @@ const FAQ = () => {
                     On 15 Jul 2023 (Sat) before 12.00pm, please proceed to the counter to process your check-out. Any incremental charges incurred during your stay will be borne by yourself, and will be settled directly with Village Hotel Sentosa then.
                     </AccordionBody>
                 </Accordion>
-                <Accordion className={open === 7 ? '':'px-4'} open={open === 7} icon={<Icon id={7} open={open} />}>
-                    <AccordionHeader onClick={() => handleOpen(7)} className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
+                <Accordion className={open === 8 ? '':'px-4'} open={open === 8} icon={<Icon id={8} open={open} />}>
+                    <AccordionHeader onClick={() => handleOpen(8)} className={open === 8 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
                     What is the STT GDC Medallion Hunt about? 
                     </AccordionHeader>
-                    <AccordionBody className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
+                    <AccordionBody className={open === 8 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
                     STT GDC Medallion Hunt is an exhilarating team-based treasure hunt activity for 6 medallions that is specially planned for participating staff at the event!
                     <br/><br/>
                     As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band with a team number indicated and assigned randomly. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden medallions baring the STT logo within a given duration.
@@ -156,11 +156,11 @@ const FAQ = () => {
                     Not to worry, there will be a game briefing before we start the hunt too!
                     </AccordionBody>
                 </Accordion>
-                <Accordion className={open === 8 ? '':'px-4'} open={open === 8} icon={<Icon id={8} open={open} />}>
-                    <AccordionHeader onClick={() => handleOpen(8)} className={open === 8 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
+                <Accordion className={open === 9 ? '':'px-4'} open={open === 9} icon={<Icon id={9} open={open} />}>
+                    <AccordionHeader onClick={() => handleOpen(9)} className={open === 9 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
                     Will entry into Sentosa be complimentary?
                     </AccordionHeader>
-                    <AccordionBody className={open === 8 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
+                    <AccordionBody className={open === 9 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
                     For staff who have registered successfully for this event, entry into Sentosa will be complimentary. More details will be shared with you closer to date.
                     </AccordionBody>
                 </Accordion>
