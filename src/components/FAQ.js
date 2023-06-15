@@ -132,6 +132,14 @@ const FAQ = () => {
                     There will also be a complimentary shuttle service from Village Hotel Sentosa lobby towards Beach Station. The event venue (Ola Beach Club) is a short walk away upon alighting.
                     </AccordionBody>
                 </Accordion>
+       <Accordion className={open === 7 ? '':'px-4'} open={open === 7} icon={<Icon id={7} open={open} />} >
+                    <AccordionHeader onClick={() => handleOpen(7)} className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
+                    What is the check-out procedure for the 1-night staycation?
+                    </AccordionHeader>
+                    <AccordionBody className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
+                    On 15 Jul 2023 (Sat) before 12.00pm, please proceed to the counter to process your check-out. Any incremental charges incurred during your stay will be borne by yourself, and will be settled directly with Village Hotel Sentosa then.
+                    </AccordionBody>
+                </Accordion>
                 <Accordion className={open === 7 ? '':'px-4'} open={open === 7} icon={<Icon id={7} open={open} />}>
                     <AccordionHeader onClick={() => handleOpen(7)} className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
                     What is the STT GDC Medallion Hunt about? 
