@@ -86,7 +86,7 @@ const Schedule = () => {
                                     2.15pm
                                 </th>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia ">
-                                "Hunt The Medallion" Flag-Off!
+                                STT GDC Medallion Hunt
                                 </td>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia">
                                 Ola Beach Club & Sentosa
