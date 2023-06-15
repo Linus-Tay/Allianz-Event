@@ -75,7 +75,7 @@ const Schedule = () => {
                                     2.00pm
                                 </th>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia ">
-                                Mass Briefing for STT GDC "Hunt The Medallion" Challenge
+                                Mass Briefing for STT GDC Medallion Hunt 
                                 </td>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia">
                                 Ola Beach Club
