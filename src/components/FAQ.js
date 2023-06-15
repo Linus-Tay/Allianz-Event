@@ -61,9 +61,7 @@ const FAQ = () => {
                     Why is there hotel accommodation provided for 1 night?
                     </AccordionHeader>
                     <AccordionBody className={open === 3 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
-                    The growth of our business in these uncertain times would not have been possible without each and everyone's steadfastness and resilience in the face of challenges. Let's embrace this time and opportunity to recharge ourselves, foster a sense of unity and build camaraderie with one another as we celebrate our achievements, and continue on an inspiring journey of growth and success built with you.
-<br/><br/>
-Each STT GDC staff is entitled to the 1-night stay (with one breakfast for 1 provided for the next morning) at Village Hotel Sentosa. Any incremental charges incurred during your stay will be of personal expense and not claimable with the Company.
+                    Each STT GDC staff is entitled to a 1-night stay at Village Hotel Sentosa. The rooms provided are Single Supplementary Rooms and comes with breakfast for one the next morning. Any incremental charges incurred during your stay will be of personal expense and not claimable with the Company.
                     </AccordionBody>
                 </Accordion>
                 <Accordion className={open === 4 ? '':'px-4'} open={open === 4} icon={<Icon id={4} open={open} />}  >
@@ -136,10 +134,10 @@ Each STT GDC staff is entitled to the 1-night stay (with one breakfast for 1 pro
                 </Accordion>
                 <Accordion className={open === 7 ? '':'px-4'} open={open === 7} icon={<Icon id={7} open={open} />}>
                     <AccordionHeader onClick={() => handleOpen(7)} className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
-                    What is the "Hunt The Medallion" Challenge about? 
+                    What is the STT GDC Medallion Hunt about? 
                     </AccordionHeader>
                     <AccordionBody className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
-                    “Hunt The Medallion” is an exhilarating team-based treasure hunt activity for 6 medallions that is specially planned for participating staff at the event!
+                    STT GDC Medallion Hunt is an exhilarating team-based treasure hunt activity for 6 medallions that is specially planned for participating staff at the event!
                     <br/><br/>
                     As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band with a team number indicated and assigned randomly. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden medallions baring the STT logo within a given duration.
                     <br/><br/>
