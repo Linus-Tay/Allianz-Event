@@ -8,10 +8,10 @@ const Footer = () => {
         <div className='container'>
            <div className='bottom'>
                 <span className='line'></span>
-                <div className='justify-center container m-auto'>
-                  <p className=''><AiFillLinkedin size={26}/></p>
+                <div className='flex justify-center container m-auto'>
+                  <p className='flex-initial'><AiFillLinkedin size={26}/></p>
                   <p className=''>Share your memorable stories and experiences at STT GDC on LinkedIn and tag us
-<span><a className="underline" href="https://www.linkedin.com/company/sttgdc" target="_blank">@ST Telemedia Global Data Centre!</a></span></p>
+<span><a className="underline" href="https://www.linkedin.com/company/sttgdc" target="_blank"> @ST Telemedia Global Data Centre!</a></span></p>
                 <p>#BuiltForFun #LifeatSTTGDC #EnablingOurDigitalFuture</p>
     </div>
                 <br/>
