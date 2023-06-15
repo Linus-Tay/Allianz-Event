@@ -11,7 +11,7 @@ const Footer = () => {
                 <div className='flex justify-center container m-auto'>
                   <p className='flex-row'><AiFillLinkedin size={26}/></p>
                   <p className='flex'>Share your memorable stories and experiences at STT GDC on LinkedIn and tag us
-<span onclick="window.location.href='https://www.linkedin.com/company/sttgdc';">@ST Telemedia Global Data Centre!</span><br/><br/>#BuiltForFun #LifeatSTTGDC #EnablingOurDigitalFuture</p>
+<a className="flex" href="https://www.linkedin.com/company/sttgdc">@ST Telemedia Global Data Centre!</a><br/><br/>#BuiltForFun #LifeatSTTGDC #EnablingOurDigitalFuture</p>
                 </div>
                 <br/>
                 <p className='sttelemedia italic text-sm'>© 2023 STT GDC Pte Ltd</p>
