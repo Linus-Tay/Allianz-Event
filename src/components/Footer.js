@@ -6,11 +6,11 @@ const Footer = () => {
   return (
     <div className='pt-20 footer bg-neutral-600'>
         <div className='container'>
-            <div className='bottom'>
+           <div className='bottom'>
                 <span className='line'></span>
-                <div className='flex justify-center container m-auto'>
-                  <p className='flex-row'><AiFillLinkedin size={26}/></p>
-                  <p className='flex'>Share your memorable stories and experiences at STT GDC on LinkedIn and tag us
+                <div className='justify-center container m-auto'>
+                  <p className=''><AiFillLinkedin size={26}/></p>
+                  <p className=''>Share your memorable stories and experiences at STT GDC on LinkedIn and tag us
 <span><a className="underline" href="https://www.linkedin.com/company/sttgdc" target="_blank">@ST Telemedia Global Data Centre!</a></span></p>
                 <p>#BuiltForFun #LifeatSTTGDC #EnablingOurDigitalFuture</p>
     </div>
