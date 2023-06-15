@@ -15,8 +15,9 @@ const Footer = () => {
                 <p>#BuiltForFun #LifeatSTTGDC #EnablingOurDigitalFuture</p>
     </div>
                 <br/>
-                <p className='sttelemedia italic text-sm'>© 2023 STT GDC Pte Ltd</p>
+                
             </div>
+    <p className='sttelemedia italic text-sm'>© 2023 STT GDC Pte Ltd</p>
         </div>
     </div>
   )
