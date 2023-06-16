@@ -135,7 +135,7 @@ export const Test = () => {
         navigate('/');
 
         setTimeout(() => {
-            toast.success('Thank you htmlFor registering! A confirmation email will be sent to you shortly!', {
+            toast.success('Thank you for registering! A confirmation email will be sent to you shortly!', {
                 position: "top-right",
                 autoClose: false,
                 hideProgressBar: true,
