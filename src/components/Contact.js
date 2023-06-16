@@ -27,7 +27,7 @@ const Contact = () => {
                   <div className='text-center mb-20'>
                   <p className='sttelemedia font-bold text-2xl'>Email Address:</p>
                         <p>For any queries, please contact us at</p>
-                        <p className='sttelemedia italic text-red-600'>support@sttgdcstaffday.com</p>
+                        <a className='sttelemedia italic text-red-600' href="mailto:support@sttgdcstaffday.com">support@sttgdcstaffday.com</a>
                   </div>
                 </div>
             </div>
