@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import tShirt from './images/tshirt.png'
 import tankTop from './images/tank top.png'
-import tShirtSizeChart from './images/tshirt size chart.jpg'
+import tShirtSizeChart from './images/tshirt size chart.png'
 import tankTopSizeChart from './images/tank top size chart.jpg'
 import emailjs from '@emailjs/browser';
 
