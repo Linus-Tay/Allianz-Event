@@ -134,7 +134,7 @@ export const Test = () => {
         navigate('/');
 
         setTimeout(() => {
-            toast.success('Thank you htmlFor registering! A confirmation email will be sent to you shortly!', {
+            toast.success('Thank you for registering! A confirmation email will be sent to you shortly!', {
                 position: "top-right",
                 autoClose: false,
                 hideProgressBar: true,
@@ -158,8 +158,8 @@ export const Test = () => {
     } else if (openWhich === 'tankTop') {
         return <div className='text-center'><img className='pb-8' src={tankTopSizeChart} alt=""/><button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5" onClick={closeModal}>Close</button></div>
     } else {
-        return <div><p className='text-center text-lg font-bold py-4'>Terms and Conditions</p>
-        <p className='py-4 text-justify'>“By submitting on this platform, I consent for Synonym Private Limited, STT GDC Pte Ltd, and associated parties (including third party service providers and representatives) (STT Persons) to collect, use, disclose, store, retain and/or process (“Use”) my personal data and information in the manner and for the purposes described in their respective personal data policies, <a className='text-blue-600 hover:underline dark:text-blue-500' href="https://www.sttelemediagdc.com/pdpa" rel="noreferrer" target="_blank">https://www.sttelemediagdc.com/pdpa</a>, and in particular htmlFor the purposes of processing, servicing and managing my orders and general administration in connection with the foregoing and contacting me at the contacts that I have provided. I confirm the accuracy of the information that I have furnished and further confirm that where I have furnished personal data of other individuals, I have obtained consent from such individuals to disclose such information, except to the extent that such consent is not required under relevant laws. I will indemnify STT Persons htmlFor any loss or damage that they may sustain from or in connection with the use of the information that I have furnished and will not hold them liable htmlFor any loss or damage that may be incurred by me.”</p>
+        return <div><p className='text-center text-lg font-bold py-2'>Terms and Conditions</p>
+        <p className='py-4 text-sm text-justify'>“By submitting on this platform, I consent for Synonym Private Limited, STT GDC Pte Ltd, and associated parties (including third party service providers and representatives) (STT Persons) to collect, use, disclose, store, retain and/or process (“Use”) my personal data and information in the manner and for the purposes described in their respective personal data policies, <a className='text-blue-600 hover:underline dark:text-blue-500' href="https://www.sttelemediagdc.com/pdpa" rel="noreferrer" target="_blank">https://www.sttelemediagdc.com/pdpa</a>, and in particular for the purposes of processing, servicing and managing my orders and general administration in connection with the foregoing and contacting me at the contacts that I have provided. I confirm the accuracy of the information that I have furnished and further confirm that where I have furnished personal data of other individuals, I have obtained consent from such individuals to disclose such information, except to the extent that such consent is not required under relevant laws. I will indemnify STT Persons for any loss or damage that they may sustain from or in connection with the use of the information that I have furnished and will not hold them liable for any loss or damage that may be incurred by me.”</p>
         <div className='py-4 text-center'>
         <button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5" onClick={closeModal}>Close</button>
         </div></div>
@@ -286,49 +286,49 @@ export const Test = () => {
             <p className='font-bold italic text-sm py-4 pt-8'>Cotton T-Shirt</p>
             <button type="button" onClick={handleOpen} value="tShirt" className='w-full text-red-600 border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for T-Shirt size chart.</button>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-1" type="radio" name="apparel" value="T-Shirt XS" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-1" type="radio" name="apparel" value="XS" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             XS 
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-3" type="radio" name="apparel" value="T-Shirt S" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-3" type="radio" name="apparel" value="S" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-3" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             S
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-4" type="radio" name="apparel" value="T-Shirt M" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-4" type="radio" name="apparel" value="M" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-4" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             M
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-5" type="radio" name="apparel" value="T-Shirt L" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-5" type="radio" name="apparel" value="L" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-5" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             L
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-6" type="radio" name="apparel" value="T-Shirt XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-6" type="radio" name="apparel" value="XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-6" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             XL
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-7" type="radio" name="apparel" value="T-Shirt 2XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-7" type="radio" name="apparel" value="2XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-7" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             2XL
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-8" type="radio" name="apparel" value="T-Shirt 3XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-8" type="radio" name="apparel" value="3XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-8" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             3XL
             </label>
@@ -339,49 +339,49 @@ export const Test = () => {
         <p className='font-bold italic text-sm py-4 pt-8'>Cotton Tank Top</p>
         <button type="button" onClick={handleOpen} value="tankTop" className='text-red-600 w-full border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for Tank Top size chart.</button>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-9" type="radio" name="apparel" value="Tank Top S" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-9" type="radio" name="apparel" value="S" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-9" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             S 
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-12" type="radio" name="apparel" value="Tank Top M" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-12" type="radio" name="apparel" value="M" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-12" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             M
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-13" type="radio" name="apparel" value="Tank Top L" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-13" type="radio" name="apparel" value="L" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-13" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             L
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-14" type="radio" name="apparel" value="Tank Top XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-14" type="radio" name="apparel" value="XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-14" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             XL
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-15" type="radio" name="apparel" value="Tank Top 2XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-15" type="radio" name="apparel" value="2XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-15" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             2XL
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-16" type="radio" name="apparel" value="Tank Top 3XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-16" type="radio" name="apparel" value="3XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-16" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             3XL
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, shirt: e.target.value})} id="apparel-option-17" type="radio" name="apparel" value="Tank Top 4XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-17" type="radio" name="apparel" value="4XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="apparel-option-17" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             4XL
             </label>

@@ -61,9 +61,7 @@ const FAQ = () => {
                     Why is there hotel accommodation provided for 1 night?
                     </AccordionHeader>
                     <AccordionBody className={open === 3 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
-                    The growth of our business in these uncertain times would not have been possible without each and everyone's steadfastness and resilience in the face of challenges. Let's embrace this time and opportunity to recharge ourselves, foster a sense of unity and build camaraderie with one another as we celebrate our achievements, and continue on an inspiring journey of growth and success built with you.
-<br/><br/>
-Each STT GDC staff is entitled to the 1-night stay (with one breakfast for 1 provided for the next morning) at Village Hotel Sentosa. Any incremental charges incurred during your stay will be of personal expense and not claimable with the Company.
+                    Each STT GDC staff is entitled to a 1-night stay at Village Hotel Sentosa. The rooms provided are Single Supplementary Rooms and comes with breakfast for one the next morning. Any incremental charges incurred during your stay will be of personal expense and not claimable with the Company.
                     </AccordionBody>
                 </Accordion>
                 <Accordion className={open === 4 ? '':'px-4'} open={open === 4} icon={<Icon id={4} open={open} />}  >
@@ -134,12 +132,20 @@ Each STT GDC staff is entitled to the 1-night stay (with one breakfast for 1 pro
                     There will also be a complimentary shuttle service from Village Hotel Sentosa lobby towards Beach Station. The event venue (Ola Beach Club) is a short walk away upon alighting.
                     </AccordionBody>
                 </Accordion>
-                <Accordion className={open === 7 ? '':'px-4'} open={open === 7} icon={<Icon id={7} open={open} />}>
+       <Accordion className={open === 7 ? '':'px-4'} open={open === 7} icon={<Icon id={7} open={open} />} >
                     <AccordionHeader onClick={() => handleOpen(7)} className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
-                    What is the "Hunt The Medallion" Challenge about? 
+                    What is the check-out procedure for the 1-night staycation?
                     </AccordionHeader>
                     <AccordionBody className={open === 7 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
-                    “Hunt The Medallion” is an exhilarating team-based treasure hunt activity for 6 medallions that is specially planned for participating staff at the event!
+                    On 15 Jul 2023 (Sat) before 12.00pm, please proceed to the counter to process your check-out. Any incremental charges incurred during your stay will be borne by yourself, and will be settled directly with Village Hotel Sentosa then.
+                    </AccordionBody>
+                </Accordion>
+                <Accordion className={open === 8 ? '':'px-4'} open={open === 8} icon={<Icon id={8} open={open} />}>
+                    <AccordionHeader onClick={() => handleOpen(8)} className={open === 8 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
+                    What is the STT GDC Medallion Hunt about? 
+                    </AccordionHeader>
+                    <AccordionBody className={open === 8 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
+                    STT GDC Medallion Hunt is an exhilarating team-based treasure hunt activity for 6 medallions that is specially planned for participating staff at the event!
                     <br/><br/>
                     As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band with a team number indicated and assigned randomly. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden medallions baring the STT logo within a given duration.
                     <br/><br/>
@@ -150,11 +156,11 @@ Each STT GDC staff is entitled to the 1-night stay (with one breakfast for 1 pro
                     Not to worry, there will be a game briefing before we start the hunt too!
                     </AccordionBody>
                 </Accordion>
-                <Accordion className={open === 8 ? '':'px-4'} open={open === 8} icon={<Icon id={8} open={open} />}>
-                    <AccordionHeader onClick={() => handleOpen(8)} className={open === 8 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
+                <Accordion className={open === 9 ? '':'px-4'} open={open === 9} icon={<Icon id={9} open={open} />}>
+                    <AccordionHeader onClick={() => handleOpen(9)} className={open === 9 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-lg text-white hover:text-white text-left':'text-neutral-600 text-lg text-left sttelemedia'}>
                     Will entry into Sentosa be complimentary?
                     </AccordionHeader>
-                    <AccordionBody className={open === 8 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
+                    <AccordionBody className={open === 9 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
                     For staff who have registered successfully for this event, entry into Sentosa will be complimentary. More details will be shared with you closer to date.
                     </AccordionBody>
                 </Accordion>

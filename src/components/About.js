@@ -24,10 +24,11 @@ energy by the seaside on Day 2.
                 <p className='sttelemedia text-lg '> Events & activities: Ola Beach Club<br/><br/>
 Accommodation: Village Hotel Sentosa
                 </p>
+                <p className="sttelemedia italic">Check out by 12pm, 15th July 2023</p>
             </div>
             <div className='p-10 col-span-12 md:col-span-4'>
                 <p className='sttelemedia text-red-600 pb-2 text-xl font-bold'>WHEN</p>
-                <p className='sttelemedia text-lg'> Date: 14 July 2023 (Friday)<br/><br/>
+                <p className='sttelemedia text-lg'> Day 1: 14 July 2023 (Fri)<br/>Day 2: 15 July 2023 (Sat)<br/><br/>
 11am - 1:30pm: Luggage/Bulky bag drop-off at Village Hotel Sentosa<br/>
 1:30 - 9pm: Events and activities at Ola Beach Club
                 </p>

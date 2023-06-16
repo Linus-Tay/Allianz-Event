@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <div id="contact" className='py-10 bg-white'>
          <p style={{ letterSpacing: '3px '}} className='mt-20 text-red-500 text-sm font-black sttelemedia   text-center'>CONTACT US</p>
-          <p style={{ color: '#5a5a5a' }} className='pt-4 pb-12 sttelemedia text-4xl md:text-5xl font-bold text-center '>Need Some Assistance?</p>
+          <p style={{ color: '#5a5a5a' }} className='pt-4 pb-12 sttelemedia text-4xl md:text-5xl font-bold text-center '>Need some assistance?</p>
         <div className='container mx-auto'>
         <div className="grid grid-cols-12">
             <div className='col-span-12 md:col-span-6'>
