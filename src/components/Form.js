@@ -5,8 +5,6 @@ import {db} from '../firebase';
 import { useNavigate} from 'react-router-dom'
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
-import tShirt from './images/tshirt.png'
-import tankTop from './images/tank top.png'
 import tShirtSizeChart from './images/tshirt size chart.png'
 import tankTopSizeChart from './images/tank top size chart.jpg'
 import emailjs from '@emailjs/browser';
@@ -47,11 +45,11 @@ export const Test = () => {
         attending: "",
         accommodation: "",
         parking: "",
-        standUpPaddleBoarding: "No",
-        kayakSingle: "No",
-        kayakDouble: "No",
-        bananaBoatRide: "No",
-        donutRide: "No",
+        standUpPaddleBoarding: false,
+        kayakSingle: false,
+        kayakDouble: false,
+        bananaBoatRide: false,
+        donutRide: false,
         dietaryRestriction: "",
         shirt: "",
     })
@@ -152,6 +150,13 @@ export const Test = () => {
     setOpenWhich(e.target.value)
   }
 
+  const [checkBox1, setCheckBox1] = useState(false)
+  const [checkBox2, setCheckBox2] = useState(false)
+  const [checkBox3, setCheckBox3] = useState(false)
+  const [checkBox4, setCheckBox4] = useState(false)
+  const [checkBox5, setCheckBox5] = useState(false)
+  
+
   function HandleModal () {
     if (openWhich === 'tShirt') {
         return <div className='text-center'><img className='pb-8 w-full' src={tShirtSizeChart} alt=""/><button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5" onClick={closeModal}>Close</button></div>
@@ -251,26 +256,26 @@ export const Test = () => {
         <fieldset>
         <p className='font-bold pt-8'>Please indicate if you are keen to participate in any of the following Water Sports:</p>
         <p className='sttelemedia italic text-sm text-gray-600 pb-4'>*Allocation of slots is based on availability.</p>
-        <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, standUpPaddleBoarding: e.target.value})} id="checkbox-1" type="checkbox" value="Yes" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+        <div className="flex items-center mb-4" onClick={(e) => setCheckBox1(!checkBox1)}>
+            <input onInput={(e) => setFormData({...formData, standUpPaddleBoarding: e.target.value})} id="checkbox-1" type="checkbox" value={checkBox1} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
             <label htmlFor="checkbox-1" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Stand Up Paddle Boarding</label>
         </div>
 
-        <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, kayakSingle: e.target.value})} id="checkbox-2" type="checkbox" value="Yes" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+        <div className="flex items-center mb-4" onClick={(e) => setCheckBox2(!checkBox2)}>
+            <input onInput={(e) => setFormData({...formData, kayakSingle: e.target.value})} id="checkbox-2" type="checkbox" value={checkBox2} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
             <label htmlFor="checkbox-2" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kayak (Single)</label>
         </div>
-        <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, kayakDouble: e.target.value})} id="checkbox-3" type="checkbox" value="Yes" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+        <div className="flex items-center mb-4" onClick={(e) => setCheckBox3(!checkBox3)}>
+            <input onInput={(e) => setFormData({...formData, kayakDouble: e.target.value})} id="checkbox-3" type="checkbox" value={checkBox3} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
             <label htmlFor="checkbox-3" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kayak (Double)</label>
         </div>
 
-        <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, bananaBoatRide: e.target.value})} id="checkbox-4" type="checkbox" value="Yes" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+        <div className="flex items-center mb-4" onClick={(e) => setCheckBox4(!checkBox4)}>
+            <input onInput={(e) => setFormData({...formData, bananaBoatRide: e.target.value})} id="checkbox-4" type="checkbox" value={checkBox4} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
             <label htmlFor="checkbox-4" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Banana Boat Ride</label>
         </div>
-        <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, DonutRide: e.target.value})} id="checkbox-5" type="checkbox" value="Yes" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+        <div className="flex items-center mb-4" onClick={(e) => setCheckBox5(!checkBox5)}>
+            <input onInput={(e) => setFormData({...formData, DonutRide: e.target.value})} id="checkbox-5" type="checkbox" value={checkBox5} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
             <label htmlFor="checkbox-5" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Donut Ride</label>
         </div>
         </fieldset>
