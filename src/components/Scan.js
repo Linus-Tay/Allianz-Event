@@ -188,7 +188,10 @@ const Scan = () => {
         .then((snapshot) => {
             let information = []
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
+              information.push({UNIQUE_NUMBER: doc.data().uniqueNumber, FULL_NAME: doc.data().formData.name, NRIC: doc.data().formData.nric, PHONE_NUMBER: doc.data().formData.phoneNumber, EMAIL: doc.data().formData.email, ATTENDING: doc.data().formData.attending, ACCOMMODATION: doc.data().formData.accommodation,  PARKING: doc.data().formData.parking,
+                KAYAK_SINGLE: doc.data().formData.kayakSingle, KAYAK_DOUBLE: doc.data().formData.kayakDouble, DONUT_RIDE: doc.data().formData.DonutRide, STAND_UP_PADDING_BOARDING: doc.data().formData.standUpPaddleBoarding, BANANA_BOAT_RIDE: doc.data().formData.bananaBoatRide,
+                T_SHIRT: doc.data().formData.tShirt, TANK_TOP: doc.data().formData.tankTop,
+                DIETARY_RESTRICTIONS: doc.data().formData.dietaryRestriction, REGISTERED: doc.data().registered})
         })
     let data = JSON.parse(JSON.stringify(information))
     const fileName = 'sttelemedia'

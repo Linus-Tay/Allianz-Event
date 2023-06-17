@@ -51,7 +51,8 @@ export const Test = () => {
         bananaBoatRide: false,
         donutRide: false,
         dietaryRestriction: "",
-        shirt: "",
+        tShirt: "",
+        tankTop: ""
     })
 
     function makeNameNice(fullname, email, theNric) {
@@ -275,7 +276,7 @@ export const Test = () => {
             <label htmlFor="checkbox-4" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Banana Boat Ride</label>
         </div>
         <div className="flex items-center mb-4" onClick={(e) => setCheckBox5(!checkBox5)}>
-            <input onInput={(e) => setFormData({...formData, DonutRide: e.target.value})} id="checkbox-5" type="checkbox" value={checkBox5} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+            <input onInput={(e) => setFormData({...formData, donutRide: e.target.value})} id="checkbox-5" type="checkbox" value={checkBox5} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
             <label htmlFor="checkbox-5" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Donut Ride</label>
         </div>
         </fieldset>
