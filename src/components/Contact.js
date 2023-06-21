@@ -17,7 +17,7 @@ const Contact = () => {
                   <div className='text-center'>
                   <p className='sttelemedia font-bold text-2xl'>Phone Number:</p>
                       <p>WhatsApp</p>
-                      <ReactWhatsapp className='text-red-600' number="90060730" message="">+65 90060730</ReactWhatsapp>
+                      <ReactWhatsapp className='text-red-600' number="+65 90060730" message="">+65 90060730</ReactWhatsapp>
                   </div>
                 </div>
                 <div className='col-span-12 md:col-span-6'>
