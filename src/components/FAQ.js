@@ -61,7 +61,7 @@ const FAQ = () => {
                     Why is there hotel accommodation provided for 1 night?
                     </AccordionHeader>
                     <AccordionBody className={open === 3 ? 'sttelemedia duration-500 px-4 py-4 bg-neutral-600 text-white hover:text-white text-md':'text-left sttelemedia'}>
-                    Upon registerring for this event, each staff will be provided with a 1 night stay at Village Hotel Sentosa. The rooms provided are Single Supplementary Rooms and comes with breakfast for one the next morning. Any incremental charges incurred during your stay will be of personal expense and not claimable with the Company.
+                    Upon registering for this event, each staff will be provided with a 1 night stay at Village Hotel Sentosa. The rooms provided are Single Supplementary Rooms and comes with breakfast for one the next morning. Any incremental charges incurred during your stay will be of personal expense and not claimable with the Company.
                     </AccordionBody>
                 </Accordion>
                 <Accordion className={open === 4 ? '':'px-4'} open={open === 4} icon={<Icon id={4} open={open} />}  >
