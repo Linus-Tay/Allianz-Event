@@ -232,14 +232,14 @@ export const Test = () => {
         <legend className="sr-only">Accomodation</legend>
             <p className='font-bold py-4 pt-8'>Will you be staying in the 2D1N accommodation at Village Hotel Sentosa?</p>
         <div className="flex items-center mb-4">
-            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, accommodation: e.target.value})} id="accommodation-option-1" type="radio" name="accommodation" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, accommodation: e.target.value})} id="accommodation-option-1" type="radio" name="accommodation" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="accommodation-option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             Yes
             </label>
         </div>
 
         <div className="flex items-center mb-4">
-            <input disabled onInput={(e) => setFormData({...formData, accommodation: e.target.value})} id="accommodation-option-2" type="radio" name="accommodation" value="No" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"/>
+            <input onInput={(e) => setFormData({...formData, accommodation: e.target.value})} id="accommodation-option-2" type="radio" name="accommodation" value="No" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"/>
             <label htmlFor="accommodation-option-2" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             No
             </label>
@@ -250,7 +250,7 @@ export const Test = () => {
         <legend className="sr-only">Parking</legend>
             <p className='font-bold py-4 pt-8'>Do you require parking at the Hotel (Village Hotel Sentosa)?</p>
         <div className="flex items-center mb-4">
-            <input disabled={true} onInput={(e) => setFormData({...formData, parking: e.target.value})} id="parking-option-1" type="radio" name="parking" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onInput={(e) => setFormData({...formData, parking: e.target.value})} id="parking-option-1" type="radio" name="parking" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="parking-option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             Yes
             </label>
