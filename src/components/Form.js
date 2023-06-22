@@ -172,7 +172,17 @@ export const Test = () => {
     }
   }
 
-  return (
+  const [isDisabled, setIsDisabled] = useState(false)
+
+  const handleDisable = (e) => {
+      setIsDisabled(true)
+  }
+
+  const handleDisable2 = (e) => {
+      setIsDisabled(false)
+  }
+    
+    return (
     <form ref={form} autoComplete="off" onSubmit={sendEmail} className='bg-white rounded-lg p-10'>
         <ToastContainer/>
         <p className='font-bold py-4'>Please enter the necessary information below: </p>
@@ -204,14 +214,14 @@ export const Test = () => {
         <legend className="sr-only">Attending</legend>
             <p className='font-bold py-4 pt-8'>Will you be attending the event?</p>
         <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, attending: e.target.value})} id="attending-option-1" type="radio" name="attending" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input onClick={handleDisabled} onInput={(e) => setFormData({...formData, attending: e.target.value})} id="attending-option-1" type="radio" name="attending" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="attending-option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             Yes
             </label>
         </div>
 
         <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, attending: e.target.value})} id="attending-option-2" type="radio" name="attending" value="No" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"/>
+            <input onClick={handleDisabled2} onInput={(e) => setFormData({...formData, attending: e.target.value})} id="attending-option-2" type="radio" name="attending" value="No" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"/>
             <label htmlFor="attending-option-2" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             No
             </label>
@@ -222,7 +232,7 @@ export const Test = () => {
         <legend className="sr-only">Accomodation</legend>
             <p className='font-bold py-4 pt-8'>Will you be staying in the 2D1N accommodation at Village Hotel Sentosa?</p>
         <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, accommodation: e.target.value})} id="accommodation-option-1" type="radio" name="accommodation" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, accommodation: e.target.value})} id="accommodation-option-1" type="radio" name="accommodation" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
             <label htmlFor="accommodation-option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             Yes
             </label>
