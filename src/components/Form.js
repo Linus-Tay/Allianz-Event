@@ -174,11 +174,11 @@ export const Test = () => {
 
   const [isDisabled, setIsDisabled] = useState(false)
 
-  const handleDisable = (e) => {
+  const handleDisabled = (e) => {
       setIsDisabled(true)
   }
 
-  const handleDisable2 = (e) => {
+  const handleDisabled2 = (e) => {
       setIsDisabled(false)
   }
     
