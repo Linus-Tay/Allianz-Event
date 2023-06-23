@@ -165,7 +165,7 @@ export const Test = () => {
         return <div className='text-center'><img className='pb-8' src={tankTopSizeChart} alt=""/><button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5" onClick={closeModal}>Close</button></div>
     } else {
         return <div><p className='text-center text-lg font-bold py-2'>Terms and Conditions</p>
-        <p className='py-4 text-sm text-justify'>“By submitting on this platform, I consent for Synonym Private Limited, STT GDC Pte Ltd, and associated parties (including third party service providers and representatives) (STT Persons) to collect, use, disclose, store, retain and/or process (“Use”) my personal data and information in the manner and for the purposes described in their respective personal data policies, <a className='text-blue-600 hover:underline dark:text-blue-500' href="https://www.sttelemediagdc.com/pdpa" rel="noreferrer" target="_blank">https://www.sttelemediagdc.com/pdpa</a>, and in particular for the purposes of processing, servicing and managing my orders and general administration in connection with the foregoing and contacting me at the contacts that I have provided. I confirm the accuracy of the information that I have furnished and further confirm that where I have furnished personal data of other individuals, I have obtained consent from such individuals to disclose such information, except to the extent that such consent is not required under relevant laws. I will indemnify STT Persons for any loss or damage that they may sustain from or in connection with the use of the information that I have furnished and will not hold them liable for any loss or damage that may be incurred by me. My attendance and participation in this event is subject to my availability and all work exigencies.”</p>
+        <p className='py-4 text-sm text-justify'>“By submitting on this platform, I consent for Synonym Private Limited, STT GDC Pte Ltd, and associated parties (including third party service providers and representatives) (STT Persons) to collect, use, disclose, store, retain and/or process (“Use”) my personal data and information in the manner and for the purposes described in their respective personal data policies, <a className='text-blue-600 hover:underline' href="https://www.sttelemediagdc.com/pdpa" rel="noreferrer" target="_blank">https://www.sttelemediagdc.com/pdpa</a>, and in particular for the purposes of processing, servicing and managing my orders and general administration in connection with the foregoing and contacting me at the contacts that I have provided. I confirm the accuracy of the information that I have furnished and further confirm that where I have furnished personal data of other individuals, I have obtained consent from such individuals to disclose such information, except to the extent that such consent is not required under relevant laws. I will indemnify STT Persons for any loss or damage that they may sustain from or in connection with the use of the information that I have furnished and will not hold them liable for any loss or damage that may be incurred by me. My attendance and participation in this event is subject to my availability and all work exigencies.”</p>
         <div className='py-4 text-center'>
         <button className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5" onClick={closeModal}>Close</button>
         </div></div>
@@ -174,12 +174,12 @@ export const Test = () => {
 
   const [isDisabled, setIsDisabled] = useState(false)
 
-  const handleDisabled = (e) => {
-      setIsDisabled(true)
+  const handleDisabled = () => {
+      setIsDisabled(false)
   }
 
-  const handleDisabled2 = (e) => {
-      setIsDisabled(false)
+  const handleDisabled2 = () => {
+      setIsDisabled(true)
   }
     
     return (
@@ -214,15 +214,15 @@ export const Test = () => {
         <legend className="sr-only">Attending</legend>
             <p className='font-bold py-4 pt-8'>Will you be attending the event?</p>
         <div className="flex items-center mb-4">
-            <input onClick={handleDisabled} onInput={(e) => setFormData({...formData, attending: e.target.value})} id="attending-option-1" type="radio" name="attending" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="attending-option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input onClick={handleDisabled} onInput={(e) => setFormData({...formData, attending: e.target.value})} id="attending-option-1" type="radio" name="attending" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="attending-option-1" className="block ml-2 text-sm font-medium text-gray-900 ">
             Yes
             </label>
         </div>
 
         <div className="flex items-center mb-4">
-            <input onClick={handleDisabled2} onInput={(e) => setFormData({...formData, attending: e.target.value})} id="attending-option-2" type="radio" name="attending" value="No" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"/>
-            <label htmlFor="attending-option-2" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input onClick={handleDisabled2} onInput={(e) => setFormData({...formData, attending: e.target.value})} id="attending-option-2" type="radio" name="attending" value="No" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    "/>
+            <label htmlFor="attending-option-2" className="block ml-2 text-sm font-medium text-gray-900 ">
             No
             </label>
         </div>
@@ -232,15 +232,15 @@ export const Test = () => {
         <legend className="sr-only">Accomodation</legend>
             <p className='font-bold py-4 pt-8'>Will you be staying in the 2D1N accommodation at Village Hotel Sentosa?</p>
         <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, accommodation: e.target.value})} id="accommodation-option-1" type="radio" name="accommodation" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="accommodation-option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} className='w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300' onInput={(e) => setFormData({...formData, accommodation: e.target.value})} id="accommodation-option-1" type="radio" name="accommodation" value="Yes"/>
+            <label htmlFor="accommodation-option-1" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             Yes
             </label>
         </div>
 
         <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, accommodation: e.target.value})} id="accommodation-option-2" type="radio" name="accommodation" value="No" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"/>
-            <label htmlFor="accommodation-option-2" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, accommodation: e.target.value})} id="accommodation-option-2" type="radio" name="accommodation" value="No" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    "/>
+            <label htmlFor="accommodation-option-2" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             No
             </label>
         </div>
@@ -250,15 +250,15 @@ export const Test = () => {
         <legend className="sr-only">Parking</legend>
             <p className='font-bold py-4 pt-8'>Do you require parking at the Hotel (Village Hotel Sentosa)?</p>
         <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, parking: e.target.value})} id="parking-option-1" type="radio" name="parking" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="parking-option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, parking: e.target.value})} id="parking-option-1" type="radio" name="parking" value="Yes" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="parking-option-1" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             Yes
             </label>
         </div>
 
         <div className="flex items-center mb-4">
-            <input onInput={(e) => setFormData({...formData, parking: e.target.value})} id="parking-option-2" type="radio" name="parking" value="No" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"/>
-            <label htmlFor="parking-option-2" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, parking: e.target.value})} id="parking-option-2" type="radio" name="parking" value="No" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    "/>
+            <label htmlFor="parking-option-2" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             No
             </label>
         </div>
@@ -268,32 +268,32 @@ export const Test = () => {
         <p className='font-bold pt-8'>Please indicate if you are keen to participate in any of the following Water Sports:</p>
         <p className='sttelemedia italic text-sm text-gray-600 pb-4'>*Allocation of slots is based on availability.</p>
         <div className="flex items-center mb-4" onClick={(e) => setCheckBox1(!checkBox1)}>
-            <input onInput={(e) => setFormData({...formData, standUpPaddleBoarding: e.target.value})} id="checkbox-1" type="checkbox" value={checkBox1} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-            <label htmlFor="checkbox-1" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Stand Up Paddle Boarding</label>
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, standUpPaddleBoarding: e.target.value})} id="checkbox-1" type="checkbox" value={checkBox1} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500    focus:ring-2  "/>
+            <label htmlFor="checkbox-1" className={(isDisabled) ? 'ml-2 text-sm font-medium text-gray-400' :"ml-2 text-sm font-medium text-gray-900"}>Stand Up Paddle Boarding</label>
         </div>
 
         <div className="flex items-center mb-4" onClick={(e) => setCheckBox2(!checkBox2)}>
-            <input onInput={(e) => setFormData({...formData, kayakSingle: e.target.value})} id="checkbox-2" type="checkbox" value={checkBox2} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-            <label htmlFor="checkbox-2" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kayak (Single)</label>
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, kayakSingle: e.target.value})} id="checkbox-2" type="checkbox" value={checkBox2} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500    focus:ring-2  "/>
+            <label htmlFor="checkbox-2" className={(isDisabled) ? 'ml-2 text-sm font-medium text-gray-400' :"ml-2 text-sm font-medium text-gray-900"}>Kayak (Single)</label>
         </div>
         <div className="flex items-center mb-4" onClick={(e) => setCheckBox3(!checkBox3)}>
-            <input onInput={(e) => setFormData({...formData, kayakDouble: e.target.value})} id="checkbox-3" type="checkbox" value={checkBox3} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-            <label htmlFor="checkbox-3" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kayak (Double)</label>
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, kayakDouble: e.target.value})} id="checkbox-3" type="checkbox" value={checkBox3} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500    focus:ring-2  "/>
+            <label htmlFor="checkbox-3" className={(isDisabled) ? 'ml-2 text-sm font-medium text-gray-400' :"ml-2 text-sm font-medium text-gray-900"}>Kayak (Double)</label>
         </div>
 
         <div className="flex items-center mb-4" onClick={(e) => setCheckBox4(!checkBox4)}>
-            <input onInput={(e) => setFormData({...formData, bananaBoatRide: e.target.value})} id="checkbox-4" type="checkbox" value={checkBox4} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-            <label htmlFor="checkbox-4" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Banana Boat Ride</label>
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, bananaBoatRide: e.target.value})} id="checkbox-4" type="checkbox" value={checkBox4} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500    focus:ring-2  "/>
+            <label htmlFor="checkbox-4" className={(isDisabled) ? 'ml-2 text-sm font-medium text-gray-400' :"ml-2 text-sm font-medium text-gray-900"}>Banana Boat Ride</label>
         </div>
         <div className="flex items-center mb-4" onClick={(e) => setCheckBox5(!checkBox5)}>
-            <input onInput={(e) => setFormData({...formData, donutRide: e.target.value})} id="checkbox-5" type="checkbox" value={checkBox5} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-            <label htmlFor="checkbox-5" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Donut Ride</label>
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, donutRide: e.target.value})} id="checkbox-5" type="checkbox" value={checkBox5} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500    focus:ring-2  "/>
+            <label htmlFor="checkbox-5" className={(isDisabled) ? 'ml-2 text-sm font-medium text-gray-400' :"ml-2 text-sm font-medium text-gray-900"}>Donut Ride</label>
         </div>
         </fieldset>
 
         <p className='font-bold pt-8'>Do you have any Dietary Restrictions? If yes, please indicate below.</p>
         <div className="relative z-0 w-full mb-6 group">
-                <input name="user_dietaryRestrictions" type="text" onInput={(e) => setFormData({...formData, dietaryRestriction: e.target.value})} value={formData.dietaryRestriction} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none    focus:outline-none focus:ring-0 focus:border-blue-600 peer"  placeholder="(e.g. vegan, allergic to milk, etc.)"/>
+                <input disabled={isDisabled} name="user_dietaryRestrictions" type="text" onInput={(e) => setFormData({...formData, dietaryRestriction: e.target.value})} value={formData.dietaryRestriction} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none    focus:outline-none focus:ring-0 focus:border-blue-600 peer"  placeholder="(e.g. vegan, allergic to milk, etc.)"/>
             </div>
 
             <fieldset>
@@ -302,50 +302,50 @@ export const Test = () => {
             <p className='font-bold italic text-sm py-4 pt-8'>Cotton T-Shirt</p>
             <button type="button" onClick={handleOpen} value="tShirt" className='w-full text-red-600 border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for T-Shirt size chart.</button>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-1" type="radio" name="apparel" value="XS" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-1" type="radio" name="apparel" value="XS" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-1" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             XS 
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-3" type="radio" name="apparel" value="S" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-3" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-3" type="radio" name="apparel" value="S" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-3" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             S
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-4" type="radio" name="apparel" value="M" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-4" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-4" type="radio" name="apparel" value="M" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-4" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             M
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-5" type="radio" name="apparel" value="L" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-5" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-5" type="radio" name="apparel" value="L" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-5" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             L
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-6" type="radio" name="apparel" value="XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-6" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-6" type="radio" name="apparel" value="XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-6" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             XL
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-7" type="radio" name="apparel" value="2XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-7" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-7" type="radio" name="apparel" value="2XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-7" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             2XL
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-8" type="radio" name="apparel" value="3XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-8" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tShirt: e.target.value, tankTop: "No"})} id="apparel-option-8" type="radio" name="apparel" value="3XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-8" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             3XL
             </label>
             
@@ -355,50 +355,50 @@ export const Test = () => {
         <p className='font-bold italic text-sm py-4 pt-8'>Cotton Tank Top</p>
         <button type="button" onClick={handleOpen} value="tankTop" className='text-red-600 w-full border-none cursor-pointer sttelemedia italic text-left text-sm text-gray-600 pb-4'>*Click here for Tank Top size chart.</button>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-9" type="radio" name="apparel" value="S" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-9" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-9" type="radio" name="apparel" value="S" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-9" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             S 
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-12" type="radio" name="apparel" value="M" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-12" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-12" type="radio" name="apparel" value="M" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-12" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             M
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-13" type="radio" name="apparel" value="L" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-13" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-13" type="radio" name="apparel" value="L" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-13" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             L
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-14" type="radio" name="apparel" value="XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-14" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-14" type="radio" name="apparel" value="XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-14" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             XL
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-15" type="radio" name="apparel" value="2XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-15" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-15" type="radio" name="apparel" value="2XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-15" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             2XL
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-16" type="radio" name="apparel" value="3XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-16" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-16" type="radio" name="apparel" value="3XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-16" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             3XL
             </label>
             
         </div>
         <div className="flex items-center mb-1">
-            <input onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-17" type="radio" name="apparel" value="4XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="apparel-option-17" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <input disabled={isDisabled} onInput={(e) => setFormData({...formData, tankTop: e.target.value, tShirt: "No"})} id="apparel-option-17" type="radio" name="apparel" value="4XL" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300    " required/>
+            <label htmlFor="apparel-option-17" className={(isDisabled) ? 'block ml-2 text-sm font-medium text-gray-300' :"block ml-2 text-sm font-medium text-gray-900 "}>
             4XL
             </label>
             
@@ -418,8 +418,8 @@ export const Test = () => {
                     ><HandleModal/></Modal>
                         
         <div className="pt-8 flex items-center mb-4">
-            <input id="agree-1" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required/>
-            <label htmlFor="agree-1" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree to the <span onClick={handleOpen} className="text-blue-600 hover:underline dark:text-blue-500">Terms and Conditions</span>.</label>
+            <input id="agree-1" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500    focus:ring-2  " required/>
+            <label htmlFor="agree-1" className="ml-2 text-sm font-medium text-gray-900 ">I agree to the <span onClick={handleOpen} className="text-blue-600 hover:underline">Terms and Conditions</span>.</label>
         </div>
         </fieldset>
         <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
