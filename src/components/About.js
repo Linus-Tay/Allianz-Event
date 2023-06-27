@@ -16,7 +16,7 @@ togetherness with exhilarating team
 building activities to foster lasting
 camaraderie on Day 1, indulging in selfcare and relaxation as you recharge your
 energy by the seaside on Day 2.
-<br/><br/><span className='font-bold italic'>Please register by 25 June 2023 to secure your 1-night stay as part of the event. Any requests after 25 June 2023 will automatically be rejected, and will only be considered on a case-by-case basis.</span>
+<br/><br/><span className='font-bold italic'>Please register by 28 June 2023 to secure your 1-night stay as part of the event. Any requests after 28 June 2023 will automatically be rejected, and will only be considered on a case-by-case basis.</span>
                 </p>
             </div>
             <div className='p-10 col-span-12 md:col-span-4'>
