@@ -35,17 +35,21 @@ const Schedule = () => {
                         <tbody>
                             <tr className="bg-white border-b ">
                                 <th scope="row" className="px-3 py-4 text-neutral-600 font-medium whitespace-nowrap sttelemedia">
-                                    11.00am
+                                    11.30am
                                     <p>to 1.30pm</p>
                                 </th>
                                 <td className="px-6 py-4 text-neutral-600 sttelemedia">
-                                Luggage Drop-off at Village Hotel Sentosa
+                                Luggage Drop @ Village Hotel Sentosa
+                                <hr class="text-neutral-600 h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                                Registration Opens @ Ola Beach Club
+                                <hr class="text-neutral-600 h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                                Lunch Buffet
                                 <br/>
                                 <br/>
                                 <span className='italic'>*An <span classname="font-bold underline">exclusive</span> shuttle service from the Hotel lobby to Beach Station will be available during this duration.</span>
                                 </td>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia">
-                                Village Hotel Sentosa
+                                Village Hotel Sentosa & Ola Beach Club
                                 </td>
                             </tr>
                             <tr className="border-b bg-gray-50 ">
@@ -53,7 +57,7 @@ const Schedule = () => {
                                     1.30pm
                                 </th>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia ">
-                                Registration Opens
+                                Opening Speech
                                 </td>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia">
                                 Ola Beach Club
@@ -61,10 +65,10 @@ const Schedule = () => {
                             </tr>
                             <tr className="bg-white border-b ">
                                 <th scope="row" className="px-3 py-4 text-neutral-600 font-medium whitespace-nowrap sttelemedia">
-                                    1.50pm
+                                    1.45pm
                                 </th>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia ">
-                                Welcome Address
+                                Briefing for Treasure Hunt
                                 </td>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia">
                                 Ola Beach Club
@@ -75,29 +79,31 @@ const Schedule = () => {
                                     2.00pm
                                 </th>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia ">
-                                Mass Briefing for STT GDC Medallion Hunt 
-                                </td>
-                                <td className="text-neutral-600 px-6 py-4 sttelemedia">
-                                Ola Beach Club
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row" className="px-3 py-4 text-neutral-600 font-medium whitespace-nowrap sttelemedia">
-                                    2.15pm
-                                </th>
-                                <td className="text-neutral-600 px-6 py-4 sttelemedia ">
-                                STT GDC Medallion Hunt
+                                STT GDC Medallion Hunt Flag-Off
                                 </td>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia">
                                 Ola Beach Club & Sentosa
                                 </td>
                             </tr>
-                            <tr className="border-b bg-gray-50 ">
+                            <tr>
                                 <th scope="row" className="px-3 py-4 text-neutral-600 font-medium whitespace-nowrap sttelemedia">
                                     4.00pm
                                 </th>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia ">
-                                Teams report back to Ola Beach Club
+                                Teams report back at Ola Beach Club
+                                </td>
+                                <td className="text-neutral-600 px-6 py-4 sttelemedia">
+                                Ola Beach Club
+                                </td>
+                            </tr>
+                            <tr className="border-b bg-gray-50 ">
+                                <th scope="row" className="px-3 py-4 text-neutral-600 font-medium whitespace-nowrap sttelemedia">
+                                    4.15pm
+                                </th>
+                                <td className="text-neutral-600 px-6 py-4 sttelemedia ">
+                                Water Sports Open
+                                <hr class="text-neutral-600 h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                                Free & Easy
                                 </td>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia">
                                 Ola Beach Club
@@ -105,12 +111,10 @@ const Schedule = () => {
                             </tr>
                             <tr>
                                 <th scope="row" className="px-3 py-4 text-neutral-600 font-medium whitespace-nowrap sttelemedia">
-                                    4.15pm
+                                    5.00pm
                                 </th>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia ">
-                                     Water Sports Station Open
-                                     <hr class="text-neutral-600 h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-                                     <p>Free & Easy</p>
+                                     Ice Cream Cart Opens
                                 </td>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia">
                                 Ola Beach Club
@@ -121,9 +125,9 @@ const Schedule = () => {
                                     6.00pm
                                 </th>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia ">
-                                Dinner Commences
+                                Water Sports Close
                                 <hr class="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-                                    <p>DJ on the Decks - Sunset DJ Set</p>
+                                Prize Giving
                                 </td>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia">
                                 Ola Beach Club
@@ -131,15 +135,18 @@ const Schedule = () => {
                             </tr>
                             <tr>
                                 <th scope="row" className="px-3 py-4 text-neutral-600 font-medium whitespace-nowrap sttelemedia">
-                                    7.00pm
+                                    6.15pm
                                 </th>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia ">
-                                Special Stage Performance
+                                Dinner Commences
                                 <hr class="h-px my-1 bg-gray-200 border-0"></hr>
-                                    <p>Lucky Draw</p>
-<hr class="h-px my-1 bg-gray-200 border-0"></hr>
-                                    <p>Collection of Village Hotel Sentosa room access cards</p>
-                                    <br/>
+                                Sunset DJ on the Decks
+                                <hr class="h-px my-1 bg-gray-200 border-0"></hr>
+                                Fire & LED Twirling Performance
+                                <hr class="h-px my-1 bg-gray-200 border-0"></hr>
+                                Disbursement of Hotel Keys
+                                <br/>
+                                <br/>
                                 <span className='italic'>*Details will be further communicated during the event.</span>
                                 </td>
                                 <td className="px-6 py-4 sttelemedia">
@@ -147,6 +154,17 @@ const Schedule = () => {
                                 </td>
                             </tr>
                             <tr className="border-b bg-gray-50 ">
+                                <th scope="row" className="px-3 py-4 text-neutral-600 font-medium text-gray-900 whitespace-nowrap sttelemedia">
+                                    8.30pm
+                                </th>
+                                <td className="text-neutral-600 px-6 py-4 sttelemedia ">
+                                Lucky Draw
+                                </td>
+                                <td className="px-6 py-4 sttelemedia">
+                                Ola Beach Club
+                                </td>
+                            </tr>
+                            <tr>
                                 <th scope="row" className="px-3 py-4 text-neutral-600 font-medium text-gray-900 whitespace-nowrap sttelemedia">
                                     9.00pm
                                 </th>
