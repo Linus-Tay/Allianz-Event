@@ -43,7 +43,7 @@ const Schedule = () => {
                                 <hr class="text-neutral-600 h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"></hr>
                                 Registration Opens @ Ola Beach Club
                                 <hr class="text-neutral-600 h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-                                Lunch Buffet
+                                Lunch Buffet @ Ola Beach Club
                                 <br/>
                                 <br/>
                                 <span className='italic'>*An <span classname="font-bold underline">exclusive</span> shuttle service from the Hotel lobby to Beach Station will be available during this duration.</span>
