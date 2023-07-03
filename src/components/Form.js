@@ -36,6 +36,14 @@ export const Test = () => {
 
     const navigate = useNavigate();
 
+    var currentdate = new Date(); 
+    var datetime =  currentdate.getDate() + "/"
+                    + (currentdate.getMonth()+1)  + "/" 
+                    + currentdate.getFullYear() + " @ "  
+                    + currentdate.getHours() + ":"  
+                    + currentdate.getMinutes() + ":" 
+                    + currentdate.getSeconds();
+
     const colRef = collection(db, 'sttelemedia')
     const [formData, setFormData] = useState({
         name: "",
@@ -52,7 +60,8 @@ export const Test = () => {
         donutRide: false,
         dietaryRestriction: "",
         tShirt: "",
-        tankTop: ""
+        tankTop: "",
+        timestamp: datetime
     })
 
     function makeNameNice(fullname, email, theNric) {
@@ -181,6 +190,9 @@ export const Test = () => {
   const handleDisabled2 = () => {
       setIsDisabled(true)
   }
+
+
+
     
     return (
     <form ref={form} autoComplete="off" onSubmit={sendEmail} className='bg-white rounded-lg p-10'>
