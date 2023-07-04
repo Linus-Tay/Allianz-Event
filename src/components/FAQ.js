@@ -149,9 +149,7 @@ const FAQ = () => {
                     <br/><br/>
                     As you arrive and register at the event grounds (Ola Beach Club), you will receive a wrist band with a team number indicated and assigned randomly. You, alongside your team members, will set off on a treasure hunt across Sentosa to find hidden medallions baring the STT GDC logo within a given duration.
                     <br/><br/>
-                    Teams that find these medallions will be rewarded with a cash prize reward equivalent to the medallions. There will be 1 gold medallion (worth SGD 1,500) and 5 silver medallions (worth SGD 700) to be found. The medallions will be hidden in various spots across Sentosa, and teams can redeem cash of corresponding value when you find them. To aid teams in locating these medallions, hints will be released at a given interval that helps point you towards their respective location. Circles denoting the vicinity of the medallion locations will also shrink at the given internal.
-                    <br/><br/>
-                    You can find out more about how to play and rules of the game here.
+                    Teams that find these medallions will be rewarded with a cash prize reward equivalent to the medallions. There will be 1 gold medallion (worth SGD 1,500) and 5 silver medallions (worth SGD 700) to be found. The medallions will be hidden in various spots across Sentosa, and teams can redeem cash of corresponding value when you find them. To aid teams in locating these medallions, hints will be released at a given interval that helps point you towards their respective location. Circles denoting the vicinity of the medallion locations will also shrink at the given interval.
                     <br/><br/>
                     Not to worry, there will be a game briefing before we start the hunt too!
                     </AccordionBody>
