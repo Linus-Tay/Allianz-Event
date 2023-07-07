@@ -57,7 +57,7 @@ const Schedule = () => {
                                     1.30pm
                                 </th>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia ">
-                                Opening Speech
+                                Opening Remarks
                                 </td>
                                 <td className="text-neutral-600 px-6 py-4 sttelemedia">
                                 Ola Beach Club
