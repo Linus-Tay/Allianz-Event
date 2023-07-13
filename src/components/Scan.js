@@ -24,6 +24,7 @@ const Scan = () => {
   const [value, setValue] = useState("");
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
+  const [teamNumber, setTeamNumber] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
   const [searchText, setSearchText] = useState("")
   const [registeredCount, setRegisteredCount] = useState(0)
@@ -32,9 +33,9 @@ const Scan = () => {
   const [vipsCount, setVipsCount] = useState(0)
   const [disabled, setdisabled] = useState(true)
 
-  const docRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"));
+  const docRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("formData.attending", "==", "Yes"));
   const registeredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "Yes"));
-  const unregisteredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "No"));
+  const unregisteredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "No"), where("formData.attending", "==", "Yes"));
   const awardeesRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("awardee", "==", "Yes"), where("registered", "==", "Yes"));
   const vipsRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("vip", "==", "Yes"), where("registered", "==", "Yes"));
 
@@ -79,7 +80,7 @@ const Scan = () => {
 
   useEffect(() => {
     const registeredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "Yes"));
-    const unregisteredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "No"));
+    const unregisteredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("formData.attending", "==", "Yes"),  where("registered", "==", "No"));
     const awardeesRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("awardee", "==", "Yes"), where("registered", "==", "Yes"));
     const vipsRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("vip", "==", "Yes"), where("registered", "==", "Yes"));
 
@@ -150,7 +151,7 @@ const Scan = () => {
               registered: "Yes"
             });
             setName(doc.data().formData.name)
-            setPhoneNumber(doc.data().formData.phoneNumber)
+            setTeamNumber(doc.data().teamNumber)
             setEmail(doc.data().formData.email)
             localStorage.setItem("userData", JSON.stringify(doc.data().formData));
         })
@@ -167,7 +168,7 @@ const Scan = () => {
   const clearScreen = () => {
     localStorage.setItem("userData", JSON.stringify({}));
     setName("")
-    setPhoneNumber("")
+    setTeamNumber("")
     setEmail("")
   }
 
@@ -223,7 +224,7 @@ const downloadRespective = () => {
     getDocs(docRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
+              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
     })
@@ -236,7 +237,7 @@ const downloadRespective = () => {
     getDocs(registeredRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
+              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
     })
@@ -249,7 +250,7 @@ const downloadRespective = () => {
     getDocs(unregisteredRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
+              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
     })
@@ -262,7 +263,7 @@ const downloadRespective = () => {
     getDocs(awardeesRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
+              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
     })
@@ -275,7 +276,7 @@ const downloadRespective = () => {
     getDocs(vipsRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, ...doc.data().formData, registered: doc.data().registered})
+              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registered: doc.data().registered})
         })
       setSearch(information)
     })
@@ -320,10 +321,11 @@ const downloadRespective = () => {
       getDocs(scanRef).then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
-              registered: "Yes"
+              registered: "Yes",
+              registeredTimeStamp: ""
             })
             setName(doc.data().formData.name)
-            setPhoneNumber(doc.data().formData.phoneNumber)
+            setTeamNumber(doc.data().teamNumber)
             setEmail(doc.data().formData.email)
             localStorage.setItem("userData", JSON.stringify(doc.data().formData));
             updateCount()
@@ -452,11 +454,20 @@ const downloadRespective = () => {
                       <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr className='border-solid border-2 border-grey-200'>
                           <th></th>
-                          <th scope="col" className="px-6 py-3">uniqueNumber</th>
-                          <th scope="col" className="px-6 py-3">Name</th>
-                          <th scope="col" className="px-6 py-3">Email</th>
-                          <th scope="col" className="px-6 py-3">Department</th>
-                          <th scope="col" className="px-6 py-3">Registered?</th>
+                          <th scope="col" className="px-6 py-3">NAME</th>
+                          <th scope="col" className="px-6 py-3">EMAIL</th>
+                          <th scope="col" className="px-6 py-3">TEAM NUMBER</th>
+                          <th scope="col" className="px-6 py-3">ATTENDING</th>
+                          <th scope="col" className="px-6 py-3">ACCOMMODATION</th>
+                          <th scope="col" className="px-6 py-3">PARKING</th>
+                          <th scope="col" className="px-6 py-3">KAYAK_SINGLE</th>
+                          <th scope="col" className="px-6 py-3">KAYAK_DOUBLE</th>
+                          <th scope="col" className="px-6 py-3">DONUT_RIDE</th>
+                          <th scope="col" className="px-6 py-3">STAND_UP_PADDING_BOARDING</th>
+                          <th scope="col" className="px-6 py-3">BANANA_BOAT_RIDE</th>
+                          <th scope="col" className="px-6 py-3">DIETARY_RESTRICTIONS</th>
+                          <th scope="col" className="px-6 py-3">TIMESTAMP</th>
+                          <th scope="col" className="px-6 py-3">REGISTERED?</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -473,10 +484,19 @@ const downloadRespective = () => {
                           <td className="px-6 py-4">
                           <input onClick={() => handleClick(data)} type="radio" name="default-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" />
                           </td>
-                          <td className="px-6 py-4">{data.uniqueNumber}</td>
                           <td className="px-6 py-4">{data.name}</td>
                           <td className="px-6 py-4">{data.email}</td>
-                          <td className="px-6 py-4">{data.department}</td>
+                          <td className="px-6 py-4">{data.teamNumber}</td>
+                          <td className="px-6 py-4">{data.attending}</td>
+                          <td className="px-6 py-4">{data.accommodation}</td>
+                          <td className="px-6 py-4">{data.parking}</td>
+                          <td className="px-6 py-4">{data.kayakSingle}</td>
+                          <td className="px-6 py-4">{data.kayakDouble}</td>
+                          <td className="px-6 py-4">{data.donutRide}</td>
+                          <td className="px-6 py-4">{data.standUpPaddleBoarding}</td>
+                          <td className="px-6 py-4">{data.bananaBoatRide}</td>
+                          <td className="px-6 py-4">{data.dietaryRestriction}</td>
+                          <td className="px-6 py-4">{data.registeredTimeStamp}</td>
                           <td className="px-6 py-4">{data.registered}</td>
                           </tr>
                         ))
@@ -556,15 +576,11 @@ const downloadRespective = () => {
             <dl className="mt-2 pb-8 m-auto max-w-md text-gray-900 divide-y divide-gray-200">
                 <p className="flex pb-3">
                     <dt className="mb-1 text-gray-500">Name</dt>
-                    <dd className="font-semibold ml-2 w-full"><input className='w-full' value={name} disabled={allowChange}/></dd>
+                    <dd className="font-semibold ml-2 w-full">{name}</dd>
                 </p>
                 <p className="flex py-3">
-                    <dt className="mb-1 text-gray-500">Email</dt>
-                    <dd className="font-semibold ml-2 w-full"><input className='w-full' value={email} disabled={allowChange}/></dd>
-                </p>
-                <p className="flex pt-3">
-                    <dt className="mb-1 text-gray-500 w-1/3">Phone number</dt>
-                    <dd className="font-semibold ml-2 w-full"><input className='w-full' value={phoneNumber} disabled={allowChange}/></dd>
+                    <dt className="mb-1 text-gray-500">Team Member</dt>
+                    <dd className="font-semibold ml-2 w-full">{teamNumber}</dd>
                 </p>
             </dl>
           </div>
