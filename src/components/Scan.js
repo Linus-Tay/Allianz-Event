@@ -78,6 +78,8 @@ const Scan = () => {
     unregisteredCountF()
   };
 
+  
+
   useEffect(() => {
     const registeredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "Yes"));
     const unregisteredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("formData.attending", "==", "Yes"),  where("registered", "==", "No"));
@@ -192,7 +194,7 @@ const Scan = () => {
               information.push({UNIQUE_NUMBER: doc.data().uniqueNumber, FULL_NAME: doc.data().formData.name, TEAM_NUMBER: doc.data().teamNumber, NRIC: doc.data().formData.nric, PHONE_NUMBER: doc.data().formData.phoneNumber, EMAIL: doc.data().formData.email, ATTENDING: doc.data().formData.attending, ACCOMMODATION: doc.data().formData.accommodation,  PARKING: doc.data().formData.parking,
                 KAYAK_SINGLE: doc.data().formData.kayakSingle, KAYAK_DOUBLE: doc.data().formData.kayakDouble, DONUT_RIDE: doc.data().formData.donutRide, STAND_UP_PADDING_BOARDING: doc.data().formData.standUpPaddleBoarding, BANANA_BOAT_RIDE: doc.data().formData.bananaBoatRide,
                 T_SHIRT: doc.data().formData.tShirt, TANK_TOP: doc.data().formData.tankTop,
-                DIETARY_RESTRICTIONS: doc.data().formData.dietaryRestriction, REGISTERED: doc.data().registered})
+                DIETARY_RESTRICTIONS: doc.data().formData.dietaryRestriction, REGISTERED_TIMESTAMP: doc.data().registeredTimeStamp, REGISTERED: doc.data().registered})
         })
     let data = JSON.parse(JSON.stringify(information))
     const fileName = 'sttelemedia'
@@ -224,7 +226,7 @@ const downloadRespective = () => {
     getDocs(docRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registered: doc.data().registered})
+              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
         })
       setSearch(information)
     })
@@ -237,7 +239,7 @@ const downloadRespective = () => {
     getDocs(registeredRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registered: doc.data().registered})
+              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
         })
       setSearch(information)
     })
@@ -250,7 +252,7 @@ const downloadRespective = () => {
     getDocs(unregisteredRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registered: doc.data().registered})
+              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
         })
       setSearch(information)
     })
@@ -263,7 +265,7 @@ const downloadRespective = () => {
     getDocs(awardeesRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registered: doc.data().registered})
+              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
         })
       setSearch(information)
     })
@@ -276,7 +278,7 @@ const downloadRespective = () => {
     getDocs(vipsRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registered: doc.data().registered})
+              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
         })
       setSearch(information)
     })
@@ -317,12 +319,19 @@ const downloadRespective = () => {
         theme: "light",
         })
     } else {
+      var currentdate = new Date(); 
+      var datetime =  currentdate.getDate() + "/"
+                      + (currentdate.getMonth()+1)  + "/" 
+                      + currentdate.getFullYear() + " @ "  
+                      + currentdate.getHours() + ":"  
+                      + currentdate.getMinutes() + ":" 
+                      + currentdate.getSeconds();
       const scanRef = query(collection(db, "sttelemedia"),where("uniqueNumber", "==", parseInt(selected.uniqueNumber)));
       getDocs(scanRef).then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
               registered: "Yes",
-              registeredTimeStamp: ""
+              registeredTimeStamp: datetime
             })
             setName(doc.data().formData.name)
             setTeamNumber(doc.data().teamNumber)
@@ -361,7 +370,8 @@ const downloadRespective = () => {
       getDocs(scanRef).then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
-              registered: "No"
+              registered: "No",
+              registeredTimeStamp: ""
             });
         })
       })
