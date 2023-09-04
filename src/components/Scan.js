@@ -33,11 +33,8 @@ const Scan = () => {
   const [vipsCount, setVipsCount] = useState(0)
   const [disabled, setdisabled] = useState(true)
 
-  const docRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("formData.attending", "==", "Yes"));
-  const registeredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "Yes"));
-  const unregisteredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "No"), where("formData.attending", "==", "Yes"));
-  const awardeesRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("awardee", "==", "Yes"), where("registered", "==", "Yes"));
-  const vipsRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("vip", "==", "Yes"), where("registered", "==", "Yes"));
+  const docRef = query(collection(db, "allianz"), where("ATTENDING", "==", "Yes"));
+  const registeredRef = query(collection(db, "allianz"), where("ATTENDING", "==", "Yes"));
 
   async function registeredCountF() {
     await getDocs(registeredRef)
@@ -47,45 +44,16 @@ const Scan = () => {
     })
   };
 
-  async function unregisteredCountF() {
-    await getDocs(unregisteredRef)
-    .then((snapshot) => {
-        const count = snapshot.size
-        setUnregisteredCount(count)
-    })
-  };
-
-  async function awardeesCountF() {
-    await getDocs(awardeesRef)
-    .then((snapshot) => {
-        const count = snapshot.size
-        setAwardeesCount(count)
-    })
-  };
-
-  async function vipsCountF() {
-    await getDocs(vipsRef)
-    .then((snapshot) => {
-        const count = snapshot.size
-        setVipsCount(count)
-    })
-  };
 
   function updateCount() {
-    vipsCountF()
-    awardeesCountF()
     registeredCountF()
-    unregisteredCountF()
   };
 
   
 
   useEffect(() => {
-    const registeredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "Yes"));
-    const unregisteredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("formData.attending", "==", "Yes"),  where("registered", "==", "No"));
-    const awardeesRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("awardee", "==", "Yes"), where("registered", "==", "Yes"));
-    const vipsRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("vip", "==", "Yes"), where("registered", "==", "Yes"));
-
+    const registeredRef = query(collection(db, "allianz"), where("ATTENDING", "==", "Yes"));
+    
     async function registeredCountF() {
       await getDocs(registeredRef)
       .then((snapshot) => {
@@ -94,34 +62,7 @@ const Scan = () => {
       })
     };
   
-    async function unregisteredCountF() {
-      await getDocs(unregisteredRef)
-      .then((snapshot) => {
-          const count = snapshot.size
-          setUnregisteredCount(count)
-      })
-    };
-  
-    async function awardeesCountF() {
-      await getDocs(awardeesRef)
-      .then((snapshot) => {
-          const count = snapshot.size
-          setAwardeesCount(count)
-      })
-    };
-  
-    async function vipsCountF() {
-      await getDocs(vipsRef)
-      .then((snapshot) => {
-          const count = snapshot.size
-          setVipsCount(count)
-      })
-    };
-
     registeredCountF()
-    unregisteredCountF()
-    awardeesCountF()
-    vipsCountF()
   }, []);
 
 
@@ -131,7 +72,7 @@ const Scan = () => {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      const scanRef = query(collection(db, "sttelemedia"),where("uniqueNumber", "==", parseInt(value)));
+      const scanRef = query(collection(db, "allianz"),where("uniqueNumber", "==", parseInt(value)));
       getDocs(scanRef).then((querySnapshot) => {
         if (value === "unlock") {
           setdisabled(false)
@@ -149,7 +90,7 @@ const Scan = () => {
             })
         } else {
           querySnapshot.forEach((doc) => {
-            updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
+            updateDoc(docSnapshot(db, "allianz", doc.id), {
               registered: "Yes"
             });
             setName(doc.data().formData.name)
@@ -177,7 +118,7 @@ const Scan = () => {
   async function resetRegistration() {
     getDocs(docRef).then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
+        updateDoc(docSnapshot(db, "allianz", doc.id), {
           registered: "No"
         });
       })
@@ -191,6 +132,7 @@ const Scan = () => {
         .then((snapshot) => {
             let information = []
             snapshot.docs.forEach((doc) => {
+              console.log(data)
               information.push({UNIQUE_NUMBER: doc.data().uniqueNumber, FULL_NAME: doc.data().formData.name, TEAM_NUMBER: doc.data().teamNumber, NRIC: doc.data().formData.nric, PHONE_NUMBER: doc.data().formData.phoneNumber, EMAIL: doc.data().formData.email, ATTENDING: doc.data().formData.attending, ACCOMMODATION: doc.data().formData.accommodation,  PARKING: doc.data().formData.parking,
                 KAYAK_SINGLE: doc.data().formData.kayakSingle, KAYAK_DOUBLE: doc.data().formData.kayakDouble, DONUT_RIDE: doc.data().formData.donutRide, STAND_UP_PADDING_BOARDING: doc.data().formData.standUpPaddleBoarding, BANANA_BOAT_RIDE: doc.data().formData.bananaBoatRide,
                 T_SHIRT: doc.data().formData.tShirt, TANK_TOP: doc.data().formData.tankTop,
@@ -226,8 +168,9 @@ const downloadRespective = () => {
     getDocs(docRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
+              information.push(doc.data())
         })
+        console.log(information)
       setSearch(information)
     })
   }
@@ -237,45 +180,6 @@ const downloadRespective = () => {
     let information = []
     setIsOpen(true);
     getDocs(registeredRef)
-        .then((snapshot) => {
-            snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
-        })
-      setSearch(information)
-    })
-  }
-
-  function openUnegistered() {
-    setSubtitle('Unregistered')
-    let information = []
-    setIsOpen(true);
-    getDocs(unregisteredRef)
-        .then((snapshot) => {
-            snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
-        })
-      setSearch(information)
-    })
-  }
-
-  function openAwardees() {
-    setSubtitle('Awardees')
-    let information = []
-    setIsOpen(true);
-    getDocs(awardeesRef)
-        .then((snapshot) => {
-            snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
-        })
-      setSearch(information)
-    })
-  }
-
-  function openVIPs() {
-    setSubtitle('VIPs')
-    let information = []
-    setIsOpen(true);
-    getDocs(vipsRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
               information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
@@ -326,10 +230,10 @@ const downloadRespective = () => {
                       + currentdate.getHours() + ":"  
                       + currentdate.getMinutes() + ":" 
                       + currentdate.getSeconds();
-      const scanRef = query(collection(db, "sttelemedia"),where("uniqueNumber", "==", parseInt(selected.uniqueNumber)));
+      const scanRef = query(collection(db, "allianz"),where("uniqueNumber", "==", parseInt(selected.uniqueNumber)));
       getDocs(scanRef).then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
+            updateDoc(docSnapshot(db, "allianz", doc.id), {
               registered: "Yes",
               registeredTimeStamp: datetime
             })
@@ -366,10 +270,10 @@ const downloadRespective = () => {
         theme: "light",
         })
     } else {
-      const scanRef = query(collection(db, "sttelemedia"),where("uniqueNumber", "==", parseInt(selected.uniqueNumber)));
+      const scanRef = query(collection(db, "allianz"),where("ALIAS NAME", "==", parseInt(selected.uniqueNumber)));
       getDocs(scanRef).then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
+            updateDoc(docSnapshot(db, "allianz", doc.id), {
               registered: "No",
               registeredTimeStamp: ""
             });
@@ -437,7 +341,7 @@ const downloadRespective = () => {
             <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Awardees</h5>
                   <p className='mb-2 text-3xl font-extrabold'>{awardeesCount}</p>
-                  <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openAwardees}>
+                  <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" >
                     See List
                     <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                   </button>
@@ -485,16 +389,15 @@ const downloadRespective = () => {
                         search.filter(data => {
                           if (searchText === '') {
                             return data;
-                          } else if (data.name.toLowerCase().includes(searchText.toLowerCase())) {
+                          } else if (data["FULL NAME"].toLowerCase().includes(searchText.toLowerCase())) {
                             return data;
                           }
-                          return ''
-                        }).map((data) => (
-                          <tr className="bg-white border-b" key={data.uniqueNumber}>
+                        }).map((data, index) => (
+                          <tr className="bg-white border-b" key={index}>
                           <td className="px-6 py-4">
                           <input onClick={() => handleClick(data)} type="radio" name="default-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" />
                           </td>
-                          <td className="px-6 py-4">{data.name}</td>
+                          <td className="px-6 py-4">{data["FULL NAME"]}</td>
                           <td className="px-6 py-4">{data.email}</td>
                           <td className="px-6 py-4">{data.teamNumber}</td>
                           <td className="px-6 py-4">{data.attending}</td>
@@ -521,7 +424,7 @@ const downloadRespective = () => {
             <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">VIPs</h5>
                   <p className='mb-2 text-3xl font-extrabold'>{vipsCount}</p>
-                  <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openVIPs}>
+                  <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                     See List
                     <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                   </button>
@@ -531,7 +434,7 @@ const downloadRespective = () => {
           <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Unregistered</h5>
                   <p className='text-red-600 mb-2 text-3xl font-extrabold'>{unregisteredCount}</p>
-                  <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openUnegistered}>
+                  <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                     See List
                     <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                   </button>
