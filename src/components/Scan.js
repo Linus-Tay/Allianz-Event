@@ -33,11 +33,9 @@ const Scan = () => {
   const [vipsCount, setVipsCount] = useState(0)
   const [disabled, setdisabled] = useState(true)
 
-  const docRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("formData.attending", "==", "Yes"));
-  const registeredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "Yes"));
-  const unregisteredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "No"), where("formData.attending", "==", "Yes"));
-  const awardeesRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("awardee", "==", "Yes"), where("registered", "==", "Yes"));
-  const vipsRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("vip", "==", "Yes"), where("registered", "==", "Yes"));
+  const docRef = query(collection(db, "allianz"))
+  const registeredRef = query(collection(db, "allianz"), where("registered", "==", "Yes"));
+  const unRegisteredRef = query(collection(db, "allianz"), where("registered", "==", "No"));
 
   async function registeredCountF() {
     await getDocs(registeredRef)
@@ -47,45 +45,27 @@ const Scan = () => {
     })
   };
 
-  async function unregisteredCountF() {
-    await getDocs(unregisteredRef)
+  
+  async function unRegisteredCountF() {
+    await getDocs(unRegisteredRef)
     .then((snapshot) => {
         const count = snapshot.size
         setUnregisteredCount(count)
     })
   };
 
-  async function awardeesCountF() {
-    await getDocs(awardeesRef)
-    .then((snapshot) => {
-        const count = snapshot.size
-        setAwardeesCount(count)
-    })
-  };
 
-  async function vipsCountF() {
-    await getDocs(vipsRef)
-    .then((snapshot) => {
-        const count = snapshot.size
-        setVipsCount(count)
-    })
-  };
 
   function updateCount() {
-    vipsCountF()
-    awardeesCountF()
     registeredCountF()
-    unregisteredCountF()
+    unRegisteredCountF()
   };
 
   
 
   useEffect(() => {
-    const registeredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("registered", "==", "Yes"));
-    const unregisteredRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("formData.attending", "==", "Yes"),  where("registered", "==", "No"));
-    const awardeesRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("awardee", "==", "Yes"), where("registered", "==", "Yes"));
-    const vipsRef = query(collection(db, "sttelemedia"), orderBy("uniqueNumber"), where("vip", "==", "Yes"), where("registered", "==", "Yes"));
-
+    const registeredRef = query(collection(db, "allianz"), where("registered", "==", "Yes"));
+    
     async function registeredCountF() {
       await getDocs(registeredRef)
       .then((snapshot) => {
@@ -93,35 +73,19 @@ const Scan = () => {
           setRegisteredCount(count)
       })
     };
-  
-    async function unregisteredCountF() {
-      await getDocs(unregisteredRef)
-      .then((snapshot) => {
-          const count = snapshot.size
-          setUnregisteredCount(count)
-      })
-    };
-  
-    async function awardeesCountF() {
-      await getDocs(awardeesRef)
-      .then((snapshot) => {
-          const count = snapshot.size
-          setAwardeesCount(count)
-      })
-    };
-  
-    async function vipsCountF() {
-      await getDocs(vipsRef)
-      .then((snapshot) => {
-          const count = snapshot.size
-          setVipsCount(count)
-      })
-    };
 
+      
+  async function unRegisteredCountF() {
+    await getDocs(unRegisteredRef)
+    .then((snapshot) => {
+        const count = snapshot.size
+        setUnregisteredCount(count)
+    })
+  };
+
+  
     registeredCountF()
-    unregisteredCountF()
-    awardeesCountF()
-    vipsCountF()
+    unRegisteredCountF()
   }, []);
 
 
@@ -131,7 +95,7 @@ const Scan = () => {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      const scanRef = query(collection(db, "sttelemedia"),where("uniqueNumber", "==", parseInt(value)));
+      const scanRef = query(collection(db, "allianz"),where("uniqueNumber", "==", parseInt(value)));
       getDocs(scanRef).then((querySnapshot) => {
         if (value === "unlock") {
           setdisabled(false)
@@ -149,7 +113,7 @@ const Scan = () => {
             })
         } else {
           querySnapshot.forEach((doc) => {
-            updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
+            updateDoc(docSnapshot(db, "allianz", doc.id), {
               registered: "Yes"
             });
             setName(doc.data().formData.name)
@@ -177,8 +141,9 @@ const Scan = () => {
   async function resetRegistration() {
     getDocs(docRef).then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
-          registered: "No"
+        updateDoc(docSnapshot(db, "allianz", doc.id), {
+          registered: "No",
+          registeredTimeStamp: ""
         });
       })
     });
@@ -191,13 +156,10 @@ const Scan = () => {
         .then((snapshot) => {
             let information = []
             snapshot.docs.forEach((doc) => {
-              information.push({UNIQUE_NUMBER: doc.data().uniqueNumber, FULL_NAME: doc.data().formData.name, TEAM_NUMBER: doc.data().teamNumber, NRIC: doc.data().formData.nric, PHONE_NUMBER: doc.data().formData.phoneNumber, EMAIL: doc.data().formData.email, ATTENDING: doc.data().formData.attending, ACCOMMODATION: doc.data().formData.accommodation,  PARKING: doc.data().formData.parking,
-                KAYAK_SINGLE: doc.data().formData.kayakSingle, KAYAK_DOUBLE: doc.data().formData.kayakDouble, DONUT_RIDE: doc.data().formData.donutRide, STAND_UP_PADDING_BOARDING: doc.data().formData.standUpPaddleBoarding, BANANA_BOAT_RIDE: doc.data().formData.bananaBoatRide,
-                T_SHIRT: doc.data().formData.tShirt, TANK_TOP: doc.data().formData.tankTop,
-                DIETARY_RESTRICTIONS: doc.data().formData.dietaryRestriction, REGISTERED_TIMESTAMP: doc.data().registeredTimeStamp, REGISTERED: doc.data().registered})
+              information.push(doc.data())
         })
     let data = JSON.parse(JSON.stringify(information))
-    const fileName = 'sttelemedia'
+    const fileName = 'allianz'
     const exportType =  exportFromJSON.types.csv
 
     exportFromJSON({ data, fileName, exportType })
@@ -209,7 +171,7 @@ const Scan = () => {
 
 const downloadRespective = () => {
   let data = JSON.parse(JSON.stringify(search))
-  const fileName = 'sttelemedia'
+  const fileName = 'allianz'
   const exportType =  exportFromJSON.types.csv
 
   exportFromJSON({ data, fileName, exportType })
@@ -226,8 +188,9 @@ const downloadRespective = () => {
     getDocs(docRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
+              information.push(doc["NAME"].data())
         })
+        console.log(information)
       setSearch(information)
     })
   }
@@ -239,46 +202,21 @@ const downloadRespective = () => {
     getDocs(registeredRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
+              information.push(doc.data())
         })
       setSearch(information)
     })
   }
 
-  function openUnegistered() {
+  
+  function openUnregistered() {
     setSubtitle('Unregistered')
     let information = []
     setIsOpen(true);
-    getDocs(unregisteredRef)
+    getDocs(unRegisteredRef)
         .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
-        })
-      setSearch(information)
-    })
-  }
-
-  function openAwardees() {
-    setSubtitle('Awardees')
-    let information = []
-    setIsOpen(true);
-    getDocs(awardeesRef)
-        .then((snapshot) => {
-            snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
-        })
-      setSearch(information)
-    })
-  }
-
-  function openVIPs() {
-    setSubtitle('VIPs')
-    let information = []
-    setIsOpen(true);
-    getDocs(vipsRef)
-        .then((snapshot) => {
-            snapshot.docs.forEach((doc) => {
-              information.push({uniqueNumber: doc.data().uniqueNumber, teamNumber: doc.data().teamNumber, ...doc.data().formData, registeredTimeStamp: doc.data().registeredTimeStamp, registered: doc.data().registered})
+              information.push(doc.data())
         })
       setSearch(information)
     })
@@ -294,6 +232,7 @@ const downloadRespective = () => {
 
   const handleClick = (data) => {
     setSelected(data)
+    setRadioChecked(true)
   }
 
   function ShowDownloadButton(props) {
@@ -305,6 +244,8 @@ const downloadRespective = () => {
     }
     return
   }
+
+  const [radioChecked, setRadioChecked] = useState(false)
 
   const register = () => {
     if (selected === undefined) {
@@ -326,18 +267,19 @@ const downloadRespective = () => {
                       + currentdate.getHours() + ":"  
                       + currentdate.getMinutes() + ":" 
                       + currentdate.getSeconds();
-      const scanRef = query(collection(db, "sttelemedia"),where("uniqueNumber", "==", parseInt(selected.uniqueNumber)));
+      const scanRef = query(collection(db, "allianz"),where("uniqueNumber", "==", parseInt(selected.uniqueNumber)));
       getDocs(scanRef).then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
+            updateDoc(docSnapshot(db, "allianz", doc.id), {
               registered: "Yes",
               registeredTimeStamp: datetime
             })
-            setName(doc.data().formData.name)
-            setTeamNumber(doc.data().teamNumber)
-            setEmail(doc.data().formData.email)
+            setName(doc.data().NAME)
+            setTeamNumber(doc.data()["TABLE NUMBER"])
+            setEmail(doc.data()["JERSEY SIZE"])
             localStorage.setItem("userData", JSON.stringify(doc.data().formData));
             updateCount()
+            setRadioChecked(false)
         })
       })
       toast.success('Person Successfully Registered!', {
@@ -366,10 +308,10 @@ const downloadRespective = () => {
         theme: "light",
         })
     } else {
-      const scanRef = query(collection(db, "sttelemedia"),where("uniqueNumber", "==", parseInt(selected.uniqueNumber)));
+      const scanRef = query(collection(db, "allianz"),where("uniqueNumber", "==", parseInt(selected.uniqueNumber)));
       getDocs(scanRef).then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            updateDoc(docSnapshot(db, "sttelemedia", doc.id), {
+            updateDoc(docSnapshot(db, "allianz", doc.id), {
               registered: "No",
               registeredTimeStamp: ""
             });
@@ -437,7 +379,7 @@ const downloadRespective = () => {
             <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Awardees</h5>
                   <p className='mb-2 text-3xl font-extrabold'>{awardeesCount}</p>
-                  <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openAwardees}>
+                  <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" >
                     See List
                     <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                   </button>
@@ -465,17 +407,16 @@ const downloadRespective = () => {
                         <tr className='border-solid border-2 border-grey-200'>
                           <th></th>
                           <th scope="col" className="px-6 py-3">NAME</th>
+                          <th scope="col" className="px-6 py-3">ROLE</th>
                           <th scope="col" className="px-6 py-3">EMAIL</th>
-                          <th scope="col" className="px-6 py-3">TEAM NUMBER</th>
-                          <th scope="col" className="px-6 py-3">ATTENDING</th>
-                          <th scope="col" className="px-6 py-3">ACCOMMODATION</th>
-                          <th scope="col" className="px-6 py-3">PARKING</th>
-                          <th scope="col" className="px-6 py-3">KAYAK_SINGLE</th>
-                          <th scope="col" className="px-6 py-3">KAYAK_DOUBLE</th>
-                          <th scope="col" className="px-6 py-3">DONUT_RIDE</th>
-                          <th scope="col" className="px-6 py-3">STAND_UP_PADDING_BOARDING</th>
-                          <th scope="col" className="px-6 py-3">BANANA_BOAT_RIDE</th>
-                          <th scope="col" className="px-6 py-3">DIETARY_RESTRICTIONS</th>
+                          <th scope="col" className="px-6 py-3">GO KART NUMBER</th>
+                          <th scope="col" className="px-6 py-3">DEPARTURE FLIGHT NUMBER & TIMING</th>
+                          <th scope="col" className="px-6 py-3">DIETARY REQ</th>
+                          <th scope="col" className="px-6 py-3">JERSEY SIZE</th>
+                          <th scope="col" className="px-6 py-3">GO KART</th>
+                          <th scope="col" className="px-6 py-3">CONFERENCE</th>
+                          <th scope="col" className="px-6 py-3">GALA</th>
+                          <th scope="col" className="px-6 py-3">TABLE NUMBER</th>
                           <th scope="col" className="px-6 py-3">TIMESTAMP</th>
                           <th scope="col" className="px-6 py-3">REGISTERED?</th>
                         </tr>
@@ -485,27 +426,25 @@ const downloadRespective = () => {
                         search.filter(data => {
                           if (searchText === '') {
                             return data;
-                          } else if (data.name.toLowerCase().includes(searchText.toLowerCase())) {
+                          } else if (data["NAME"].toLowerCase().includes(searchText.toLowerCase())) {
                             return data;
                           }
-                          return ''
-                        }).map((data) => (
-                          <tr className="bg-white border-b" key={data.uniqueNumber}>
+                        }).map((data, index) => (
+                          <tr className="bg-white border-b" key={index}>
                           <td className="px-6 py-4">
-                          <input onClick={() => handleClick(data)} type="radio" name="default-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" />
+                          <input onClick={() => handleClick(data)} checked={radioChecked} type="radio" name="default-radio" className="w-10 h-10 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" />
                           </td>
-                          <td className="px-6 py-4">{data.name}</td>
-                          <td className="px-6 py-4">{data.email}</td>
-                          <td className="px-6 py-4">{data.teamNumber}</td>
-                          <td className="px-6 py-4">{data.attending}</td>
-                          <td className="px-6 py-4">{data.accommodation}</td>
-                          <td className="px-6 py-4">{data.parking}</td>
-                          <td className="px-6 py-4">{data.kayakSingle}</td>
-                          <td className="px-6 py-4">{data.kayakDouble}</td>
-                          <td className="px-6 py-4">{data.donutRide}</td>
-                          <td className="px-6 py-4">{data.standUpPaddleBoarding}</td>
-                          <td className="px-6 py-4">{data.bananaBoatRide}</td>
-                          <td className="px-6 py-4">{data.dietaryRestriction}</td>
+                          <td className="px-6 py-4">{data["NAME"]}</td>
+                          <td className="px-6 py-4">{data["ROLE"]}</td>
+                          <td className="px-6 py-4">{data["EMAIL"]}</td>
+                          <td className="px-6 py-4">{data["GO KART NUMBER"]}</td>
+                          <td className="px-6 py-4">{data["FLIGHT NUMBER & TIMING"]}</td>
+                          <td className="px-6 py-4">{data["DIETARY REQ"]}</td>
+                          <td className="px-6 py-4">{data["JERSEY SIZE"]}</td>
+                          <td className="px-6 py-4">{data["GO KART"]}</td>
+                          <td className="px-6 py-4">{data["CONFERENCE"]}</td>
+                          <td className="px-6 py-4">{data["GALA"]}</td>
+                          <td className="px-6 py-4">{data["TABLE NUMBER"]}</td>
                           <td className="px-6 py-4">{data.registeredTimeStamp}</td>
                           <td className="px-6 py-4">{data.registered}</td>
                           </tr>
@@ -521,7 +460,7 @@ const downloadRespective = () => {
             <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">VIPs</h5>
                   <p className='mb-2 text-3xl font-extrabold'>{vipsCount}</p>
-                  <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openVIPs}>
+                  <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                     See List
                     <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                   </button>
@@ -531,7 +470,7 @@ const downloadRespective = () => {
           <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Unregistered</h5>
                   <p className='text-red-600 mb-2 text-3xl font-extrabold'>{unregisteredCount}</p>
-                  <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={openUnegistered}>
+                  <button onClick={openUnregistered} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                     See List
                     <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                   </button>
